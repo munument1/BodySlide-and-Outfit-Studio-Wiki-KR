@@ -70,5 +70,5 @@ Outfit Studio는 BodySlide 폴더 내의 다음 두 위치에서 레퍼런스 �
 
 ## 관련 페이지
 
-* [[변환 레퍼런스와 그 사용법|Conversion-references-and-using-them]]
-* [[자동화 대화 상자|Automation-Dialog]]
+* [변환 레퍼런스와 그 사용법](Conversion-references-and-using-them.md)
+* [자동화 대화 상자](Automation-Dialog.md)

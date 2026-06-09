@@ -8,5 +8,5 @@
 
 ### 이를 해결하기 위해 초기화하는 한 가지 방법은 다음과 같습니다:
 1. Outfit Studio에서 쉐이프들이 깨끗한 레퍼런스 메시(예: 바디)와 올바르게 정렬되어 보이는지 확인합니다. 그렇지 않다면 트랜스폼 도구나 "Shape -> Move" 메뉴를 사용하여 정렬하세요.
-2. 각 개별 쉐이프의 [[쉐이프 속성|Shape-Properties]]("Coordinates" 탭)로 들어가 원점(Origin)과 회전(Rotation)을 0,0,0으로, 크기(Scale)를 1.0으로 설정하여 전역-스킨 간 트랜스폼을 초기화합니다. 이때 "_Recalculate geometry's coordinates so it doesn't move_ (쉐이프가 움직이지 않도록 지오메트리 좌표 다시 계산)" 항목이 체크되어 있는지 확인하고 OK를 누릅니다. 모든 쉐이프에 대해 이 과정을 반복합니다.
+2. 각 개별 쉐이프의 [쉐이프 속성](Shape-Properties.md)("Coordinates" 탭)로 들어가 원점(Origin)과 회전(Rotation)을 0,0,0으로, 크기(Scale)를 1.0으로 설정하여 전역-스킨 간 트랜스폼을 초기화합니다. 이때 "_Recalculate geometry's coordinates so it doesn't move_ (쉐이프가 움직이지 않도록 지오메트리 좌표 다시 계산)" 항목이 체크되어 있는지 확인하고 OK를 누릅니다. 모든 쉐이프에 대해 이 과정을 반복합니다.
 3. 본 트랜스폼을 업데이트하고 정적 쉐이프 트랜스폼을 초기화하려면, "Edit -> Reset Transforms" 명령을 한 번 실행합니다 (모든 쉐이프에 영향을 줍니다).

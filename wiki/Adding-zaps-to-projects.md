@@ -27,4 +27,4 @@ Outfit Studio 내에서 잽은 메시를 이리저리 옮길 뿐 실제로 삭�
 
     ![Zap Properties](http://i.imgur.com/NKkqtW1.png)
 
-8. 필요한 나머지 변환 작업을 마친 뒤, **[[File -> Save Project (As)|Saving-a-project]]** 메뉴를 눌러 저장하고 화면의 안내를 따릅니다. BodySlide에서 해당 프로젝트를 선택하고 **미리보기(Preview)** 창을 열어 **새로운 잽을 확인하고 테스트**할 수 있습니다.
+8. 필요한 나머지 변환 작업을 마친 뒤, **[File -> Save Project (As)](Saving-a-project.md)** 메뉴를 눌러 저장하고 화면의 안내를 따릅니다. BodySlide에서 해당 프로젝트를 선택하고 **미리보기(Preview)** 창을 열어 **새로운 잽을 확인하고 테스트**할 수 있습니다.

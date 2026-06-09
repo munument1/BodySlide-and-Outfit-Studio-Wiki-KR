@@ -18,4 +18,4 @@ The reference with its sliders has to be **swapped out** for the updated one wit
 
 7. Use the **Slider -> Conform All** menu item. This conforms the all shapes in the project to the new sliders that are currently checked.
 
-8. Finally, **[[save the project|Saving a project]]** and it should now make use of the updated reference and include the latest sliders.
+8. Finally, **[save the project](Saving-a-project.md)** and it should now make use of the updated reference and include the latest sliders.

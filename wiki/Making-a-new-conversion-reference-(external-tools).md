@@ -3,7 +3,7 @@
 
 이 가이드는 **외부 3D 소프트웨어**를 사용하여 직접 변환 레퍼런스를 만드는 방법을 설명합니다. 이 방법을 통해 변환 전의 형태를 재현할 수 있으며, 이를 활용해 **양방향으로의 변환**이 가능해집니다.
 
-이 가이드를 따라 하기 전에, Outfit Studio에서 제공하는 일반적인 방법이 충분한지 먼저 확인해 보세요: [[새 변환 레퍼런스 만들기|Making-a-new-conversion-reference]]
+이 가이드를 따라 하기 전에, Outfit Studio에서 제공하는 일반적인 방법이 충분한지 먼저 확인해 보세요: [새 변환 레퍼런스 만들기](Making-a-new-conversion-reference.md)
 
 ## 단계별 예제
 이 방법을 사용하려면 Blender나 3ds Max와 같은 **3D 소프트웨어가 필요**합니다. 아쉽게도 이 문서의 범위를 벗어나므로 해당 프로그램들의 구체적인 사용법까지는 설명할 수 없습니다. :wink:
@@ -12,7 +12,7 @@
 
 1. **상대방 바디의 NIF 파일**을 Outfit Studio로 불러온 뒤, **Shape -> Export -> To OBJ** 메뉴를 사용하여 OBJ 파일로 익스포트합니다.
 
-2. **CBBE Body** [[레퍼런스 템플릿|Reference-Templates]](또는 유사한 것)을 Outfit Studio로 불러온 뒤, **Shape -> Export -> To OBJ** 메뉴를 사용하여 OBJ 파일로 익스포트합니다.
+2. **CBBE Body** [레퍼런스 템플릿](Reference-Templates.md)(또는 유사한 것)을 Outfit Studio로 불러온 뒤, **Shape -> Export -> To OBJ** 메뉴를 사용하여 OBJ 파일로 익스포트합니다.
 
 3. **이 두 OBJ 파일을 모두** 선호하는 3D 소프트웨어로 불러옵니다. CBBE와 같은 바디는 레퍼런스 내에서 다양한 바디 타입 간을 변환하는 가교(Bridge) 역할을 할 수 있으므로 여기에서 사용됩니다.
 
@@ -37,7 +37,7 @@
 
     이렇게 하면 두 형태의 차이로부터 "CBBE -> 상대방 바디" 슬라이더 데이터가 생성됩니다.
 
-9. **[[File -> Save Project As|Saving-a-project]]** 메뉴를 사용하여 **프로젝트를 저장**합니다 (CBBE -> 상대방 바디). 변환 레퍼런스의 경우 출력 경로와 파일 이름은 BodySlide에서 사용되지 않으므로 크게 중요하지 않습니다.
+9. **[File -> Save Project As](Saving-a-project.md)** 메뉴를 사용하여 **프로젝트를 저장**합니다 (CBBE -> 상대방 바디). 변환 레퍼런스의 경우 출력 경로와 파일 이름은 BodySlide에서 사용되지 않으므로 크게 중요하지 않습니다.
 
 10. (선택 사항) **역방향 변환 레퍼런스**를 만들려면, 현재 슬라이더를 100%로 설정하고 **File -> Make Conversion Reference** 기능을 다시 사용하세요. 슬라이더 이름을 반대로 지정합니다 (예: "대상 바디 -> CBBE").
 
