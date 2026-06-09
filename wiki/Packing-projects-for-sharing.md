@@ -1,10 +1,10 @@
-To share projects with friends or make them ready for release, several files have to be collected. This is made easier using a functionality in Outfit Studio that allows packaging up all of the required files into a folder or ZIP archive automatically.
+프로젝트를 친구들과 공유하거나 배포 준비를 하려면 여러 파일을 수집해야 합니다. Outfit Studio의 기능을 사용하면 필요한 모든 파일을 폴더나 ZIP 아카이브로 자동으로 패키징할 수 있어 이 작업이 훨씬 쉬워집니다.
 
-Go to **"File -> Pack Projects..."** in the menu bar of Outfit Studio and you will see the following dialog.
+Outfit Studio 메뉴 바의 **"File -> Pack Projects..."**로 이동하면 다음과 같은 대화 상자가 나타납니다.
 
 ![Pack Projects](https://i.imgur.com/gewm0s1.png)
 
-Select the projects you want to share. They will be merged into a single project file (.osp) with the given name. Choose **"Pack Folder..."** or **"Pack Archive..."** to create a folder or ZIP archive with all the necessary files the project(s) need to work.
+공유하려는 프로젝트들을 선택하세요. 선택된 프로젝트들은 지정된 이름의 단일 프로젝트 파일(.osp)로 병합됩니다. **"Pack Folder..."** 또는 **"Pack Archive..."**를 선택하여 프로젝트가 작동하는 데 필요한 모든 파일이 포함된 폴더나 ZIP 아카이브를 생성합니다.
 
-Optionally, you can select a group XML file that will be merged into the files as well.
-You can also access the Group Manager from within Outfit Studio here to create the groups beforehand.
+선택적으로, 파일에 함께 병합될 그룹 XML 파일을 선택할 수 있습니다.
+또한 여기서 Outfit Studio 내부의 그룹 매니저에 접속하여 미리 그룹을 생성해둘 수도 있습니다.

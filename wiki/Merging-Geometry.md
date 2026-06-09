@@ -1,20 +1,20 @@
-Functionality for merging geometry (shapes) can be found under the "Shape -> Merge Geometry..." menu in Outfit Studio.
+지오메트리(쉐이프) 병합 기능은 Outfit Studio의 "Shape -> Merge Geometry..." 메뉴에서 찾을 수 있습니다.
 
-The following dialog will open where you will need to choose two shapes for merging:
+메뉴를 실행하면 다음과 같이 병합할 두 개의 쉐이프를 선택해야 하는 대화 상자가 열립니다:
 
 ![Merge Geometry](http://i.imgur.com/Ial2p4g.png)
 
-There are a couple of things that need to match up on the source and target shapes for merging to work. Essentially, you can only merge shapes that are set up in a similar way and use the same shader/texture to prevent any unwanted results. Any mismatches will be displayed in the dialog for you.
+병합 작업이 정상적으로 이루어지려면 원본(Source) 쉐이프와 대상(Target) 쉐이프의 여러 설정이 일치해야 합니다. 기본적으로 원치 않는 결과를 방지하기 위해 비슷한 방식으로 설정되어 있고 동일한 셰이더/텍스처를 사용하는 쉐이프들만 병합할 수 있습니다. 일치하지 않는 항목이 있다면 대화 상자에 표시됩니다.
 
-**Potential situations that will prevent merging include:**
-* Target shape must be different from source source.
-* Partitions do not match. Make sure the amount of partitions and their slots match up.
-* Segments do not match. Make sure the amount of segments, sub segments and their info as well as the segmentation file match.
-* Resulting shape would have too many vertices.
-* Resulting shape would have too many triangles.
-* Shaders do not match. Make sure both shapes either have or don't have a shader and their shader type matches.
-* Base texture doesn't match. Make sure both shapes have the same base/diffuse texture path.
-* Alpha property mismatch. Make sure both shapes either have or don't have an alpha property and their flags + threshold match.
+**병합을 불가능하게 만드는 잠재적 상황들:**
+* 대상 쉐이프가 원본 쉐이프와 동일할 경우.
+* 파티션(Partitions) 정보가 일치하지 않는 경우. 파티션의 개수와 슬롯 번호가 일치하는지 확인하세요.
+* 세그먼트(Segments) 정보가 일치하지 않는 경우. 세그먼트 및 서브 세그먼트의 개수와 정보, 그리고 세그멘테이션(Segmentation) 파일이 일치하는지 확인하세요.
+* 병합 후의 쉐이프가 너무 많은 정점(Vertex)을 갖게 되는 경우.
+* 병합 후의 쉐이프가 너무 많은 삼각형(Triangle)을 갖게 되는 경우.
+* 셰이더(Shaders) 정보가 일치하지 않는 경우. 두 쉐이프 모두 셰이더가 있거나 없어야 하며, 셰이더 유형이 일치하는지 확인하세요.
+* 기본 텍스처(Base texture)가 일치하지 않는 경우. 두 쉐이프의 기본/디퓨즈(Diffuse) 텍스처 경로가 동일한지 확인하세요.
+* 알파 속성(Alpha property)이 일치하지 않는 경우. 두 쉐이프 모두 알파 속성이 있거나 없어야 하며, 플래그와 임계값(Threshold)이 일치하는지 확인하세요.
 
-**Delete source shape:**  
-By default the source shape will be deleted after the merge, but there is an option to keep it. By keeping the source shape, you will receive a shape with both of their geometry merged but also still have the original left to work with.
+**Delete source shape (원본 쉐이프 삭제):**  
+기본적으로 원본 쉐이프는 병합 후에 삭제되지만, 그대로 유지하는 옵션도 있습니다. 원본 쉐이프를 유지하면 지오메트리가 합쳐진 새로운 쉐이프가 생성되는 동시에 원래의 쉐이프도 편집 가능한 상태로 남게 됩니다.

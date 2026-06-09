@@ -1,21 +1,21 @@
-## Downloads
+## 다운로드
 
-Packaged end-user releases of BodySlide and Outfit Studio are published on Nexus Mods. Use the page that matches the game and mod ecosystem you are working with:
+일반 사용자를 위해 패키징된 BodySlide와 Outfit Studio의 릴리즈 버전은 Nexus Mods에 게시됩니다. 작업 중인 게임과 모드 환경에 맞는 페이지를 이용하세요:
 
-* [Skyrim Special Edition](http://www.nexusmods.com/skyrimspecialedition/mods/201/)
-* [Fallout 4](http://www.nexusmods.com/fallout4/mods/25/)
-* [Skyrim](http://www.nexusmods.com/skyrim/mods/49015/)
+* [스카이림 스페셜 에디션 (Skyrim Special Edition)](http://www.nexusmods.com/skyrimspecialedition/mods/201/)
+* [폴아웃 4 (Fallout 4)](http://www.nexusmods.com/fallout4/mods/25/)
+* [스카이림 (Skyrim)](http://www.nexusmods.com/skyrim/mods/49015/)
 
-These release pages distribute the same BodySlide and Outfit Studio toolset, packaged for the corresponding game community.
+이 릴리즈 페이지들은 해당 게임 커뮤니티에 맞춰 패키징된 동일한 BodySlide 및 Outfit Studio 툴셋을 배포합니다.
 
-## Release Notes
+## 릴리즈 노트
 
-For version-by-version changes, upgrade notes, and recently added features, see [[Changelog]].
+버전별 변경 사항, 업그레이드 참고 사항 및 최근 추가된 기능에 대해서는 [[변경 내역|Changelog]]을 참고하세요.
 
-## Source And Development Builds
+## 소스 및 개발 빌드
 
-If you need the newest unreleased changes, want to test a fix from the repository, or are building on Linux, use the source-build pages instead:
+아직 릴리즈되지 않은 최신 변경 사항이 필요하거나, 저장소의 수정 사항을 테스트하고 싶거나, Linux에서 직접 빌드하려는 경우에는 다음 소스 빌드 페이지를 참고하세요:
 
-* [[Building on Windows (Visual Studio or CMake)]]
-* [[Building on Linux]]
-* [[Running Tests]]
+* [[Windows에서 빌드하기 (Visual Studio 또는 CMake)|Building-on-Windows-(Visual-Studio-or-CMake)]]
+* [[Linux에서 빌드하기|Building-on-Linux]]
+* [[테스트 실행|Running-Tests]]

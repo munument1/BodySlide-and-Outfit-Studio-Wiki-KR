@@ -1,34 +1,34 @@
-## Introduction
-Projects for BodySlide are created and saved in the Outfit Studio part of the program. Their files store the information about the meshes and sliders that are used to make up the project.
+## 서론
+BodySlide용 프로젝트는 프로그램의 Outfit Studio 부분에서 생성 및 저장됩니다. 프로젝트 파일에는 프로젝트를 구성하는 메시와 슬라이더에 대한 정보가 저장됩니다.
 
-Once you've created a conversion or project in Outfit Studio, for example after following one of the guides, you can use the **File -> Save Project As** menu item and the following dialog will appear.
+Outfit Studio에서 가이드 등을 따라 변환 작업이나 프로젝트 생성을 마쳤다면, **File -> Save Project As** 메뉴 항목을 사용하세요. 그러면 다음과 같은 대화 상자가 나타납니다.
 
 ![Save Project As](http://i.imgur.com/OXkWcBT.png)
 
-## Filling out the fields
-#### Display Name
-The **name of the project**, as it will appear in the outfit list in BodySlide. This can be anything you want, but try to keep it relevant to the content.
+## 필드 채우기
+#### Display Name (표시 이름)
+BodySlide의 의상 목록에 나타날 **프로젝트의 이름**입니다. 원하는 대로 지정할 수 있지만, 내용과 관련 있는 이름을 사용하는 것이 좋습니다.
 
-#### To Project
-This button **copies the current display name to the other project text fields** below. Unless you're creating a big pack of projects that requires custom folder structures, this button may be helpful to you.
+#### To Project (프로젝트로 복사)
+이 버튼은 **현재 표시 이름을 아래에 있는 다른 프로젝트 텍스트 필드들로 복사**합니다. 커스텀 폴더 구조가 필요한 대규모 프로젝트 팩을 만드는 것이 아니라면 이 버튼이 매우 유용할 것입니다.
 
-#### Output File Name
-The name of the output file of the project that **will end up in the game data path** after a build in BodySlide. **For Skyrim** (low/high weight output), this should **not** include _0 or _1 in the name. The file extension is not required, as it will automatically be appended when building.
+#### Output File Name (출력 파일 이름)
+BodySlide에서 빌드한 후 **게임 데이터 경로에 생성될** 결과 파일의 이름입니다. **스카이림(Skyrim)**의 경우 (저체중/고체중 출력), 이름에 _0 또는 _1을 포함해서는 **안 됩니다**. 파일 확장자도 빌드 시 자동으로 추가되므로 입력할 필요가 없습니다.
 
-#### Output Data Path
-The location in the game's data path **where the output files will be placed** when building in BodySlide. This does **not** include the output file name (see image above).
+#### Output Data Path (출력 데이터 경로)
+BodySlide에서 빌드할 때 **출력 파일이 배치될** 게임 데이터 경로 내의 위치입니다. 여기에는 출력 파일 이름이 포함되지 않습니다 (위 이미지 참고).
 
-#### Weight Output
-This selection decides if the project will show a separate **low and high weight section** in the BodySlide UI and if the output files have **_0 and _1** appended to their file names, or not. Low/High weight output is currently used **for Skyrim only**.
+#### Weight Output (체중 출력)
+이 설정은 BodySlide UI에서 프로젝트가 **저체중(Low weight)과 고체중(High weight) 섹션**으로 나누어 표시될지, 그리고 출력 파일 이름 뒤에 **_0과 _1**이 붙을지 여부를 결정합니다. 저체중/고체중 출력 방식은 현재 **스카이림에서만** 사용됩니다.
 
-#### Slider Set File
-The name of the **project .osp file** that will be saved to the **SliderSets** folder. There can be **multiple projects** inside of one .osp file, so if you make a pack of multiple projects, you can reuse the same file.
+#### Slider Set File (슬라이더 세트 파일)
+**SliderSets** 폴더에 저장될 **프로젝트 .osp 파일**의 이름입니다. 하나의 .osp 파일에 **여러 프로젝트**를 담을 수 있으므로, 여러 프로젝트로 구성된 팩을 만드는 경우 동일한 파일을 재사용할 수 있습니다.
 
-#### Shape Data Folder
-The folder inside of the **ShapeData** directory, where the **mesh and slider data** files will be saved to. This can include multiple subfolders, such as **Dress\Torso** or **Dress\Necklace**.
+#### Shape Data Folder (쉐이프 데이터 폴더)
+**메시와 슬라이더 데이터** 파일이 저장될 **ShapeData** 디렉터리 내의 폴더입니다. **Dress\Torso**나 **Dress\Necklace**와 같이 여러 하위 폴더를 포함할 수 있습니다.
 
-#### Shape Data File
-The file name for the **meshes of the project** that will be saved to the shape data folder from above.
+#### Shape Data File (쉐이프 데이터 파일)
+위에서 지정한 쉐이프 데이터 폴더에 저장될 **프로젝트 메시**의 파일 이름입니다.
 
-#### Copy reference shape into output
-While you're working on a project in Outfit Studio, it's possible that you have a **reference shape** loaded, highlighted in green. This toggle decides if said reference shape should be **saved permanently into the project** for BodySlide, or if it should be ignored.
+#### Copy reference shape into output (레퍼런스 쉐이프를 출력물에 복사)
+Outfit Studio에서 프로젝트 작업을 할 때 녹색으로 강조된 **레퍼런스 쉐이프**가 로드되어 있을 수 있습니다. 이 토글은 해당 레퍼런스 쉐이프를 BodySlide용 프로젝트에 **영구적으로 저장**할지, 아니면 무시할지를 결정합니다.

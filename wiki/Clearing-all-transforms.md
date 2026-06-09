@@ -1,12 +1,12 @@
-There are different types of transforms, such as:
-* Node transforms (e.g. NiNode)
-* Static shape transforms (e.g. NiTriShape, BSTriShape, ...)
-* Global-to-skin transforms (NiSkinData, not saved to file for FO4)
-* Bone transforms (NiSkinData, BSSkin::BoneData) for each bone
+트랜스폼에는 다음과 같은 여러 유형이 있습니다:
+* 노드 트랜스폼 (예: NiNode)
+* 정적 쉐이프 트랜스폼 (예: NiTriShape, BSTriShape, ...)
+* 전역-스킨 간 트랜스폼 (NiSkinData, FO4에서는 파일에 저장되지 않음)
+* 각 본에 대한 본 트랜스폼 (NiSkinData, BSSkin::BoneData)
 
-Sometimes, when meshes are aligned in Outfit Studio **but transforms aren't dealt with** (cleared by the user or redone), they can **appear in a wrong spot in-game or become invisible** as you get closer, as the game might think they are "out-of-bounds" (not visible by the player, even though they're clearly on screen).
+때때로 Outfit Studio 내에서는 메시들이 올바르게 정렬되어 보이더라도, **트랜스폼이 제대로 처리되지 않으면** (사용자가 초기화하거나 다시 생성하지 않으면) 게임 내에서 **엉뚱한 위치에 나타나거나 가까이 다가갔을 때 사라질 수 있습니다**. 이는 게임 엔진이 해당 메시를 "영역 밖(out-of-bounds)"으로 판단하여 플레이어의 화면에 보이지 않는 것으로 간주하기 때문입니다 (실제로는 화면에 보이고 있음에도 불구하고).
 
-### One way to clear them is to:
-1. Make sure the shapes appear correctly aligned with a clean reference mesh (such as the body) in Outfit Studio. If they do not, use the transform tool or "Shape -> Move" to align them.
-2. Then, clear the global-to-skin transform by going into the [[Shape Properties]] ("Coordinates" tab) of each individual shape and setting the origin/rotation to 0,0,0 and the scale to 1.0. Make sure the "_Recalculate geometry's coordinates so it doesn't move_" is checked and click OK. Repeat this for each shape.
-3. To update bone transforms and clear the static shape transforms, use the "Edit -> Reset Transforms" command once (it affects all shapes).
+### 이를 해결하기 위해 초기화하는 한 가지 방법은 다음과 같습니다:
+1. Outfit Studio에서 쉐이프들이 깨끗한 레퍼런스 메시(예: 바디)와 올바르게 정렬되어 보이는지 확인합니다. 그렇지 않다면 트랜스폼 도구나 "Shape -> Move" 메뉴를 사용하여 정렬하세요.
+2. 각 개별 쉐이프의 [[쉐이프 속성|Shape-Properties]]("Coordinates" 탭)로 들어가 원점(Origin)과 회전(Rotation)을 0,0,0으로, 크기(Scale)를 1.0으로 설정하여 전역-스킨 간 트랜스폼을 초기화합니다. 이때 "_Recalculate geometry's coordinates so it doesn't move_ (쉐이프가 움직이지 않도록 지오메트리 좌표 다시 계산)" 항목이 체크되어 있는지 확인하고 OK를 누릅니다. 모든 쉐이프에 대해 이 과정을 반복합니다.
+3. 본 트랜스폼을 업데이트하고 정적 쉐이프 트랜스폼을 초기화하려면, "Edit -> Reset Transforms" 명령을 한 번 실행합니다 (모든 쉐이프에 영향을 줍니다).

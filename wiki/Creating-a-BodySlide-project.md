@@ -1,77 +1,77 @@
-## What are BodySlide projects?
-BodySlide projects are created in Outfit Studio and can contain an outfit or body with **sliders for customization**. They can be selected from a list and the final result can be built straight into the data folder of your game.
+## BodySlide 프로젝트란 무엇인가요?
+BodySlide 프로젝트는 Outfit Studio에서 생성되며, **커스터마이징을 위한 슬라이더**가 포함된 의상이나 바디를 담고 있습니다. 목록에서 프로젝트를 선택하고 최종 결과물을 게임의 데이터 폴더에 직접 빌드할 수 있습니다.
 
 ![Project](http://i.imgur.com/fW6FuGO.png)
 
-That means, we need to **create the slider data** for your outfit, so that it can morph together with the body/reference. Only after that you will be able to apply your custom presets in the BodySlide part of the program.
+즉, 의상이 바디/레퍼런스와 함께 변형(Morph)될 수 있도록 **슬라이더 데이터**를 만들어야 합니다. 그 과정이 끝나야만 BodySlide 프로그램에서 사용자 정의 프리셋을 적용할 수 있게 됩니다.
 
-The outfit you're intending to use **has to be converted to the base shape** of the body/reference already, such as the base shape of the CBBE body for the specific game. If it is not, please follow the [[other guides|Guides and Documentation]] to do that first!
+사용하려는 의상은 이미 특정 게임의 CBBE 바디 베이스 쉐이프와 같은 **바디/레퍼런스의 베이스 쉐이프에 맞춰 변환**되어 있어야 합니다. 그렇지 않다면 먼저 [[다른 가이드|Guides-and-Documentation]]를 따라 변환 작업을 먼저 진행해 주세요!
 
-## How do I share project files with others?
-After you're done creating your BodySlide project following the instructions below, there should be **multiple new files** in your BodySlide folder with the names you provided **in the save dialog**.
+## 프로젝트 파일을 다른 사람과 어떻게 공유하나요?
+아래 지침에 따라 BodySlide 프로젝트를 만든 후에는, **저장 대화 상자에서 입력한 이름**으로 된 **여러 개의 새 파일**이 BodySlide 폴더에 생성되어 있을 것입니다.
 
-Projects consist of the following:
-* **.osp** files from the **SliderSets** folder, which can contain multiple of your projects at once.
-* **.osd** files from the **ShapeData/YourProject** folder, which contain the slider data for all meshes of a specific project.
-* **.nif** files from the **ShapeData/YourProject** folder, which are the meshes themselves.
-* (optionally) **.xml** files from the **SliderGroups** folder.
+프로젝트는 다음 파일들로 구성됩니다:
+* **SliderSets** 폴더의 **.osp** 파일: 한 번에 여러 프로젝트를 포함할 수 있습니다.
+* **ShapeData/프로젝트이름** 폴더의 **.osd** 파일: 특정 프로젝트의 모든 메시에 대한 슬라이더 데이터를 포함합니다.
+* **ShapeData/프로젝트이름** 폴더의 **.nif** 파일: 메시 파일 자체입니다.
+* (선택 사항) **SliderGroups** 폴더의 **.xml** 파일.
 
-Make sure to provide them with the correct folder structures, and you and your users should be good to go.
+이 파일들을 올바른 폴더 구조에 맞춰 제공하면, 여러분과 사용자들이 문제없이 프로젝트를 사용할 수 있습니다.
 
 ![Folder Structure](http://i.imgur.com/Wt0bif1.png)
 
-## Step-by-step example
-This guide explains how to create such a project, so that you can make any outfit that you previously made or downloaded compatible with **existing sliders**.
+## 단계별 예제
+이 가이드는 이전에 만들었거나 다운로드한 의상을 **기존 슬라이더**와 호환되게 만드는 프로젝트 생성 방법을 설명합니다.
 
-1. Create a new project in Outfit Studio using the **New Project** button or menu item.  
+1. **New Project** 버튼이나 메뉴 항목을 사용하여 Outfit Studio에서 새 프로젝트를 만듭니다.  
 ![New Project](http://i.imgur.com/KxNNU2K.png)
 
-2. Select the **[[conversion reference|Conversion references and using them]], [[template|Reference Templates]]** or project file that contains the sliders you need from the list or file browser and click next.  
-_Example: "CBBE Body"_
+2. 목록이나 파일 브라우저에서 필요한 슬라이더가 포함된 **[[변환 레퍼런스|Conversion-references-and-using-them]], [[템플릿|Reference-Templates]]** 또는 프로젝트 파일을 선택하고 Next를 클릭합니다.  
+_예: "CBBE Body"_
 
-3. Choose the **file of the outfit/mesh** you want to convert and click next.  
-_Example: "outfit.nif"_
+3. 변환하려는 **의상/메시 파일**을 선택하고 Next를 클릭합니다.  
+_예: "outfit.nif"_
 
-    **For games with weight variants:** make sure you pick the correct mesh for the variant you are working from. Skyrim-family meshes commonly use `_0` and `_1` suffixes for low/high weight files, while other games may only ship a single mesh.
+    **체중 변형(Weight variants)이 있는 게임의 경우:** 작업 기준으로 삼고 있는 변형에 맞는 올바른 메시를 선택해야 합니다. 스카이림 계열 메시들은 보통 저체중/고체중 파일에 `_0` 및 `_1` 접미사를 사용하지만, 다른 게임들은 단일 메시만 제공할 수도 있습니다.
 
     ![Outfit](http://i.imgur.com/GC8l0Ar.png)
 
-4. **Delete the duplicate body shape** that was loaded together with the outfit file, if there is one. To do this, select the shape and press the DEL key or right-click it and choose "Delete Shape". If you don't do this, you might have two exported body shapes in one file later on.
+4. 의상 파일과 함께 불러와진 **중복된 바디 쉐이프가 있다면 삭제**합니다. 해당 쉐이프를 선택하고 DEL 키를 누르거나 우클릭 후 "Delete Shape"를 선택하세요. 삭제하지 않으면 나중에 하나의 파일에 두 개의 바디 쉐이프가 익스포트될 수 있습니다.
 
-5. Now you might have to **fix a bit of clipping** here and there using the brush tools that Outfit Studio provides. Select the shape of the outfit you want to adjust, fix the clipping and do whatever tweaks you like. This is **editing the base shapes** of the meshes, not any slider morphs.
+5. 이제 Outfit Studio에서 제공하는 브러시 도구들을 사용하여 여기저기 발생하는 **클리핑을 수정**해야 합니다. 조정하려는 의상 쉐이프를 선택하고 클리핑을 수정하거나 원하는 대로 세부 조정을 하세요. 이는 메시의 **베이스 쉐이프를 편집**하는 것이며, 슬라이더 모프를 편집하는 것이 아닙니다.
 
-    Read up on the [[brushes|Brushes]] and [[tools|Tools]] pages for more info about them.
+    브러시와 도구에 대한 자세한 내용은 [[브러시|Brushes]] 및 [[도구|Tools]] 페이지를 참고하세요.
 
-6. **Conform the outfit shapes** to the sliders of the conversion reference.  
-To do this, use the **Slider -> Conform All** menu item. It doesn't matter what shape you have selected here, as everything will be conformed.
+6. **의상 쉐이프들을 변환 레퍼런스의 슬라이더에 맞춰 컨폼**합니다.  
+**Slider -> Conform All** 메뉴 항목을 사용하세요. 모든 쉐이프가 컨폼되므로 현재 어떤 쉐이프가 선택되어 있는지는 중요하지 않습니다.
 
     [![Conform All](http://i.imgur.com/sf1FvMZm.png)](http://i.imgur.com/sf1FvMZ.png)
 
-7. (optional but recommended) **Check all sliders for clipping** and fix it using the brushes.  
-To do that, select the shape that needs fixing, click the edit button next to the slider that requires tweaks and brush on.
+7. (선택 사항이지만 권장됨) **모든 슬라이더의 클리핑을 확인**하고 브러시로 수정합니다.  
+수정이 필요한 쉐이프를 선택하고, 조정한 슬라이더 옆의 편집 버튼을 클릭한 뒤 브러시 작업을 진행하세요.
 
-    * It is only possible to edit one slider at the same time, but you can edit that one for multiple shapes at once.
-    * Edit the outfit shapes, not the body/reference!
-    * Note that the look of more extreme sliders might be hard to perfect sometimes.
+    * 한 번에 하나의 슬라이더만 편집할 수 있지만, 한 슬라이더를 여러 쉐이프에 대해 동시에 편집하는 것은 가능합니다.
+    * 바디/레퍼런스가 아닌 의상 쉐이프를 편집하세요!
+    * 수치가 극단적인 슬라이더의 모습은 완벽하게 다듬기 어려울 수 있다는 점에 유의하세요.
 
     ![Edit Slider](http://i.imgur.com/ONVygUd.png)
 
-8. Next up, you have to **[[copy the bone weights|Copying bone weights]]** from your reference to your outfit, so that it will move along correctly with animations in-game. To do that, **multi-select** all of the outfit shapes in the list and choose **Copy Bone Weights** after a right-click.
+8. 다음으로 레퍼런스로부터 의상으로 **[[본 웨이트를 복사|Copying-bone-weights]]**해야 게임 내에서 애니메이션에 맞춰 올바르게 움직이게 됩니다. 목록에서 모든 의상 쉐이프를 **다중 선택**하고 우클릭 후 **Copy Bone Weights**를 선택하세요.
 
     [![Copy Bone Weights](http://i.imgur.com/xlVgiZhm.png)](http://i.imgur.com/xlVgiZh.png)
 
-9. Open up the **File -> Save Project As...** dialog and fill out all of the text fields. Make sure to carefully read all of the tooltips that appear when hovering over them, as they will tell you what to do.
+9. **File -> Save Project As...** 대화 상자를 열고 모든 텍스트 필드를 채웁니다. 각 필드에 마우스를 올리면 나타나는 툴팁을 주의 깊게 읽고 지시대로 따라 하세요.
 
-    See the [[saving a project|Saving a project]] page for more details!
+    자세한 내용은 [[프로젝트 저장하기|Saving-a-project]] 페이지를 참고하세요!
 
-10. Save the project and you will immediately be able to select it, build it and apply your presets to it in the BodySlide part of the program.
+10. 프로젝트를 저장하면 BodySlide 프로그램에서 즉시 해당 프로젝트를 선택하고 빌드하며 프리셋을 적용할 수 있게 됩니다.
 
-11. Set up **groups** for your new outfit, so that presets for the specific body group become available for selection. A second, separate group can be used to provide an easy way to choose your projects for a batch build.
+11. 새 의상을 위한 **그룹(Groups)**을 설정하여 특정 바디 그룹용 프리셋을 선택할 수 있게 합니다. 별도의 그룹을 하나 더 만들면 배치 빌드(Batch build) 시 프로젝트를 쉽게 선택할 수 있는 방법으로 활용할 수 있습니다.
 
-    To add an outfit to one or more groups, use the group manager accessible at the top-right of the BodySlide frame. You can save multiple groups into one XML file inside of the SliderGroups folder.
+    의상을 하나 이상의 그룹에 추가하려면 BodySlide 창 오른쪽 상단의 그룹 매니저를 사용하세요. SliderGroups 폴더 내의 하나의 XML 파일에 여러 그룹을 저장할 수 있습니다.
 
-    See the [[group manager|Group Manager]] page for more information on how to use it!
+    사용 방법은 [[그룹 매니저|Group-Manager]] 페이지를 참고하세요!
 
-   _Note that if you add an outfit to its own group, do not forget to add it to the master group (for example "CBBE") as well!_
+   _의상을 전용 그룹에 추가하는 경우, 마스터 그룹(예: "CBBE")에도 추가하는 것을 잊지 마세요!_
 
-12. Share your projects! See the start of this page for info on how to do that.
+12. 프로젝트를 공유하세요! 공유 방법에 대해서는 이 페이지의 상단 내용을 참고하세요.

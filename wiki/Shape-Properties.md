@@ -1,117 +1,117 @@
-## What are shape properties?
+## 쉐이프 속성이란 무엇인가요?
 
-Open **Shape -> Properties** in Outfit Studio, or double-click a shape in the shape list, to edit mesh-specific metadata such as shader settings, geometry flags, extra data, and coordinate transforms.
+Outfit Studio에서 **Shape -> Properties**를 열거나 쉐이프 목록에서 쉐이프를 더블 클릭하면, 셰이더 설정, 지오메트리 플래그, 엑스트라 데이터, 좌표 트랜스폼과 같은 메시 전용 메타데이터를 편집할 수 있습니다.
 
-You can also open the dialog with multiple shapes selected. In that case Outfit Studio switches to a batch-edit workflow:
+여러 개의 쉐이프를 선택한 상태에서 이 대화 상자를 열 수도 있습니다. 이 경우 Outfit Studio는 배치 편집(Batch-edit) 워크플로우로 전환됩니다:
 
-* The dialog title shows how many shapes are selected.
-* The **Geometry** tab becomes the default tab.
-* Single-shape tabs such as **Extra Data** and **Coordinates** are disabled.
-* Batch operations that can safely affect every selected shape ask for confirmation before they run.
+* 대화 상자 제목에 선택된 쉐이프의 개수가 표시됩니다.
+* **Geometry** 탭이 기본 탭이 됩니다.
+* **Extra Data** 및 **Coordinates**와 같이 단일 쉐이프 전용인 탭은 비활성화됩니다.
+* 선택된 모든 쉐이프에 안전하게 영향을 줄 수 있는 배치 작업들은 실행 전에 확인을 요청합니다.
 
-The dialog currently has four tabs: **Shader**, **Geometry**, **Extra Data**, and **Coordinates**.
+현재 대화 상자에는 **Shader**, **Geometry**, **Extra Data**, **Coordinates**의 네 가지 탭이 있습니다.
 
 [![Shader](http://i.imgur.com/R4ao6aKb.png)](http://i.imgur.com/R4ao6aK.png)
 [![Geometry](http://i.imgur.com/50BYgYZb.png)](http://i.imgur.com/50BYgYZ.png)
 [![Extra Data](http://i.imgur.com/SGoo36jb.png)](http://i.imgur.com/SGoo36j.png)
-[![Coordinates](https://i.imgur.com/ApCWZwqb.png)](https://i.imgur.com/ApCWZwq.png)
+[![Coordinates](http://i.imgur.com/ApCWZwqb.png)](http://i.imgur.com/ApCWZwq.png)
 
-## Shader
+## Shader (셰이더)
 
-The **Shader** tab controls the material/shader block attached to the current shape.
+**Shader** 탭은 현재 쉐이프에 부착된 재질(Material)/셰이더 블록을 제어합니다.
 
-### Basic fields
+### 기본 필드
 
-* **Name / Material** stores the shader name on older games. On Fallout 4 it is treated as the assigned `.bgsm` or `.bgem` material path. On Starfield it is treated as the assigned `.mat` material path.
-* The **...** button next to the field opens a material picker when the target game supports external material files.
-* **Type** changes the shader type for supported lighting shaders. The available list depends on the shader class and game.
-* **Shading** is shown for Fallout 3 / New Vegas post-processing lighting shaders and lets you switch between hard and smooth shading.
-* **Specular Color**, **Specular Strength**, **Specular Power**, **Emissive Color**, **Emissive Multiple**, and **Alpha** expose the common lighting/material values currently supported by the dialog.
-* **Vertex Colors** toggles vertex-color usage on the shader. Enabling vertex alpha also enables vertex colors automatically.
-* **Double Sided** toggles double-sided rendering. Fallout 3 / New Vegas store this through the stencil property instead of the usual shader flags, so the behavior is game-specific.
+* **Name / Material**은 구형 게임의 경우 셰이더 이름을 저장합니다. 폴아웃 4의 경우 할당된 `.bgsm` 또는 `.bgem` 재질 경로로 취급됩니다. 스타필드(Starfield)의 경우 할당된 `.mat` 재질 경로로 취급됩니다.
+* 대상 게임이 외부 재질 파일을 지원하는 경우, 필드 옆의 **...** 버튼을 눌러 재질 선택기를 열 수 있습니다.
+* **Type**은 지원되는 라이팅(Lighting) 셰이더의 유형을 변경합니다. 사용 가능한 목록은 셰이더 클래스와 게임에 따라 다릅니다.
+* **Shading**은 폴아웃 3 / 뉴 베가스의 후처리 라이팅 셰이더에서 표시되며, 하드(Hard) 셰이딩과 스무드(Smooth) 셰이딩 사이를 전환할 수 있게 해 줍니다.
+* **Specular Color**, **Specular Strength**, **Specular Power**, **Emissive Color**, **Emissive Multiple**, **Alpha**는 현재 대화 상자에서 지원하는 공통 라이팅/재질 수치들입니다.
+* **Vertex Colors**는 셰이더에서 정점 컬러(Vertex-color) 사용 여부를 전환합니다. 정점 알파(Vertex alpha)를 활성화하면 정점 컬러도 자동으로 활성화됩니다.
+* **Double Sided**는 양면 렌더링 여부를 전환합니다. 폴아웃 3 / 뉴 베가스는 일반적인 셰이더 플래그 대신 스텐실(Stencil) 속성을 통해 이를 저장하므로 동작 방식이 게임마다 다릅니다.
 
-### Buttons
+### 버튼
 
-* **Add** creates a default shader/material setup for shapes that do not already have one.
-* **Remove** removes the shader block from the selected shape or shapes.
-* **Textures...** opens the texture-set editor for the current shader.
-* **Copy from shape...** clones the shader and texture assignment from another shape in the same project.
+* **Add**는 아직 셰이더/재질 설정이 없는 쉐이프를 위해 기본 설정을 생성합니다.
+* **Remove**는 선택된 쉐이프에서 셰이더 블록을 제거합니다.
+* **Textures...**는 현재 셰이더의 텍스처 세트 에디터를 엽니다.
+* **Copy from shape...**은 동일한 프로젝트 내의 다른 쉐이프로부터 셰이더 및 텍스처 할당 정보를 복제해옵니다.
 
-### Shader flags
+### 셰이더 플래그 (Shader flags)
 
-The **Shader Flags** collapsible section exposes the full game-specific flag lists for:
+**Shader Flags** 접이식 섹션은 다음 게임별 전체 플래그 목록을 보여줍니다:
 
-* Skyrim-family lighting shaders
-* Fallout 4-family lighting shaders
-* Fallout 3 / New Vegas shader properties
+* 스카이림 계열 라이팅 셰이더
+* 폴아웃 4 계열 라이팅 셰이더
+* 폴아웃 3 / 뉴 베가스 셰이더 속성
 
-The dialog keeps the common checkboxes such as **Vertex Colors**, **Vertex Alpha**, and **Double Sided** synchronized with the relevant flag bits where that makes sense for the target game.
+대화 상자는 **Vertex Colors**, **Vertex Alpha**, **Double Sided**와 같은 공통 체크박스들을 대상 게임의 관련 플래그 비트와 동기화된 상태로 유지합니다.
 
-### Advanced shader properties
+### 고급 셰이더 속성 (Advanced shader properties)
 
-The **Advanced** collapsible section is no longer just a placeholder. It now exposes the advanced properties that Outfit Studio can edit directly for the current shader type.
+**Advanced** 접이식 섹션은 더 이상 단순한 플레이스홀더가 아닙니다. 이제 Outfit Studio가 현재 셰이더 유형에 대해 직접 편집할 수 있는 고급 속성들을 노출합니다.
 
-Common fields include:
+공통 필드에는 다음이 포함됩니다:
 
-* **UV Offset** and **UV Scale**
+* **UV Offset** 및 **UV Scale**
 * **Texture Clamp Mode**
 * **Refraction Strength**
 * **Environment Map Scale**
 
-Additional fields appear only when they apply to the current shader type, for example:
+추가 필드들은 현재 셰이더 유형에 해당할 때만 나타납니다. 예시:
 
 * **Skin Tint Color**
 * **Hair Tint Color**
-* **Parallax Max Passes** and **Parallax Scale**
-* **Inner Layer Thickness**, **Parallax Refraction Scale**, **Inner Layer Tex Scale**, and **Parallax Envmap Strength** for multilayer parallax
-* **Sparkle Parameters** for sparkle snow shaders
-* **Eye Cubemap Scale** and left/right reflection centers for eye shaders
+* **Parallax Max Passes** 및 **Parallax Scale**
+* 다중 레이어 패럴랙스(Multilayer parallax)를 위한 **Inner Layer Thickness**, **Parallax Refraction Scale**, **Inner Layer Tex Scale**, **Parallax Envmap Strength**
+* 눈(Snow) 셰이더를 위한 **Sparkle Parameters**
+* 눈(Eye) 셰이더를 위한 **Eye Cubemap Scale** 및 좌우 반사 중심점
 
-Fallout 4-format lighting shaders also expose the newer material fields such as:
+폴아웃 4 형식의 라이팅 셰이더는 다음과 같은 최신 재질 필드들도 노출합니다:
 
 * **Wet Material**
 * **Subsurface Rolloff**
-* **Rimlight Power** and **Backlight Power**
+* **Rimlight Power** 및 **Backlight Power**
 * **Grayscale To Palette**
 * **Fresnel Power**
 * **Wetness Spec Scale**, **Wetness Spec Power**, **Wetness Min Var**, **Wetness Fresnel Power**, **Wetness Metalness**
-* **Wetness Env Map Scale** where that value exists in the file format
+* 파일 형식에 존재하는 경우 **Wetness Env Map Scale**
 
-Starfield hides the legacy shader-type, specular, shader-flags, and advanced panes because those controls do not map cleanly to Starfield materials.
+스타필드의 경우 이러한 컨트롤들이 스타필드 재질과 깔끔하게 매칭되지 않기 때문에 구형 셰이더 유형, 스펙큘러, 셰이더 플래그 및 고급 패널을 숨깁니다.
 
-### Transparency
+### 투명도 (Transparency)
 
-The **Transparency** collapsible section manages the shape's alpha property.
+**Transparency** 접이식 섹션은 쉐이프의 알파(Alpha) 속성을 관리합니다.
 
-Supported controls include:
+지원되는 컨트롤:
 
 * **Threshold**
 * **Vertex Alpha**
 * **Alpha Test**
 * **Alpha Blend**
-* **Src Blend** and **Dest Blend**
+* **Src Blend** 및 **Dest Blend**
 * **Test Function**
 * **No Sorter**
-* **Add** / **Remove** to create or delete the alpha property itself
+* 알파 속성 자체를 생성하거나 삭제하는 **Add** / **Remove**
 
-If the selected shape already has an alpha property, the transparency pane expands automatically when the dialog opens.
+선택된 쉐이프에 이미 알파 속성이 있는 경우, 대화 상자가 열릴 때 투명도 패널이 자동으로 확장됩니다.
 
-## Geometry
+## Geometry (지오메트리)
 
-The **Geometry** tab exposes mesh-format flags that are safe to batch-edit across multiple selected shapes. When several shapes are selected, the checkboxes use three states so you can see whether the current selection already matches.
+**Geometry** 탭은 여러 쉐이프를 다중 선택했을 때 배치 편집이 안전한 메시 형식 플래그들을 노출합니다. 여러 쉐이프가 선택된 경우, 체크박스는 세 가지 상태(Three-state)를 사용하여 현재 선택된 항목들이 일치하는지 여부를 보여줍니다.
 
-* **Full Precision** toggles full-precision vertex storage when the selected mesh format supports changing that flag.
-* **Sub Index** converts between `BSTriShape` and `BSSubIndexTriShape`. When enabling it, Outfit Studio creates a default segment layout for the new sub-indexed shape.
-* **Skinned** adds or removes skinning data. Turning it off removes the current skinning setup; turning it back on recreates default skinning data.
-* **Dynamic** converts between `BSTriShape` and `BSDynamicTriShape` on formats that support that distinction.
+* **Full Precision**은 선택된 메시 형식이 해당 플래그 변경을 지원하는 경우 전체 정밀도(Full-precision) 정점 저장을 전환합니다.
+* **Sub Index**는 `BSTriShape`와 `BSSubIndexTriShape` 간을 변환합니다. 이를 활성화하면 Outfit Studio는 새로운 서브 인덱스 쉐이프를 위한 기본 세그먼트 레이아웃을 생성합니다.
+* **Skinned**는 스키닝(Skinning) 데이터를 추가하거나 제거합니다. 이 옵션을 끄면 현재의 스키닝 설정이 제거되며, 다시 켜면 기본 스키닝 데이터가 재생성됩니다.
+* **Dynamic**은 해당 구분을 지원하는 형식에서 `BSTriShape`와 `BSDynamicTriShape` 간을 변환합니다.
 
-Availability depends on both the game format and the selected shape type. If a checkbox is disabled, the current mesh cannot be converted that way.
+가용 여부는 게임 형식과 선택된 쉐이프 유형 모두에 따라 달라집니다. 체크박스가 비활성화되어 있다면 현재 메시는 해당 방식으로 변환할 수 없음을 의미합니다.
 
-## Extra Data
+## Extra Data (엑스트라 데이터)
 
-The **Extra Data** tab edits `NiExtraData` blocks attached to the shape. This tab is available only for single-shape editing.
+**Extra Data** 탭은 쉐이프에 부착된 `NiExtraData` 블록들을 편집합니다. 이 탭은 단일 쉐이프 편집 시에만 사용할 수 있습니다.
 
-Outfit Studio currently supports creating and editing all of the following types directly from the dialog:
+Outfit Studio는 현재 다음 모든 유형을 대화 상자에서 직접 생성하고 편집하는 것을 지원합니다:
 
 * `NiStringExtraData`
 * `NiIntegerExtraData`
@@ -124,37 +124,37 @@ Outfit Studio currently supports creating and editing all of the following types
 * `NiFloatsExtraData`
 * `BSDistantObjectLargeRefExtraData`
 
-Each entry has:
+각 항목에는 다음이 포함됩니다:
 
-* A **Remove** button
-* A **type** selector
-* A **name** field
-* A value editor suited to that data type
+* **Remove** 버튼
+* **유형(Type)** 선택기
+* **이름(Name)** 필드
+* 해당 데이터 유형에 적합한 값 에디터
 
-Simple string, integer, float, and boolean values can be edited inline. Vector, color, and list-based extra data use dedicated editor dialogs:
+단순한 문자열, 정수, 부동 소수점, 불리언 값은 인라인으로 편집할 수 있습니다. 벡터, 컬러 및 리스트 기반 엑스트라 데이터는 전용 에디터 대화 상자를 사용합니다:
 
-* Vector and color entries open an **Edit...** dialog with per-component fields.
-* Color entries also include a color picker preview.
-* Integer, string, and float lists open a grid editor with **Add Row** and **Remove Row** controls.
+* 벡터 및 컬러 항목은 각 컴포넌트별 필드가 있는 **Edit...** 대화 상자를 엽니다.
+* 컬러 항목에는 컬러 피커 미리보기도 포함됩니다.
+* 정수, 문자열, 부동 소수점 리스트는 **Add Row** 및 **Remove Row** 컨트롤이 있는 그리드 에디터를 엽니다.
 
-Unknown extra-data block types are not exposed through this dialog.
+알 수 없는 엑스트라 데이터 블록 유형은 이 대화 상자를 통해 노출되지 않습니다.
 
-## Coordinates
+## Coordinates (좌표)
 
-The **Coordinates** tab edits the transform from the shape's local space to global space. This is the stored scale, translation, and rotation difference between the mesh data and the shape's world placement.
+**Coordinates** 탭은 쉐이프의 로컬 공간에서 전역 공간으로의 트랜스폼을 편집합니다. 이는 메시 데이터와 쉐이프의 월드 배치 사이의 저장된 크기(Scale), 이동(Translation), 회전(Rotation) 차이값입니다.
 
-You can edit:
+다음을 편집할 수 있습니다:
 
-* **Scale**
-* **X / Y / Z** translation
-* **X / Y / Z** rotation
+* **Scale** (크기)
+* **X / Y / Z** 이동
+* **X / Y / Z** 회전
 
-When you change any of these values, Outfit Studio enables **Recalculate geometry's coordinates so it doesn't move**. If you keep that box checked, the mesh vertices are transformed so the shape stays in the same place visually while the stored transform changes.
+이 값들 중 하나라도 변경하면 Outfit Studio는 **Recalculate geometry's coordinates so it doesn't move** (쉐이프가 움직이지 않도록 지오메트리 좌표 다시 계산) 옵션을 활성화합니다. 이 박스를 체크된 상태로 두면, 저장된 트랜스폼이 변경되는 동안 시각적으로는 쉐이프가 동일한 위치에 머물도록 메시 정점들이 변환됩니다.
 
-This tab is only available when a single shape is selected.
+이 탭은 단일 쉐이프가 선택되었을 때만 활성화됩니다.
 
-## Notes
+## 참고 사항
 
-* The dialog is no longer limited to just a few high-level shader values. The current advanced shader and extra-data editors are usable enough for many common tasks that previously required switching to NifSkope.
-* Fallout 3 / New Vegas still have a few engine-specific quirks, especially around vertex alpha and double-sided rendering.
-* Reference-loading, texture assignment, and material-file behavior still depend on the target game's file format, so always test the result in the game or in NifSkope if you are changing unusual shader combinations.
+* 이 대화 상자는 이제 몇 가지 상위 레벨 셰이더 수치에만 국한되지 않습니다. 현재의 고급 셰이더 및 엑스트라 데이터 에디터는 이전에 NifSkope로 전환해야 했던 많은 공통 작업들을 수행하기에 충분히 유용합니다.
+* 폴아웃 3 / 뉴 베가스는 여전히 특히 정점 알파 및 양면 렌더링 주변에서 몇 가지 엔진 전용 특이 사항이 있습니다.
+* 레퍼런스 로딩, 텍스처 할당 및 재질 파일 동작은 여전히 대상 게임의 파일 형식에 따라 달라지므로, 흔치 않은 셰이더 조합을 변경하는 경우 항상 게임 내에서나 NifSkope에서 결과를 테스트하세요.

@@ -1,30 +1,30 @@
-## What are zaps?
-Zaps appear as sliders in Outfit Studio and as **check boxes** in BodySlide. They **remove previously defined parts** from meshes during a build of the project in BodySlide.
+## 잽(Zap)이란 무엇인가요?
+잽은 Outfit Studio에서는 슬라이더로 표시되지만, BodySlide에서는 **체크박스**로 나타납니다. 잽은 BodySlide에서 프로젝트를 빌드할 때 **메시에서 미리 정의된 부분들을 제거**하는 역할을 합니다.
 
 ![Zaps](http://i.imgur.com/WOiBMue.png)
 
-You can use them to add **optional parts** or accessories to your outfit projects for the user to toggle himself. Zaps can also be **hidden**, so that they can be used to remove parts of the body mesh to **prevent clipping**.
+잽을 사용하면 사용자가 직접 켜고 끌 수 있는 **선택적 파츠**나 액세서리를 의상 프로젝트에 추가할 수 있습니다. 또한 잽을 **숨김(Hidden)** 처리하여, **클리핑을 방지**하기 위해 바디 메시의 일부를 제거하는 용도로 사용할 수도 있습니다.
 
-In Outfit Studio, they merely move the mesh around, but do not actually delete the parts.
-Only BodySlide will remove the affected parts in the preview and builds.
+Outfit Studio 내에서 잽은 메시를 이리저리 옮길 뿐 실제로 삭제하지는 않습니다.
+오직 BodySlide의 미리보기와 빌드 결과물에서만 해당 파츠가 제거됩니다.
 
-## Step-by-step example
-These steps show you how to create your own zaps. You need an otherwise already fully working project loaded for this and you need to make use of the mask brush.
+## 단계별 예제
+다음 단계는 직접 잽을 만드는 방법을 보여줍니다. 이를 위해 이미 정상적으로 작동하는 프로젝트가 로드되어 있어야 하며, 마스크 브러시를 사용해야 합니다.
 
-1. ![Load Project](http://i.imgur.com/viWOwuL.png) Launch Outfit Studio and **load or create the project** you want to add zap options to.
+1. ![Load Project](http://i.imgur.com/viWOwuL.png) Outfit Studio를 실행하고 잽 옵션을 추가하려는 **프로젝트를 불러오거나 생성**합니다.
 
-2. ![Mask Brush](http://i.imgur.com/vktbaTu.png) Select the **mask brush** in the toolbar.
+2. ![Mask Brush](http://i.imgur.com/vktbaTu.png) 툴바에서 **마스크 브러시(Mask Brush)**를 선택합니다.
 
-3. The area that you will be **masking** is the one that will **NOT be zapped away** (it will NOT be deleted and stays) when the zap is enabled in BodySlide.
+3. **마스크를 칠한(Masking)** 영역은 BodySlide에서 잽이 활성화되었을 때 **제거되지 않는(Zapped away)** 부분입니다. (즉, 삭제되지 않고 남는 영역입니다.)
 
-4. If you want the opposite of what you masked to be zapped instead, choose the **Tool -> Invert Mask** menu item.
+4. 마스크를 칠한 부분의 반대 영역을 제거하고 싶다면, **Tool -> Invert Mask** 메뉴 항목을 선택하세요.
 
-5. Use the **Slider -> New Zap Slider** menu item and **name the slider** appropriately. This creates the zap for what is **currently unmasked** for all selected shapes.
+5. **Slider -> New Zap Slider** 메뉴를 선택하고 **슬라이더 이름을 적절하게 입력**합니다. 이렇게 하면 선택된 모든 쉐이프에서 **현재 마스크가 칠해지지 않은** 영역에 대한 잽이 생성됩니다.
 
-6. (optional) By going into edit mode of the zap and using any of the brushes on the mesh, you can **define more areas** that should be zapped later on, in case you missed any. Anything **affected by the slider** in Outfit Studio will be zapped later in BodySlide.
+6. (선택 사항) 잽의 편집 모드로 들어가서 메시 위에서 브러시를 사용하면, 실수로 빠뜨린 경우 나중에 제거될 **영역을 더 정의**할 수 있습니다. Outfit Studio에서 **슬라이더에 의해 영향을 받는** 모든 부분은 나중에 BodySlide에서 제거됩니다.
 
-7. (optional) If you want a zap to be **always active and invisible** to the user of your project, activate the edit mode of the zap and enter the **Slider -> Properties** (TAB). In the dialog, set the **default value to 100** and enable the **Hidden** checkbox.
+7. (선택 사항) 잽을 사용자에게 보이지 않게 하고 **항상 활성화**하고 싶다면, 잽의 편집 모드를 활성화한 뒤 **Slider -> Properties** (TAB 키)를 누릅니다. 대화 상자에서 **Default(기본값)**를 100으로 설정하고 **Hidden(숨김)** 체크박스를 활성화합니다.
 
     ![Zap Properties](http://i.imgur.com/NKkqtW1.png)
 
-8. Finish the rest of your conversion if needed, then hit **[[File -> Save Project (As)|Saving a project]]** and follow on-screen tooltips. You can see and **test your new zaps** by selecting the project in BodySlide and opening the **preview window**.
+8. 필요한 나머지 변환 작업을 마친 뒤, **[[File -> Save Project (As)|Saving-a-project]]** 메뉴를 눌러 저장하고 화면의 안내를 따릅니다. BodySlide에서 해당 프로젝트를 선택하고 **미리보기(Preview)** 창을 열어 **새로운 잽을 확인하고 테스트**할 수 있습니다.

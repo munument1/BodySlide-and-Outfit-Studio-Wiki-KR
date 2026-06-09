@@ -1,75 +1,75 @@
-## What are conversion references?
-Outfit Studio comes with so called conversion references, which consist of one or more **sliders** that can morph a mesh from one shape to another.
+## 변환 레퍼런스란 무엇인가요?
+Outfit Studio에는 메시의 형태를 다른 형태로 변형(Morph)시킬 수 있는 하나 이상의 **슬라이더**로 구성된 소위 변환 레퍼런스(Conversion references)가 포함되어 있습니다.
 
-The mesh provided with the conversion reference is the **reference shape**.
+변환 레퍼런스와 함께 제공되는 메시를 **레퍼런스 쉐이프**라고 합니다.
 
-Other meshes loaded into Outfit Studio can be conformed to these sliders, so that they will morph along with the reference shape.
+Outfit Studio에 불러온 다른 메시들은 이 슬라이더들에 맞춰 컨폼(Conform)될 수 있으며, 이를 통해 레퍼런스 쉐이프와 함께 변형되도록 만들 수 있습니다.
 
-One example where this can be made use of, is to convert an outfit **from one body type to another** (slider value 0% -> 100%).
+이를 활용하는 한 가지 예시는 의상을 **한 바디 타입에서 다른 바디 타입으로 변환**하는 것입니다 (슬라이더 값 0% -> 100%).
 
 ![Conversion Slider](http://i.imgur.com/oeXuGbC.png)
 
-## Loading up references
-To load a conversion reference, choose the **File -> Load Reference** menu item and select your reference in the template drop down list.
+## 레퍼런스 불러오기
+변환 레퍼런스를 불러오려면 **File -> Load Reference** 메뉴 항목을 선택하고 템플릿 드롭다운 목록에서 원하는 레퍼런스를 선택합니다.
 
-[[Templates|Reference Templates]] are defined in the RefTemplates.xml file and point to a specific installed project and shape to load. Click the link if you want to know how to add new templates to the list.
+[[템플릿|Reference-Templates]]은 RefTemplates.xml 파일에 정의되어 있으며, 불러올 특정 설치 프로젝트와 쉐이프를 가리킵니다. 목록에 새 템플릿을 추가하는 방법을 알고 싶다면 링크를 클릭하세요.
 
 ![Load Reference](http://i.imgur.com/wC3BwIV.png)
 
-If your conversion reference is not in the template list, you can also **manually choose the project file** (.osp) to use as the reference. Only one shape can be the reference at the same time.
+원하는 변환 레퍼런스가 템플릿 목록에 없다면 레퍼런스로 사용할 **프로젝트 파일(.osp)을 수동으로 선택**할 수도 있습니다. 한 번에 하나의 쉐이프만 레퍼런스가 될 수 있습니다.
 
-_NIF files can be loaded as references as well, but they don't have sliders, so they're usually not of any use for shape conversions._
+_NIF 파일도 레퍼런스로 불러올 수 있지만, 슬라이더가 없기 때문에 보통 형태 변환 용도로는 사용되지 않습니다._
 
-## The conversion reference you need doesn't exist?
-If there is no conversion reference that directly morphs from your source shape to the required target shape, then you can simply go through the process multiple times by converting **from shape A to B first**, and afterwards **from shape B to your target shape C**.
+## 필요한 변환 레퍼런스가 존재하지 않나요?
+원본 형태에서 목표로 하는 형태(Target shape)로 직접 변형해 주는 변환 레퍼런스가 없다면, 과정을 여러 번 거치면 됩니다. 먼저 **형태 A에서 B로 변환**한 다음, 이어서 **형태 B에서 최종 목표인 형태 C로 변환**하는 방식입니다.
 
-This effectively uses shape B as a bridge to get to what you need, no matter its shape.
+이 방법은 형태 B를 일종의 가교(Bridge)로 삼아 어떤 형태든 원하는 결과에 도달할 수 있게 해 줍니다.
 
-Examples of shape B as a bridge for conversion:
+가교로 형태 B를 사용하는 변환 예시:
 * A -> **B** -> C
 * C -> **B** -> A
 * B -> **B** -> D
 
-## Step-by-step example
-The following is a guide on how to **convert meshes from one shape to another** using a conversion reference.
+## 단계별 예제
+다음은 변환 레퍼런스를 사용하여 **메시를 한 형태에서 다른 형태로 변환**하는 가이드입니다.
 
-If you want to create a BodySlide conversion (with slider compatibility) as well, follow the guide for that after you're done with this one. The reason being that you need the outfit to **fit the base shape first** before you can add the sliders.
+슬라이더 호환성이 포함된 BodySlide용 변환 프로젝트도 만들고 싶다면, 이 과정을 마친 뒤 해당 가이드를 이어서 따라 하세요. 슬라이더를 추가하기 전에 먼저 의상이 **베이스 쉐이프(Base shape)에 맞게 제작**되어야 하기 때문입니다.
 
-1. Create a new project in Outfit Studio using the **New Project** button or menu item.  
+1. **New Project** 버튼이나 메뉴 항목을 사용하여 Outfit Studio에서 새 프로젝트를 만듭니다.  
 ![New Project](http://i.imgur.com/KxNNU2K.png)
 
-2. Select the **reference template** you need from the drop down list and click next.  
-_Example: "Vanilla to CBBE"_
+2. 드롭다운 목록에서 필요한 **레퍼런스 템플릿(Reference template)**을 선택하고 Next를 클릭합니다.  
+_예: "Vanilla to CBBE"_
 
     ![Template](http://i.imgur.com/RirpEsF.png)
 
-3. Choose the **file of the outfit/mesh** you want to convert and click next.
-_Example: "outfit.nif"_
+3. 변환하려는 **의상/메시 파일**을 선택하고 Next를 클릭합니다.  
+_예: "outfit.nif"_
 
-    **For Skyrim:** The high weight variants you need have the "_1" suffix attached to their file name. Other Bethesda games, such as Fallout 3 or Fallout 4, do not have weight variants.
+    **스카이림(Skyrim)의 경우:** 필요한 고체중(High weight) 변형 파일은 파일 이름 끝에 "_1"이 붙어 있습니다. 폴아웃 3나 폴아웃 4와 같은 다른 베데스다 게임들은 체중 변형 파일이 따로 없습니다.
 
     ![Template](http://i.imgur.com/GC8l0Ar.png)
 
-4. **Delete the duplicate body shape** that was loaded together with the outfit file, if there is one. To do this, select the shape and press the DEL key or right-click it and choose "Delete Shape". If you don't do this, you might have two exported body shapes in one file later on.
+4. 의상 파일과 함께 불러와진 **중복된 바디 쉐이프가 있다면 삭제**합니다. 해당 쉐이프를 선택하고 DEL 키를 누르거나 우클릭 후 "Delete Shape"를 선택하세요. 삭제하지 않으면 나중에 하나의 파일에 두 개의 바디 쉐이프가 익스포트될 수 있습니다.
 
-5. **Conform the outfit shapes** to the sliders of the conversion reference.  
-To do this, use the **Slider -> Conform All** menu item. It doesn't matter what shape you have selected here, as everything will be conformed.
+5. **의상 쉐이프들을 변환 레퍼런스의 슬라이더에 맞춰 컨폼**합니다.  
+**Slider -> Conform All** 메뉴 항목을 사용하세요. 모든 쉐이프가 컨폼되므로 현재 어떤 쉐이프가 선택되어 있는지는 중요하지 않습니다.
 
     [![Conform All](http://i.imgur.com/sf1FvMZm.png)](http://i.imgur.com/sf1FvMZ.png)
 
-6. Change the slider with the morph that you need **to 100%** and use the **Slider -> Set Base Shape** function. This will make the 100% value of the slider the **default shape of the mesh**. Any clipping here is normal and will be fixed later on!
+6. 필요한 변형이 적용된 슬라이더 값을 **100%로 변경**하고 **Slider -> Set Base Shape** 기능을 실행합니다. 이렇게 하면 슬라이더의 100% 상태가 **메시의 기본 형태(Default shape)**가 됩니다. 이때 발생하는 클리핑은 정상이므로 나중에 수정하면 됩니다!
 
-7. Use the **File -> Load Reference** menu item and select the template/project (or .nif file) of the target body/mesh you have been converting to. This will load the mesh you actually want to use in-game.  
-_Example: "CBBE Body" or "FemaleBody.nif"_
+7. **File -> Load Reference** 메뉴 항목을 사용해 변환 대상이었던 최종 바디/메시의 템플릿/프로젝트(또는 .nif 파일)를 선택합니다. 이렇게 하면 게임에서 실제로 사용하려는 메시를 불러오게 됩니다.  
+_예: "CBBE Body" 또는 "FemaleBody.nif"_
 
-8. Now you might have to **fix a bit of clipping** here and there using the brush tools that Outfit Studio provides. Select the shape of the outfit you want to adjust, fix the clipping and do whatever tweaks you like. This is **editing the base shapes** of the meshes, not any slider morphs.
+8. 이제 Outfit Studio에서 제공하는 브러시 도구들을 사용하여 여기저기 발생하는 **클리핑을 수정**해야 합니다. 조정하려는 의상 쉐이프를 선택하고 클리핑을 수정하거나 원하는 대로 세부 조정을 하세요. 이는 메시의 **베이스 쉐이프를 편집**하는 것이며, 슬라이더 모프를 편집하는 것이 아닙니다.
 
-    Read up on the [[brushes page|Brushes and Tools]] for more info about them.
+    브러시에 대한 자세한 내용은 [[브러시 페이지|Brushes]]를 참고하세요.
 
-9. Next up, you have to **copy the bone weights** from your reference to your outfit/mesh, so that it will move along correctly with animations in-game. To do that, **multi-select** all of the outfit shapes in the list and choose **Copy Bone Weights** after a right-click.
+9. 다음으로 레퍼런스로부터 의상/메시로 **본 웨이트를 복사**해야 게임 내에서 애니메이션에 맞춰 올바르게 움직이게 됩니다. 목록에서 모든 의상 쉐이프를 **다중 선택**하고 우클릭 후 **Copy Bone Weights**를 선택하세요.
 
     [![Copy Bone Weights](http://i.imgur.com/xlVgiZhm.png)](http://i.imgur.com/xlVgiZh.png)
 
-10. Export the finished conversion using **File -> Export -> To NIF With Reference**!
+10. **File -> Export -> To NIF With Reference**를 사용하여 변환이 완료된 결과물을 익스포트합니다!
 
-    **For Skyrim:** Replace the high weight variant of the outfit you converted with this file (**_1.nif**). Then, **repeat the entire process** with a different reference to target the low weight variant as well (**_0.nif**).
+    **스카이림의 경우:** 변환한 의상의 고체중 변형 파일(**_1.nif**)을 이 파일로 교체합니다. 그런 다음 다른 레퍼런스를 사용하여 **전체 과정을 반복**하여 저체중(Low weight) 변형 파일(**_0.nif**)도 만드세요.

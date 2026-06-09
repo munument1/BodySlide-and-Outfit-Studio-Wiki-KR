@@ -1,19 +1,19 @@
-## What are groups for?
-Groups in BodySlide are multiple project entries bundled together under one name. They can be used to **filter the outfit list** and/or choose which ones to use for a **batch build**.
+## 그룹(Groups)의 용도는 무엇인가요?
+BodySlide의 그룹은 여러 프로젝트 항목을 하나의 이름 아래 묶어놓은 것입니다. 그룹은 **의상 목록을 필터링**하거나 **배치 빌드(Batch build)**에 사용할 항목들을 선택하는 데 쓰입니다.
 
-Slider presets are saved to specific groups as well, so that they will appear only for those. For that reason, all bodies and outfits of a specific set of sliders need to be added to a **master group** that can be used for all presets. In the image below, this would be the **CBBE** group.
+슬라이더 프리셋 또한 특정 그룹에 저장되어 해당 그룹에서만 나타납니다. 따라서 특정 슬라이더 세트를 사용하는 모든 바디와 의상은 모든 프리셋에 공통으로 사용될 수 있는 **마스터 그룹(Master group)**에 추가되어야 합니다. 아래 이미지의 경우 **CBBE** 그룹이 마스터 그룹에 해당합니다.
 
-The group filter can be adjusted at the top of the BodySlide frame by clicking the magnifying glass icon and then **Choose Groups**. The result of the filter will show in the outfit and batch build list.
+그룹 필터는 BodySlide 창 상단의 돋보기 아이콘을 클릭한 뒤 **Choose Groups**를 선택하여 조정할 수 있습니다. 필터링 결과는 의상 목록과 배치 빌드 목록에 반영됩니다.
 
 ![Group Filter](http://i.imgur.com/3bmCcrP.png)
 
-## Creating and editing groups
-To **create new groups or edit existing ones**, open the group manager dialog with the button in the BodySlide frame. If you want to edit an existing group file, click the **browse** button and select the XML file it's stored in. To create a new group file, simply start adding groups and members in the manager window.
+## 그룹 생성 및 편집하기
+**새 그룹을 만들거나 기존 그룹을 편집**하려면 BodySlide 창에 있는 버튼을 눌러 그룹 매니저 대화 상자를 엽니다. 기존 그룹 파일을 편집하려면 **Browse** 버튼을 클릭하여 해당 데이터가 저장된 XML 파일을 선택하세요. 새 그룹 파일을 만들려면 매니저 창에서 그룹과 멤버를 추가하기 시작하면 됩니다.
 
-The panel in the top-left corner has a **list of all groups**. You can add new ones below by typing a group name into the text box and clicking the **Add Group** button. If you are adding an outfit to its own group for easier batch building, make sure to add it to the matching **master group for the body** as well, if one exists.
+왼쪽 상단 패널에는 **모든 그룹의 목록**이 표시됩니다. 텍스트 박스에 그룹 이름을 입력하고 **Add Group** 버튼을 클릭하여 아래에 새 그룹을 추가할 수 있습니다. 배치 빌드를 쉽게 하기 위해 의상을 전용 그룹에 추가하는 경우, 해당 바디에 맞는 **마스터 바디 그룹**이 있다면 그곳에도 함께 추가해야 합니다.
 
-To add a new member to a group, **select the group first** and the members you want to add to it afterwards from the big list to the right of the group manager. Then click the **Add** button below. The current members of the selected group are listed in the bottom-left corner.
+그룹에 새 멤버를 추가하려면, 먼저 **그룹을 선택**한 다음 오른쪽의 큰 목록에서 추가할 멤버들을 선택하세요. 그 후 아래의 **Add** 버튼을 클릭합니다. 선택한 그룹의 현재 멤버들은 왼쪽 하단 목록에 표시됩니다.
 
-BodySlide loads the group files from the **SliderGroups** folder, so that's where they should be saved to once you're done editing.
+BodySlide는 **SliderGroups** 폴더에서 그룹 파일들을 불러오므로, 편집을 마친 후에는 해당 폴더에 저장해야 합니다.
 
 ![Group Manager](http://i.imgur.com/Ot89mhI.png)

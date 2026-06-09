@@ -1,65 +1,65 @@
-# Managing Presets
+# 프리셋(Preset) 관리하기
 
-Presets are saved BodySlide slider settings. Instead of setting every slider by hand each time, you can choose a preset from the **Preset** dropdown and apply a saved body or outfit shape.
+프리셋은 저장된 BodySlide 슬라이더 설정값입니다. 매번 모든 슬라이더를 수동으로 설정하는 대신, **Preset** 드롭다운에서 프리셋을 선택하여 저장된 바디나 의상 형태를 적용할 수 있습니다.
 
-Preset files are XML files stored in the `SliderPresets` folder of your BodySlide installation or project path. A single XML file can contain one preset or several presets.
+프리셋 파일은 XML 형식이며 BodySlide 설치 경로 또는 프로젝트 경로의 `SliderPresets` 폴더에 저장됩니다. 하나의 XML 파일에는 하나 또는 여러 개의 프리셋이 포함될 수 있습니다.
 
-Presets do not contain meshes, textures, or a complete body mod. They only contain slider values, so they work correctly only with outfits and bodies that use the same or compatible sliders.
+프리셋에는 메시, 텍스처 또는 전체 바디 모드가 포함되지 않습니다. 오직 슬라이더 값만 포함되어 있으므로, 동일하거나 호환되는 슬라이더를 사용하는 의상 및 바디에서만 정상적으로 작동합니다.
 
-## How Presets Appear In BodySlide
+## BodySlide에서 프리셋이 표시되는 방식
 
-BodySlide does not show every installed preset for every outfit. The **Preset** dropdown is filtered by the currently selected **Outfit/Body**.
+BodySlide는 설치된 모든 프리셋을 모든 의상에 대해 표시하지 않습니다. **Preset** 드롭다운은 현재 선택된 **Outfit/Body**에 따라 필터링됩니다.
 
-Each outfit or body belongs to one or more groups, which are defined by XML files in the `SliderGroups` folder. Each preset is also assigned to one or more groups. A preset appears when it shares a group with the selected outfit or body.
+각 의상이나 바디는 하나 이상의 그룹에 속하며, 이는 `SliderGroups` 폴더의 XML 파일에 정의되어 있습니다. 각 프리셋 역시 하나 이상의 그룹에 할당됩니다. 프리셋은 선택된 의상이나 바디와 공유하는 그룹이 있을 때만 목록에 나타납니다.
 
-For example, a CBBE preset should usually be assigned to the broad `CBBE` group. Any CBBE outfit that also belongs to that group can then show the preset.
+예를 들어, CBBE 프리셋은 대개 광범위한 `CBBE` 그룹에 할당되어야 합니다. 해당 그룹에 속한 모든 CBBE 의상은 그 프리셋을 표시할 수 있게 됩니다.
 
-In most cases, do not assign a preset to every outfit mod group in the list. Assign the master body group instead. Add outfit-specific groups only when the preset is intentionally meant to appear only for those specific outfits.
+대부분의 경우, 목록에 있는 모든 의상 모드 그룹에 프리셋을 할당하지 마세요. 대신 마스터 바디 그룹을 할당하십시오. 프리셋이 특정 의상에서만 의도적으로 나타나게 하려는 경우에만 의상 전용 그룹을 추가하세요.
 
-If a preset is assigned only to an outfit mod group and not to the main body group, it may appear for that mod's outfits but disappear for other compatible outfits. This is one of the most common reasons users cannot find an installed preset.
+프리셋이 메인 바디 그룹이 아닌 특정 의상 모드 그룹에만 할당된 경우, 해당 모드의 의상에서는 나타나지만 다른 호환 의상에서는 사라질 수 있습니다. 이는 사용자가 설치된 프리셋을 찾지 못하는 가장 흔한 이유 중 하나입니다.
 
-The **Filter presets...** box only searches the presets that are already visible for the selected outfit or body. Clearing the preset filter will not show presets whose groups do not match.
+**Filter presets...** 상자는 선택된 의상이나 바디에 대해 이미 표시되고 있는 프리셋들 내에서만 검색합니다. 프리셋 필터를 지운다고 해서 그룹이 일치하지 않는 프리셋이 나타나지는 않습니다.
 
-The **Filter groups...** box and **Choose groups...** menu filter the **Outfit/Body** list. They do not directly assign groups to a preset, but they can affect which outfit or body is selected, which then changes which presets are visible.
+**Filter groups...** 상자와 **Choose groups...** 메뉴는 **Outfit/Body** 목록을 필터링합니다. 이들은 프리셋에 직접 그룹을 할당하지는 않지만, 어떤 의상이나 바디가 선택되는지에 영향을 주어 결과적으로 어떤 프리셋이 보일지를 결정하게 됩니다.
 
-## Creating A Preset
+## 프리셋 만들기
 
-1. Choose an **Outfit/Body** that uses the sliders you want to save.
-2. Set the sliders to the shape you want.
-3. Click **Save As...**.
-4. Enter a preset name.
-5. Select the groups that should use the preset.
-6. Click **Save**.
-7. In the file dialog, save the XML file in the `SliderPresets` folder.
+1. 저장하려는 슬라이더를 사용하는 **Outfit/Body**를 선택합니다.
+2. 슬라이더를 원하는 형태로 설정합니다.
+3. **Save As...**를 클릭합니다.
+4. 프리셋 이름을 입력합니다.
+5. 프리셋을 사용할 그룹들을 선택합니다.
+6. **Save**를 클릭합니다.
+7. 파일 대화 상자에서 XML 파일을 `SliderPresets` 폴더에 저장합니다.
 
-When choosing groups, select the broad body group in normal cases. For example, a preset made for CBBE bodies and outfits usually needs the `CBBE` group, not every individual outfit group.
+그룹을 선택할 때는 일반적인 경우 광범위한 바디 그룹을 선택하세요. 예를 들어, CBBE 바디와 의상을 위해 만든 프리셋은 개별 의상 그룹이 아니라 보통 `CBBE` 그룹이 필요합니다.
 
-If you save to an existing preset XML file, BodySlide adds the new preset to that file. If the file already contains a preset with the same name, BodySlide replaces that preset in the file and keeps the other presets in the file.
+기존 프리셋 XML 파일에 저장하면 BodySlide는 해당 파일에 새 프리셋을 추가합니다. 파일에 이미 같은 이름의 프리셋이 있다면, BodySlide는 해당 프리셋을 교체하고 파일 내의 다른 프리셋들은 유지합니다.
 
-## Editing Slider Values
+## 슬라이더 값 편집하기
 
-To update the slider values of an existing preset:
+기존 프리셋의 슬라이더 값을 업데이트하려면:
 
-1. Select an **Outfit/Body** where the preset appears.
-2. Select the preset from the **Preset** dropdown.
-3. Adjust the sliders.
-4. Click **Save**.
+1. 해당 프리셋이 나타나는 **Outfit/Body**를 선택합니다.
+2. **Preset** 드롭다운에서 프리셋을 선택합니다.
+3. 슬라이더를 조정합니다.
+4. **Save**를 클릭합니다.
 
-The **Save** button updates the selected preset in its XML file. There is no confirmation step and BodySlide does not create a backup of the old slider values. If you are editing a downloaded preset or a preset you may want to restore later, make a copy of the XML file first.
+**Save** 버튼은 XML 파일 내의 선택된 프리셋을 업데이트합니다. 확인 단계가 없으며 BodySlide는 이전 슬라이더 값의 백업을 생성하지 않습니다. 다운로드한 프리셋이나 나중에 복원하고 싶을 수 있는 프리셋을 편집하는 경우, 먼저 XML 파일의 복사본을 만들어 두세요.
 
-## Editing Preset Groups
+## 프리셋 그룹 편집하기
 
-To change which groups a preset is assigned to:
+프리셋이 할당된 그룹을 변경하려면:
 
-1. Select an **Outfit/Body** where the preset appears.
-2. Select the preset from the **Preset** dropdown.
-3. Click the edit button next to the preset controls.
-4. Check or uncheck the groups for the preset.
-5. Click **Save**.
+1. 해당 프리셋이 나타나는 **Outfit/Body**를 선택합니다.
+2. **Preset** 드롭다운에서 프리셋을 선택합니다.
+3. 프리셋 컨트롤 옆의 편집 버튼을 클릭합니다.
+4. 프리셋에 사용할 그룹을 체크하거나 체크 해제합니다.
+5. **Save**를 클릭합니다.
 
-This updates the selected preset in its existing XML file.
+이렇게 하면 기존 XML 파일 내의 선택된 프리셋이 업데이트됩니다.
 
-If the preset does not appear anywhere useful, you can inspect or edit the XML file manually. The group assignments are near the start of each preset entry:
+프리셋이 유용한 곳에 전혀 나타나지 않는다면, XML 파일을 수동으로 검사하거나 편집할 수 있습니다. 그룹 할당 정보는 각 프리셋 항목의 시작 부분 근처에 있습니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -72,54 +72,54 @@ If the preset does not appear anywhere useful, you can inspect or edit the XML f
 </SliderPresets>
 ```
 
-In this example, the preset is assigned to the `CBBE` group. Group names must match the BodySlide group name exactly.
+이 예제에서 프리셋은 `CBBE` 그룹에 할당되어 있습니다. 그룹 이름은 BodySlide 그룹 이름과 정확히 일치해야 합니다.
 
-The `set` attribute is the outfit or body that was selected when the preset was saved. It can help a preset appear for that exact slider set, but groups are the normal way to make a preset available across compatible outfits.
+`set` 속성은 프리셋이 저장될 때 선택되어 있던 의상이나 바디입니다. 이는 프리셋이 해당 특정 슬라이더 세트에서 나타나도록 도와줄 수 있지만, 호환되는 의상 전반에서 프리셋을 사용할 수 있게 만드는 일반적인 방법은 그룹(Groups)입니다.
 
-Adding a group can make a preset appear for more outfits, but it does not convert the preset to another body type. If the target body uses different slider names or different slider behavior, the preset may not work correctly even if it appears in the dropdown.
+그룹을 추가하면 더 많은 의상에서 프리셋이 나타나게 할 수 있지만, 프리셋을 다른 바디 타입으로 변환해 주지는 않습니다. 대상 바디가 다른 슬라이더 이름을 사용하거나 슬라이더 동작이 다르다면, 드롭다운에 프리셋이 나타나더라도 제대로 작동하지 않을 수 있습니다.
 
-## Deleting A Preset
+## 프리셋 삭제하기
 
-To delete a preset, select it in the **Preset** dropdown and click the delete button next to the preset controls. BodySlide asks for confirmation, then removes that preset entry from its XML file.
+프리셋을 삭제하려면 **Preset** 드롭다운에서 해당 프리셋을 선택하고 프리셋 컨트롤 옆의 삭제 버튼을 클릭합니다. BodySlide가 확인을 요청한 뒤 XML 파일에서 해당 프리셋 항목을 제거합니다.
 
-If the XML file contains multiple presets, deleting one preset does not remove the other presets from that file.
+XML 파일에 여러 프리셋이 포함되어 있는 경우, 하나를 삭제해도 파일 내의 다른 프리셋들은 제거되지 않습니다.
 
-## Troubleshooting
+## 문제 해결
 
-### The Preset Does Not Appear
+### 프리셋이 나타나지 않음
 
-Check these common causes:
+다음과 같은 일반적인 원인들을 확인해 보세요:
 
-1. Make sure the preset XML file is installed in the `SliderPresets` folder for the BodySlide setup you are using.
-2. Select an outfit or body that uses the same body type as the preset.
-3. Clear the **Filter presets...** box.
-4. Check whether the selected outfit or body belongs to the group assigned to the preset.
-5. Open the preset XML file and confirm that the preset has the correct master body group, such as `CBBE` for CBBE presets.
-6. Avoid duplicate preset names across different XML files. Duplicate names can make it unclear which preset BodySlide is loading.
+1. 프리셋 XML 파일이 사용 중인 BodySlide 설정의 `SliderPresets` 폴더에 설치되어 있는지 확인하세요.
+2. 프리셋과 동일한 바디 타입을 사용하는 의상이나 바디를 선택하세요.
+3. **Filter presets...** 상자를 비워 보세요.
+4. 선택된 의상이나 바디가 프리셋에 할당된 그룹에 속해 있는지 확인하세요.
+5. 프리셋 XML 파일을 열어 CBBE 프리셋의 경우 `CBBE`와 같이 올바른 마스터 바디 그룹이 설정되어 있는지 확인하세요.
+6. 서로 다른 XML 파일 간에 프리셋 이름이 중복되지 않도록 하세요. 이름이 중복되면 BodySlide가 어떤 프리셋을 불러오는지 불분명해질 수 있습니다.
 
-If a preset XML contains only outfit-specific groups, add the appropriate master body group by using the preset group editor or by carefully editing the XML file.
+프리셋 XML에 의상 전용 그룹만 포함되어 있다면, 프리셋 그룹 편집기를 사용하거나 XML 파일을 주의 깊게 편집하여 적절한 마스터 바디 그룹을 추가하세요.
 
-### The Preset Appears For The Wrong Outfits
+### 프리셋이 엉뚱한 의상에서 나타남
 
-The preset is probably assigned to too many groups or to a group that contains those outfits. Edit the preset's group assignments and keep only the groups that should use it.
+프리셋이 너무 많은 그룹에 할당되어 있거나 해당 의상들이 포함된 그룹에 할당되어 있을 가능성이 큽니다. 프리셋의 그룹 할당을 편집하여 사용해야 할 그룹만 남겨두세요.
 
-For shared body presets, this usually means keeping the master body group and removing unrelated outfit-specific groups.
+공유된 바디 프리셋의 경우, 보통 마스터 바디 그룹만 남기고 관련 없는 의상 전용 그룹은 제거하는 것을 의미합니다.
 
-### The Preset Appears But Does Not Change Some Sliders
+### 프리셋이 나타나지만 일부 슬라이더가 변하지 않음
 
-Presets only store sliders that existed and had saved values when the preset was created. If the selected outfit or body uses different slider names, missing sliders, or a different body mod, some values may not apply.
+프리셋은 프리셋이 생성될 당시 존재했고 저장된 값이 있는 슬라이더만 저장합니다. 선택된 의상이나 바디가 다른 슬라이더 이름을 사용하거나, 슬라이더가 없거나, 다른 바디 모드를 사용하는 경우 일부 값이 적용되지 않을 수 있습니다.
 
-Use a preset made for the same body and slider set whenever possible.
+가능한 한 동일한 바디와 슬라이더 세트를 위해 만들어진 프리셋을 사용하세요.
 
-## Sharing Presets
+## 프리셋 공유하기
 
-When sharing a preset with other users:
+다른 사용자들과 프리셋을 공유할 때:
 
-1. Put the preset XML file in the `SliderPresets` folder structure expected by BodySlide mod managers.
-2. Assign the preset to the broad body group it was made for.
-3. Do not assign every outfit group unless the preset is intentionally limited to those outfits.
-4. Use a unique preset name.
-5. Tell users which body mod and sliders the preset requires.
-6. If the XML file contains multiple presets, list the included preset names.
+1. 프리셋 XML 파일을 BodySlide 모드 매니저가 예상하는 `SliderPresets` 폴더 구조에 넣으세요.
+2. 프리셋을 해당 프리셋이 제작된 목적에 맞는 광범위한 바디 그룹에 할당하세요.
+3. 프리셋을 의도적으로 해당 의상들로만 제한하려는 것이 아니라면 모든 의상 그룹을 일일이 할당하지 마세요.
+4. 고유한 프리셋 이름을 사용하세요.
+5. 사용자들에게 프리셋에 필요한 바디 모드와 슬라이더가 무엇인지 알려주세요.
+6. XML 파일에 여러 프리셋이 포함되어 있다면 포함된 프리셋 이름들을 나열해 주세요.
 
-Good group assignments make presets easier to find and reduce confusion for users building outfits from many different mods.
+좋은 그룹 할당은 프리셋을 찾기 쉽게 만들고, 다양한 모드로부터 의상을 빌드하는 사용자들의 혼란을 줄여줍니다.

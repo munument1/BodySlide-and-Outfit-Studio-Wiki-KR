@@ -1,62 +1,62 @@
 ## BodySlide
-### Building
-* Hold **CTRL** while clicking the Build button to build to the current working directory.
-* Hold **CTRL** while clicking the Batch Build button to select a target directory.
-* Hold **ALT** while clicking the Build button to delete the target files.
-* Hold **ALT** while clicking the Batch Build button to delete all target files of the batch.
-* You can de-/select all sets in the batch build window with a right-click.
+### 빌드 (Building)
+* Build 버튼을 클릭할 때 **CTRL** 키를 누르고 있으면 현재 작업 디렉터리에 빌드합니다.
+* Batch Build 버튼을 클릭할 때 **CTRL** 키를 누르고 있으면 대상 디렉터리를 선택할 수 있습니다.
+* Build 버튼을 클릭할 때 **ALT** 키를 누르고 있으면 대상 파일들을 삭제합니다.
+* Batch Build 버튼을 클릭할 때 **ALT** 키를 누르고 있으면 배치의 모든 대상 파일들을 삭제합니다.
+* 배치 빌드 창에서 우클릭으로 모든 세트를 선택하거나 선택 해제할 수 있습니다.
 
-### Rendering
-* Press **W** to toggle the wireframe mode.
-* Press **T** to toggle texture rendering.
-* Press **L** to toggle the lighting.
+### 렌더링 (Rendering)
+* **W** 키를 눌러 와이어프레임(Wireframe) 모드를 켭니다/끕니다.
+* **T** 키를 눌러 텍스처 렌더링을 켭니다/끕니다.
+* **L** 키를 눌러 조명(Lighting)을 켭니다/끕니다.
 
 ## Outfit Studio
-### Projects
-* Press **CTRL+N** to show the New Project dialog.
-* Press **CTRL+O** to show the Load Project file selection.
-* Press **CTRL+W** to unload the current project.
-* Press **CTRL+S** to save a project.
-* Press **CTRL+Shift+S** to show the Save Project As dialog.
-* Press **CTRL+Shift+A** to open the Automation dialog.
+### 프로젝트 (Projects)
+* **CTRL+N**: 새 프로젝트(New Project) 대화 상자를 엽니다.
+* **CTRL+O**: 프로젝트 불러오기(Load Project) 파일 선택창을 엽니다.
+* **CTRL+W**: 현재 프로젝트를 닫습니다.
+* **CTRL+S**: 프로젝트를 저장합니다.
+* **CTRL+Shift+S**: 다른 이름으로 프로젝트 저장(Save Project As) 대화 상자를 엽니다.
+* **CTRL+Shift+A**: 자동화(Automation) 대화 상자를 엽니다.
 
-### Files
-* Press **CTRL+E** to export a NIF file.
-* Press **CTRL+ALT+E** to export a NIF file including the reference.
+### 파일 (Files)
+* **CTRL+E**: NIF 파일을 익스포트합니다.
+* **CTRL+ALT+E**: 레퍼런스를 포함하여 NIF 파일을 익스포트합니다.
 
-### Shapes
-* Press **Del** to delete the currently selected shape(s).
-* Press **F2** to rename the currently selected shape.
+### 쉐이프 (Shapes)
+* **Del**: 현재 선택된 쉐이프를 삭제합니다.
+* **F2**: 현재 선택된 쉐이프의 이름을 바꿉니다.
 
-### Sliders
-* Press **Tab** to show the properties of the slider in edit mode.
-* Press **CTRL+Del** to delete the active slider.
-* Hold **CTRL** and use the mouse wheel to toggle edit mode of the next or previous slider.
+### 슬라이더 (Sliders)
+* **Tab**: 편집 모드인 슬라이더의 속성(Properties)을 표시합니다.
+* **CTRL+Del**: 활성화된 슬라이더를 삭제합니다.
+* **CTRL** 키를 누른 채 마우스 휠을 굴려 다음 또는 이전 슬라이더의 편집 모드를 전환합니다.
 
-### Brushing
-* Press **0-6** to select a different brush.
-* Hold **S** and use the mouse wheel to quickly adjust the brush size.
-* Hold **CTRL** to paint the mask with any brush selected.
-* Hold **CTRL+ALT** to erase the mask with any brush selected.
-* Press **CTRL+A** to clear the mask.
-* Press **CTRL+I** to invert the mask.
-* Press **CTRL+Z** to undo the last brush stroke.
-* Press **CTRL+Y** to redo the last brush stroke.
+### 브러시 작업 (Brushing)
+* **0-6**: 다른 브러시를 선택합니다.
+* **S** 키를 누른 채 마우스 휠을 굴려 브러시 크기를 빠르게 조절합니다.
+* 어떤 브러시가 선택되어 있든 **CTRL** 키를 누르면 마스크를 칠합니다.
+* 어떤 브러시가 선택되어 있든 **CTRL+ALT** 키를 누르면 마스크를 지웁니다.
+* **CTRL+A**: 마스크를 모두 지웁니다.
+* **CTRL+I**: 마스크를 반전시킵니다.
+* **CTRL+Z**: 마지막 브러시 획을 실행 취소합니다.
+* **CTRL+Y**: 마지막 브러시 획을 다시 실행합니다.
 
-### Editing
-* Press **X** to toggle the X-Mirror.
-* Press **C** to toggle the Edit Connected Only mode.
-* Press **B** to toggle the Global Brush Collision for multiple shapes.
-* Press **Q** to toggle the vertex selection mode.
-* Press **F** to toggle the transform tool.
-* Press **V** to pick the hovered vertex color when you are in the **Colors** tab.
-* Press **V** to open the Move Vertex dialog for the hovered vertex in other tabs.
-* Hold **Shift** while splitting an edge to disable curvature/smoothing.
+### 편집 (Editing)
+* **X**: X축 반전(X-Mirror)을 켭니다/끕니다.
+* **C**: 연결된 부분만 편집(Edit Connected Only) 모드를 켭니다/끕니다.
+* **B**: 여러 쉐이프에 대한 전역 브러시 충돌(Global Brush Collision)을 켭니다/끕니다.
+* **Q**: 정점 선택(Vertex selection) 모드를 켭니다/끕니다.
+* **F**: 트랜스폼 도구(Transform tool)를 켭니다/끕니다.
+* **Colors 탭**에서 **V** 키를 누르면 호버링 중인 정점의 컬러를 추출합니다.
+* 다른 탭에서 **V** 키를 누르면 호버링 중인 정점에 대해 정점 이동(Move Vertex) 대화 상자를 엽니다.
+* 엣지(Edge)를 분할할 때 **Shift** 키를 누르면 곡률/스무딩을 비활성화합니다.
 
-### Rendering
-* Press **W** to toggle the wireframe mode.
-* Press **T** to toggle texture rendering.
-* Press **L** to toggle the lighting.
-* Press **G** to toggle the visibility mode of the selected shape(s).
-* Press **Shift+1/2/3/4** to change the view to Front/Back/Left/Right.
-* Press **Shift+5** to toggle the perspective mode.
+### 렌더링 (Rendering)
+* **W**: 와이어프레임 모드를 켭니다/끕니다.
+* **T**: 텍스처 렌더링을 켭니다/끕니다.
+* **L**: 조명을 켭니다/끕니다.
+* **G**: 선택된 쉐이프의 가시성 모드를 전환합니다.
+* **Shift+1/2/3/4**: 뷰를 정면/후면/왼쪽/오른쪽으로 변경합니다.
+* **Shift+5**: 투영(Perspective) 모드를 켭니다/끕니다.

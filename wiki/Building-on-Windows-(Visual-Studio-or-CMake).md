@@ -1,48 +1,48 @@
-# Building BodySlide and Outfit Studio on Windows
+# Windows에서 BodySlide와 Outfit Studio 빌드하기
 
-This page is for developers building BodySlide and Outfit Studio from source on Windows. For Linux, see [Building on Linux](https://github.com/ousnius/BodySlide-and-Outfit-Studio/wiki/Building-on-Linux).
+이 페이지는 Windows에서 소스 코드를 통해 BodySlide와 Outfit Studio를 직접 빌드하려는 개발자를 위한 문서입니다. Linux의 경우 [Linux에서 빌드하기](Building-on-Linux.md) 문서를 참고하세요.
 
-## Recommended toolchain
+## 권장 툴체인 (Toolchain)
 
-The actively exercised Windows CI configuration currently uses:
+현재 활발히 사용되는 Windows CI 설정은 다음과 같습니다:
 
-- Visual Studio 18 2026 on `x64`
-- CMake 3.16 or newer
-- `vcpkg` for third-party dependencies
-- Static runtime and static wxWidgets packages
+- Visual Studio 18 2026 (`x64`)
+- CMake 3.16 이상
+- 서드파티 의존성 관리를 위한 `vcpkg`
+- 정적 런타임(Static runtime) 및 정적 wxWidgets 패키지
 
-Earlier MSVC versions may still work, but the configuration above is what the project currently builds and tests in CI.
+이전 버전의 MSVC도 작동할 수 있지만, 위 설정이 현재 프로젝트가 CI에서 빌드하고 테스트하는 환경입니다.
 
-## Preferred: CMake + vcpkg
+## 권장 방법: CMake + vcpkg
 
-This is the easiest way to match the current Windows CI setup.
+현재 Windows CI 설정과 동일하게 맞추는 가장 쉬운 방법입니다.
 
-### Prerequisites
+### 사전 준비 사항
 
-- Visual Studio with C++ desktop development tools installed
-- CMake 3.16 or newer
+- C++ 데스크톱 개발 도구가 설치된 Visual Studio
+- CMake 3.16 이상
 - Git
 
-### Bootstrap vcpkg
+### vcpkg 부트스트랩 (Bootstrap)
 
 ```powershell
 git clone https://github.com/microsoft/vcpkg.git
 .\vcpkg\bootstrap-vcpkg.bat -disableMetrics
 ```
 
-### Install dependencies
+### 의존성 패키지 설치
 
-Use the same packages as CI:
+CI와 동일한 패키지들을 설치합니다:
 
 ```powershell
 .\vcpkg\vcpkg.exe install wxwidgets[debug-support]:x64-windows-static catch2:x64-windows-static
 ```
 
-With this setup you do **not** need to manually copy OpenGL headers into the Windows SDK.
+이 설정을 사용하면 OpenGL 헤더를 Windows SDK에 수동으로 복사할 필요가 **없습니다**.
 
-### Configure the project
+### 프로젝트 구성 (Configure)
 
-From the repository root:
+저장소 루트 디렉터리에서 다음을 실행합니다:
 
 ```powershell
 $toolchain = "C:\path\to\vcpkg\scripts\buildsystems\vcpkg.cmake"
@@ -55,45 +55,45 @@ cmake -S . -B build\windows-x64-relwithdebinfo `
   -DBSOS_ENABLE_FBXSDK=OFF
 ```
 
-Useful optional flags:
+유용한 선택적 플래그:
 
-- `-DBSOS_BUILD_TESTS=ON` to build the Catch2 test target
-- `-DBSOS_ENABLE_FBXSDK=OFF` to disable Autodesk FBX SDK integration explicitly
+- Catch2 테스트 타겟을 빌드하려면 `-DBSOS_BUILD_TESTS=ON` 추가
+- Autodesk FBX SDK 통합을 명시적으로 비활성화하려면 `-DBSOS_ENABLE_FBXSDK=OFF` 추가
 
-The project defaults to a static MSVC runtime when `CMAKE_MSVC_RUNTIME_LIBRARY` is not set.
+`CMAKE_MSVC_RUNTIME_LIBRARY`가 설정되지 않은 경우, 프로젝트는 기본적으로 정적 MSVC 런타임을 사용합니다.
 
-### Build
+### 빌드 (Build)
 
 ```powershell
 cmake --build build\windows-x64-relwithdebinfo --config RelWithDebInfo --target BodySlide OutfitStudio --parallel
 ```
 
-If you enabled tests:
+테스트를 활성화한 경우:
 
 ```powershell
 cmake --build build\windows-x64-relwithdebinfo --config RelWithDebInfo --target BSOSTests --parallel
 ctest --test-dir build\windows-x64-relwithdebinfo -C RelWithDebInfo --output-on-failure
 ```
 
-For a fuller overview of the `BSOSTests` target and optional fixture setup, see [Running Tests](https://github.com/ousnius/BodySlide-and-Outfit-Studio/wiki/Running-Tests).
+`BSOSTests` 타겟 및 선택적 픽스처(fixture) 설정에 대한 자세한 내용은 [테스트 실행](Running-Tests.md) 문서를 참고하세요.
 
-## Using Visual Studio after CMake configure
+## CMake 구성 후 Visual Studio 사용하기
 
-If you prefer the Visual Studio IDE, configure the project with CMake first and then open the generated solution from the build directory.
+Visual Studio IDE 사용을 선호한다면, 먼저 CMake로 프로젝트를 구성한 다음 빌드 디렉터리에 생성된 솔루션 파일을 엽니다.
 
-For example, after the configure step above, open the generated solution in:
+예를 들어 위 구성을 마친 후, 다음 위치의 솔루션 파일을 엽니다:
 
 ```text
 build\windows-x64-relwithdebinfo\BSOS.slnx
 ```
 
-You can then build `BodySlide`, `OutfitStudio`, and optionally `BSOSTests` from Visual Studio.
+그다음 Visual Studio에서 `BodySlide`, `OutfitStudio`, 그리고 선택적으로 `BSOSTests`를 빌드할 수 있습니다.
 
-## Alternative: existing wxWidgets installation
+## 대안: 기존 wxWidgets 설치본 사용하기
 
-If you are **not** using `vcpkg`, CMake can also consume an existing wxWidgets build or installation.
+`vcpkg`를 사용하지 **않는** 경우, CMake는 기존에 빌드되거나 설치된 wxWidgets를 사용할 수 있습니다.
 
-Configure CMake with the wxWidgets root directory:
+wxWidgets 루트 디렉터리를 지정하여 CMake를 구성합니다:
 
 ```powershell
 cmake -S . -B build\windows-x64-relwithdebinfo `
@@ -102,40 +102,40 @@ cmake -S . -B build\windows-x64-relwithdebinfo `
   -DwxWidgets_ROOT_DIR="C:\path\to\wxWidgets"
 ```
 
-On Windows, the CMake project will automatically derive `wxWidgets_LIB_DIR` from `wxWidgets_ROOT_DIR` when needed.
+Windows의 경우, 필요한 경우 CMake 프로젝트가 `wxWidgets_ROOT_DIR`로부터 `wxWidgets_LIB_DIR`을 자동으로 도출합니다.
 
-If you maintain wxWidgets manually, make sure:
+wxWidgets를 수동으로 관리하는 경우 다음 사항을 확인하세요:
 
-- the compiler matches the one used for BodySlide and Outfit Studio
-- the architecture matches your target (`x64` vs `Win32`)
-- the build configuration is compatible with the runtime you expect to use
+- 컴파일러가 BodySlide 및 Outfit Studio와 빌드 시 사용한 것과 일치해야 함
+- 아키텍처가 타겟(`x64` 또는 `Win32`)과 일치해야 함
+- 빌드 구성이 사용하려는 런타임과 호환되어야 함
 
-`vcpkg` is still the preferred path because it avoids most manual wxWidgets and OpenGL setup issues.
+대부분의 수동 wxWidgets 및 OpenGL 설정 문제를 피할 수 있으므로 `vcpkg` 사용을 여전히 권장합니다.
 
-## FBX SDK support
+## FBX SDK 지원
 
-FBX support is optional and only affects Outfit Studio's FBX import/export features.
+FBX 지원은 선택 사항이며 Outfit Studio의 FBX 임포트/익스포트 기능에만 영향을 줍니다.
 
-Current CI builds disable it with `-DBSOS_ENABLE_FBXSDK=OFF`.
+현재 CI 빌드에서는 `-DBSOS_ENABLE_FBXSDK=OFF`를 사용하여 비활성화하고 있습니다.
 
-If you want FBX support locally, install the [Autodesk FBX SDK](https://aps.autodesk.com/developer/overview/fbx-sdk) and point CMake to it with one of these:
+로컬에서 FBX 지원이 필요하다면 [Autodesk FBX SDK](https://aps.autodesk.com/developer/overview/fbx-sdk)를 설치하고 다음 중 하나를 사용하여 CMake에 경로를 지정하세요:
 
 - `-DBSOS_FBXSDK_ROOT=C:\path\to\fbxsdk`
 - `-Dfbxsdk_dir=C:\path\to\fbxsdk`
-- `FBXSDK_ROOT` environment variable
+- `FBXSDK_ROOT` 환경 변수
 
-If the SDK is not found, disable FBX support explicitly and continue the build without it.
+SDK를 찾을 수 없다면 FBX 지원을 명시적으로 비활성화하고 빌드를 계속 진행하세요.
 
-## Build outputs and local packaging
+## 빌드 출력물 및 로컬 패키징
 
-At minimum, a usable local build needs:
+최소한 다음 파일들이 있어야 로컬에서 빌드한 결과물을 사용할 수 있습니다:
 
 - `BodySlide.exe`
 - `OutfitStudio.exe`
 - `res\`
 - `lang\`
 
-For packaged builds, also include the XML/config files that ship with the app, such as:
+패키징된 빌드의 경우 프로그램과 함께 제공되는 다음과 같은 XML/구성 파일들도 포함하세요:
 
 - `BodySlide.xml`
 - `BuildSelection.xml`
@@ -143,18 +143,18 @@ For packaged builds, also include the XML/config files that ship with the app, s
 - `OutfitStudio.xml`
 - `RefTemplates.xml`
 
-The Windows CI package also creates empty content folders such as `SliderSets`, `Automations`, `PoseData`, `RefTemplates`, `ShapeData`, `SliderCategories`, `SliderGroups`, and `SliderPresets`.
+Windows CI 패키지는 `SliderSets`, `Automations`, `PoseData`, `RefTemplates`, `ShapeData`, `SliderCategories`, `SliderGroups`, `SliderPresets`와 같은 빈 콘텐츠 폴더들도 함께 생성합니다.
 
-## Troubleshooting
+## 문제 해결
 
-### CMake cannot find wxWidgets
+### CMake가 wxWidgets를 찾지 못함
 
-Use the `vcpkg` toolchain file, or provide `wxWidgets_ROOT_DIR` when using a manual installation.
+`vcpkg` 툴체인 파일을 사용하거나, 수동 설치본을 사용하는 경우 `wxWidgets_ROOT_DIR`을 제공하세요.
 
-### CMake cannot find the FBX SDK
+### CMake가 FBX SDK를 찾지 못함
 
-Either point CMake at the SDK with `BSOS_FBXSDK_ROOT` or disable FBX support with `-DBSOS_ENABLE_FBXSDK=OFF`.
+`BSOS_FBXSDK_ROOT`로 SDK 경로를 지정하거나 `-DBSOS_ENABLE_FBXSDK=OFF`로 FBX 지원을 비활성화하세요.
 
-### Tests fail to configure on Windows
+### Windows에서 테스트 구성(configure)이 실패함
 
-Make sure `Catch2` is installed for the same triplet as the rest of the build, for example `x64-windows-static` when following the CI-style setup.
+빌드의 나머지 부분과 동일한 트리플렛(triplet)으로 `Catch2`가 설치되었는지 확인하세요. 예를 들어 CI 스타일 설정을 따르는 경우 `x64-windows-static`이어야 합니다.

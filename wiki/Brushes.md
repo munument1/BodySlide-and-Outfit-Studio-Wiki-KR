@@ -1,61 +1,61 @@
-## What are the brushes for?
-Outfit Studio provides you with multiple brush tools that can be activated in the toolbar or menu bar. They can be used to **modify the meshes** of a project in all kinds of ways.
+## 브러시의 용도는 무엇인가요?
+Outfit Studio는 툴바나 메뉴 바에서 활성화할 수 있는 여러 가지 브러시 도구를 제공합니다. 이 도구들을 사용하면 프로젝트의 **메시를 온갖 방법으로 수정**할 수 있습니다.
 
-Most of them change their behavior while you hold down a **modifier key**, such as CTRL, ALT or SHIFT. You can **undo and redo** the changes with the CTRL+Z and CTRL+Y shortcuts.
+대부분의 브러시는 CTRL, ALT 또는 SHIFT와 같은 **수정 키(Modifier key)**를 누른 채로 사용하면 동작이 달라집니다. CTRL+Z와 CTRL+Y 단축키를 사용하여 변경 사항을 **실행 취소 및 다시 실행**할 수 있습니다.
 
 ![Brush](http://i.imgur.com/x9hrFQn.png)
 
-## Brush Settings
-You can **expand the settings panel** for brushes by clicking on **Brush Settings** at the top of the Outfit Studio frame. In here you can change the size of the brush circle, the strength and focus of the effect, and the spacing between brush actions.
+## 브러시 설정
+Outfit Studio 창 상단의 **Brush Settings**를 클릭하면 브러시 **설정 패널을 확장**할 수 있습니다. 여기에서 브러시 원의 크기, 효과의 강도와 초점(Focus), 그리고 브러시 동작 사이의 간격(Spacing)을 변경할 수 있습니다.
 
-The focus is a **falloff for the brush stroke** from the center to the border of the circle. A higher focus means that the outer areas of the brush circle are affected stronger.
+초점(Focus)은 원의 중심에서 가장자리로 갈수록 적용되는 **브러시 획의 감쇠(Falloff)** 정도를 의미합니다. 초점 값이 높을수록 브러시 원의 바깥쪽 영역까지 더 강하게 영향을 미칩니다.
 
-The spacing is the **amount you have to drag the mouse** for the next brush action to happen. The higher the spacing, the fewer times the brush will update as you stroke.
+간격(Spacing)은 다음 브러시 동작이 일어나기 위해 **마우스를 드래그해야 하는 양**입니다. 간격이 높을수록 획을 긋는 동안 브러시가 업데이트되는 횟수가 줄어듭니다.
 
 ![Brush Settings](http://i.imgur.com/fvrGByZ.png)
 
-## Overview
-#### ![Select](http://i.imgur.com/PnMwovk.png) Select Tool (0)
-With this tool, you can simply click on a single shape in the viewport and it will **become the selection** for brushing and other actions.
+## 브러시 개요
+#### ![Select](http://i.imgur.com/PnMwovk.png) 선택 도구 (0)
+이 도구를 사용하면 뷰포트에서 단일 쉐이프를 클릭하여 브러시 작업이나 기타 동작을 위한 **선택 항목으로 지정**할 수 있습니다.
 
-#### ![Mask](http://i.imgur.com/vktbaTu.png) Mask Brush (1)
-This brush allows you to **mask and unmask** certain parts of meshes. Hold down the ALT key to remove the mask by brushing.
+#### ![Mask](http://i.imgur.com/vktbaTu.png) 마스크 브러시 (1)
+이 브러시를 사용하면 메시의 특정 부분을 **마스크 처리하거나 해제**할 수 있습니다. ALT 키를 누른 채로 문지르면 마스크가 제거됩니다.
 
-You can also hold down the CTRL key while any of the other brushes are active to paint a mask without switching to the mask brush specifically.
+다른 브러시가 활성화된 상태에서 CTRL 키를 누르고 있으면 마스크 브러시로 직접 전환하지 않고도 마스크를 칠할 수 있습니다.
 
-Masked parts **can't be edited** with brushes or any of the other actions, and bone weights or slider data **won't be copied** to the masked area.
+마스크가 칠해진 부분은 브러시나 다른 동작으로 **편집할 수 없으며**, 본 웨이트나 슬라이더 데이터도 마스크 영역에는 **복사되지 않습니다**.
 
-#### ![Inflate](http://i.imgur.com/38zarFZ.png) Inflate Brush (2)
-Using the inflate brush pushes the vertices **towards the camera**, along the normal direction of the vertex under the mouse cursor. This is the brush used most often for **fixing clipping**. Hold down the ALT key to deflate instead.
+#### ![Inflate](http://i.imgur.com/38zarFZ.png) 팽창(Inflate) 브러시 (2)
+팽창 브러시를 사용하면 정점을 마우스 커서 아래에 있는 정점의 법선 방향을 따라 **카메라 쪽으로** 밀어냅니다. 이 브러시는 **클리핑을 수정**할 때 가장 자주 사용됩니다. ALT 키를 누르면 반대로 수축(Deflate)시킵니다.
 
-#### ![Deflate](http://i.imgur.com/Zw3NA2b.png) Deflate Brush (3)
-The deflate brush does the exact opposite of the inflate brush. It pushes the vertices **away from the camera**, along the normal direction of the vertex under the mouse cursor.
+#### ![Deflate](http://i.imgur.com/Zw3NA2b.png) 수축(Deflate) 브러시 (3)
+수축 브러시는 팽창 브러시와 정확히 반대되는 동작을 합니다. 정점을 마우스 커서 아래에 있는 정점의 법선 방향을 따라 **카메라에서 먼 쪽으로** 밀어냅니다.
 
-#### ![Move](http://i.imgur.com/qZ5i0mo.png) Move Brush (4)
-With the move brush, you can **pull the affected parts** towards a certain direction. This is a **two-dimensional move**, based on where your camera is currently facing.
+#### ![Move](http://i.imgur.com/qZ5i0mo.png) 이동(Move) 브러시 (4)
+이동 브러시를 사용하면 영향을 받는 부분을 특정 방향으로 **끌어당길** 수 있습니다. 이는 현재 카메라가 바라보는 방향을 기준으로 한 **2차원 이동**입니다.
 
-#### ![Smooth](http://i.imgur.com/LeSgjbh.png) Smooth Brush (5)
-This smooths out the affected area and **evens out the vertices**. Watch out for texture warping or other distortions, as there can be cases where the algorithm isn't optimal for the mesh.
+#### ![Smooth](http://i.imgur.com/LeSgjbh.png) 스무스(Smooth) 브러시 (5)
+이 브러시는 영향을 받는 영역을 부드럽게 만들고 **정점들을 고르게** 정렬합니다. 알고리즘이 해당 메시의 상황에 최적화되지 않은 경우 텍스처 왜곡이나 기타 변형이 발생할 수 있으니 주의하세요.
 
-#### ![Weight](http://i.imgur.com/MFqYed2.png) Weight Brush (6)
-The weight brush can only be selected while you're in the **bones tab** of Outfit Studio. There you can choose a bone and **edit the weighting** of it for one or multiple shapes. A **blue color** means that the weight factor is very weak, while a **red color** means it is very high.
+#### ![Weight](http://i.imgur.com/MFqYed2.png) 웨이트(Weight) 브러시 (6)
+웨이트 브러시는 Outfit Studio의 **Bones 탭**에 있을 때만 선택할 수 있습니다. 거기서 본을 선택하고 하나 또는 여러 쉐이프에 대해 해당 본의 **웨이트 값을 편집**할 수 있습니다. **파란색**은 웨이트 수치가 매우 낮음을 의미하고, **빨간색**은 매우 높음을 의미합니다.
 
-Holding down the ALT key, you can weaken the weighting. With the SHIFT key, the brush will even out the weights and act like the smooth brush, just for weights instead.
+ALT 키를 누른 채로 사용하면 웨이트를 약화시킬 수 있습니다. SHIFT 키를 누르면 브러시가 웨이트를 고르게 정렬하며, 웨이트용 스무스 브러시처럼 작동합니다.
 
-#### ![Color](https://i.imgur.com/8q7MNve.png) Color Brush (7)
-The color brush can only be selected while you're in the **colors tab** of Outfit Studio. There you can choose a color for the brush and edit the vertex colors for one or multiple shapes. For vertex colors to work, they need to be enabled in the shader properties.
+#### ![Color](https://i.imgur.com/8q7MNve.png) 컬러(Color) 브러시 (7)
+컬러 브러시는 Outfit Studio의 **Colors 탭**에 있을 때만 선택할 수 있습니다. 거기서 브러시 색상을 선택하고 하나 또는 여러 쉐이프의 정점 컬러(Vertex colors)를 편집할 수 있습니다. 정점 컬러가 작동하려면 셰이더 속성(Shader properties)에서 활성화되어 있어야 합니다.
 
-While you are in the **colors tab**, press **V** to pick a vertex color directly from the mesh under your cursor.
+**Colors 탭**에 있는 동안 **V** 키를 누르면 커서 아래 메시에서 정점 컬러를 직접 추출(Pick)할 수 있습니다.
 
-#### ![Alpha](https://i.imgur.com/1kUetrF.png) Alpha Brush (8)
-The alpha brush can only be selected while you're in the **colors tab** of Outfit Studio. There you can edit the vertex alpha (transparency) for one or multiple shapes. For vertex alpha to work, it needs to be enabled in the shader properties and the shape needs to have an alpha property assigned.
+#### ![Alpha](https://i.imgur.com/1kUetrF.png) 알파(Alpha) 브러시 (8)
+알파 브러시는 Outfit Studio의 **Colors 탭**에 있을 때만 선택할 수 있습니다. 거기서 하나 또는 여러 쉐이프의 정점 알파(투명도)를 편집할 수 있습니다. 정점 알파가 작동하려면 셰이더 속성에서 활성화되어 있어야 하며, 쉐이프에 알파 속성(Alpha property)이 할당되어 있어야 합니다.
 
-## Options
-#### ![X-Mirror](http://i.imgur.com/Lqe91Uj.png) X-Mirror (X)
-While X-Mirror is enabled, all brush actions on a mesh will be **mirrored across the X-axis** of the scene. Turn this off, if you want to edit one side at a time only.
+## 옵션
+#### ![X-Mirror](http://i.imgur.com/Lqe91Uj.png) X축 반전 (X)
+X축 반전(X-Mirror)이 활성화되어 있으면 메시의 모든 브러시 동작이 장면의 **X축을 기준으로 대칭**되어 적용됩니다. 한 번에 한쪽만 편집하고 싶다면 이 옵션을 끄세요.
 
-#### ![Edit Connected Only](http://i.imgur.com/P9iQS96.png) Edit Connected Only (C)
-With this option enabled, brush actions only affect all vertices that are directly connected with the **vertex located right under the mouse cursor**. Use it, if you don't want to accidentally edit a disconnected area of a mesh.
+#### ![Edit Connected Only](http://i.imgur.com/P9iQS96.png) 연결된 부분만 편집 (C)
+이 옵션이 활성화되면 브러시 동작은 마우스 커서 바로 아래에 있는 **정점과 직접 연결된** 정점들에만 영향을 줍니다. 메시의 떨어져 있는 영역을 실수로 편집하고 싶지 않을 때 사용하세요.
 
-#### ![Global Brush Collision](http://i.imgur.com/czoL9zQ.png) Global Brush Collision (B)
-When you have multiple shapes selected at the same time, this option will decide if you can use the brushes on **all of them at once**, or merely the single **last selected shape**. With it turned off, the cursor/brush won't collide with the other meshes anymore.
+#### ![Global Brush Collision](http://i.imgur.com/czoL9zQ.png) 전역 브러시 충돌 (B)
+여러 쉐이프를 동시에 선택했을 때, 이 옵션은 브러시를 **모든 쉐이프에 한꺼번에** 사용할지, 아니면 **마지막으로 선택한 단일 쉐이프**에만 사용할지 결정합니다. 이 옵션을 끄면 커서/브러시가 다른 메시들과 더 이상 충돌하지 않습니다.

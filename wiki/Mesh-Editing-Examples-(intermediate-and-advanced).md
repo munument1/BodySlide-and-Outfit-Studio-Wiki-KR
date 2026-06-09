@@ -1,264 +1,262 @@
-Originally written by sts1skj for Outfit Studio 5.0.7. The example workflows still apply to current releases, but newer versions include additional tools and quality-of-life options around the same mesh-editing workflow.
+Outfit Studio 5.0.7 버전을 기준으로 sts1skj가 작성한 문서입니다. 예시로 든 워크플로우는 최신 버전에서도 여전히 유효하지만, 최신 버전에는 동일한 메시 편집 작업을 위한 추가 도구와 편의 기능이 포함되어 있습니다.
 
-* [Example 1 (Intermediate): Collapsing a vertex with more than three connections](#example-1-intermediate-collapsing-a-vertex-with-more-than-three-connections)
-* [Example 2 (Intermediate): Closing a one-triangle hole](#example-2-intermediate-closing-a-one-triangle-hole)
-* [Example 3 (Intermediate): Creating a one-triangle hole](#example-3-intermediate-creating-a-one-triangle-hole)
-* [Example 4 (Advanced): Regularizing a mesh to remove texture distortion](#example-4-advanced-regularizing-a-mesh-to-remove-texture-distortion)
-* [Example 5 (Advanced): Cutting out a lattice](#example-5-advanced-cutting-out-a-lattice)
-* [Example 6 (Advanced): Refining a coarse, low-polygon region](#example-6-advanced-refining-a-coarse-low-polygon-region)
-* [Example 7 (Advanced): Restoring a small accidentally-deleted portion of a surface
-](#example-7-advanced-restoring-a-small-accidentally-deleted-portion-of-a-surface)
-* [Example 8 (Advanced): Smoothing a surface by shortening edges with edge-flipping
-](#example-8-advanced-smoothing-a-surface-by-shortening-edges-with-edge-flipping)
+* [예제 1 (중급): 4개 이상의 연결을 가진 정점 허물기](#예제-1-중급-4개-이상의-연결을-가진-정점-허물기)
+* [예제 2 (중급): 삼각형 하나 크기의 구멍 메우기](#예제-2-중급-삼각형-하나-크기의-구멍-메우기)
+* [예제 3 (중급): 삼각형 하나 크기의 구멍 뚫기](#예제-3-중급-삼각형-하나-크기의-구멍-뚫기)
+* [예제 4 (고급): 메시를 정렬하여 텍스처 왜곡 제거하기](#예제-4-고급-메시를-정렬하여-텍스처-왜곡-제거하기)
+* [예제 5 (고급): 격자무늬 컷아웃 만들기](#예제-5-고급-격자무늬-컷아웃-만들기)
+* [예제 6 (고급): 거친 저폴리곤 영역 세분화하기](#예제-6-고급-거친-저폴리곤-영역-세분화하기)
+* [예제 7 (고급): 실수로 삭제된 표면의 작은 부분 복구하기](#예제-7-고급-실수로-삭제된-표면의-작은-부분-복구하기)
+* [예제 8 (고급): 엣지 반전으로 엣지 길이를 줄여 표면 부드럽게 만들기](#예제-8-고급-엣지-반전으로-엣지-길이를-줄여-표면-부드럽게-만들기)
 
 ***
-### Example 1 (Intermediate): Collapsing a vertex with more than three connections
-1. Suppose a surface has a vertex that we want to get rid of, and that vertex has four or more connections to other vertices. Consider this vertex from "CBBE Body" from the Skyrim SE mod "Caliente's Beautiful Bodies Enhancer" v1.5.5:
+### 예제 1 (중급): 4개 이상의 연결을 가진 정점 허물기
+1. 표면에 제거하고 싶은 정점이 있고, 그 정점이 다른 정점들과 4개 이상의 연결(Connection)을 가지고 있다고 가정해 봅시다. 스카이림 SE 모드 "Caliente's Beautiful Bodies Enhancer" v1.5.5의 "CBBE Body"에 있는 이 정점을 예로 들어보겠습니다:
 
 ![1](https://i.imgur.com/xqPCgsC.png)
 
-2. We can't use Outfit Studio's collapse-vertex tool on this vertex directly, because that tool only works on vertices with at most three connections. However, we can reduce the number of connections using the flip-edge tool:
+2. 이 정점에는 Outfit Studio의 정점 허물기(Collapse-vertex) 도구를 바로 사용할 수 없습니다. 해당 도구는 연결이 최대 3개인 정점에만 작동하기 때문입니다. 하지만 엣지 반전(Flip-edge) 도구를 사용하여 연결 개수를 줄일 수 있습니다:
 
 ![2](https://i.imgur.com/pC26c5H.png)
 
-3. Once there are only three connections left, we can use collapse-vertex to remove it:
+3. 연결이 3개만 남게 되면, 정점 허물기를 사용하여 제거할 수 있습니다:
 
 ![3](https://i.imgur.com/ek23AKT.png)
 ***
-### Example 2 (Intermediate): Closing a one-triangle hole
-1. Suppose a surface we're editing is missing a triangle, leaving a hole:
+### 예제 2 (중급): 삼각형 하나 크기의 구멍 메우기
+1. 편집 중인 표면에 삼각형 하나가 빠져서 구멍이 생겼다고 가정해 봅시다:
 
 ![1](https://i.imgur.com/PpwUpan.png)
 
-2. To close the hole, we need to collapse one of the three vertices at the corners of the hole. To collapse a vertex, it needs to have no more than three connections. Let's suppose we pick the bottom vertex from the image above to collapse. It has six connections. We have to use flip-edge three times to reduce the number of connections to three:
+2. 구멍을 메우려면 구멍 모서리에 있는 세 정점 중 하나를 허물어야(Collapse) 합니다. 정점을 허물려면 연결이 3개 이하여야 합니다. 위 이미지에서 맨 아래 정점을 허물기로 결정했다고 합시다. 이 정점은 연결이 6개입니다. 엣지 반전을 세 번 사용하여 연결 개수를 3개로 줄여야 합니다:
 
 ![2](https://i.imgur.com/QaRY0wj.png) ![3](https://i.imgur.com/QbiKosM.png) ![4](https://i.imgur.com/um0msTH.png)
 
-(In the last flip, we flip the edge to the right so that it runs vertically from the top middle vertex in the image to the bottom middle vertex.)
+(마지막 반전에서는 이미지가 위쪽 중앙 정점에서 아래쪽 중앙 정점으로 수직으로 이어지도록 엣지를 오른쪽으로 반전시킵니다.)
 
-3. Then we can collapse the vertex, which closes the hole.
+3. 이제 정점을 허물면 구멍이 메워집니다.
 
 ![5](https://i.imgur.com/u2ja0EY.png)
 
-4. Of course, we've lost a vertex that we didn't want to lose, leaving a messy mesh. A single use of split-edge and then flip-edge cleans it up:
+4. 물론 원치 않던 정점 하나를 잃게 되어 메시가 지저분해졌습니다. 엣지 분할(Split-edge)을 한 번 사용한 뒤 엣지 반전을 사용하면 깔끔하게 정리됩니다:
 
 ![6](https://i.imgur.com/oSFiox2.png) ![7](https://i.imgur.com/x55ubyQ.png)
 ***
-### Example 3 (Intermediate): Creating a one-triangle hole
-1. Suppose we want to punch a one-triangle hole in a surface:
+### 예제 3 (중급): 삼각형 하나 크기의 구멍 뚫기
+1. 표면에 삼각형 하나 크기의 구멍을 뚫고 싶다고 가정해 봅시다:
 
 ![1](https://i.imgur.com/winsKm6.png)
 
-2. Outfit Studio's "Delete Vertices" command can punch holes in surfaces, but only by deleting a vertex. So we need to add a vertex in the middle of the triangle. Using split-edge twice will do that:
+2. Outfit Studio의 "Delete Vertices" 명령으로 표면에 구멍을 뚫을 수 있지만, 정점을 삭제하는 방식만 가능합니다. 따라서 삼각형 중앙에 정점을 하나 추가해야 합니다. 엣지 분할을 두 번 사용하면 됩니다:
 
 ![2](https://i.imgur.com/Rc4XW9a.png) ![3](https://i.imgur.com/425BeGC.png)
 
-3. This leaves us with an extra vertex (in the middle of the rectangle) that we didn't want. We can collapse it after doing one edge flip:
+3. 이렇게 하면 사각형 중간에 원치 않는 추가 정점이 생깁니다. 엣지 반전을 한 번 수행한 뒤 정점을 허물 수 있습니다:
 
 ![4](https://i.imgur.com/okNjNf5.png) ![5](https://i.imgur.com/s6p1755.png)
 
-4. Now we just need to delete the new vertex in the middle of the triangle we want to punch out. First mask it using the mask tool (with a very small brush size):
+4. 이제 뚫어내려는 삼각형 중앙에 있는 새 정점을 삭제하기만 하면 됩니다. 먼저 마스크 도구(브러시 크기를 매우 작게 설정)를 사용하여 해당 정점을 마스킹합니다:
 
 ![6](https://i.imgur.com/4aO3RAj.png)
 
-5. Invert the mask:
+5. 마스크를 반전시킵니다:
 
 ![7](https://i.imgur.com/0vUvjJG.png)
 
-6. And finally do "Delete Vertices":
+6. 마지막으로 "Delete Vertices"를 실행합니다:
 
 ![8](https://i.imgur.com/xlnrNx0.png)
 
 ***
-### Example 4 (Advanced): Regularizing a mesh to remove texture distortion
-1. Consider the following textured surface (this is the outfit "Keo - Farm Clothes 3" from the Skyrim SE mod "Keo's Skimpy Outfits - SSE CBBE BodySlide" version 1.4).
+### 예제 4 (고급): 메시를 정렬하여 텍스처 왜곡 제거하기
+1. 다음과 같이 텍스처가 입혀진 표면을 살펴봅시다 (스카이림 SE 모드 "Keo's Skimpy Outfits - SSE CBBE BodySlide" v1.4의 "Keo - Farm Clothes 3" 의상입니다).
 
 ![1](https://i.imgur.com/JTUU98N.png)
 
-2. The cloth on the right of the gap looks okay, but the cloth on the left has some ugly texture distortion. Turning on "Show Wireframe" reveals part of the problem:
+2. 틈새 오른쪽의 옷감은 괜찮아 보이지만, 왼쪽 옷감은 흉한 텍스처 왜곡이 있습니다. "Show Wireframe"을 켜면 문제의 원인이 일부 드러납니다:
 
 ![2](https://i.imgur.com/S04bxbi.png)
 
-3. On the right, the mesh is regular. On the left, it's not. One way to clean up this texture distortion is to regularize the mesh on the left; then any remaining UV errors should be obvious in the UV editor. First, use collapse-vertex to remove some of the obviously unwanted vertices:
+3. 오른쪽 메시는 규칙적이지만 왼쪽은 그렇지 않습니다. 이 텍스처 왜곡을 해결하는 한 가지 방법은 왼쪽 메시를 규칙적으로 정렬(Regularize)하는 것입니다. 그 후 남은 UV 오류는 UV 에디터에서 명확히 드러날 것입니다. 먼저 정점 허물기를 사용하여 명백히 불필요한 정점들을 제거합니다:
 
 ![3](https://i.imgur.com/QlplFqL.png)
 
-4. Next, pick some more vertices to eliminate, and eliminate them. The goal is to end up with just enough vertices for a regular mesh. In the interest of brevity, I'll do as many as I can at once. First, identify the vertices to eliminate:
+4. 다음으로 제거할 정점들을 더 골라내어 제거합니다. 목표는 규칙적인 메시를 만들기 위한 최소한의 정점만 남기는 것입니다. 설명을 위해 한꺼번에 처리해 보겠습니다. 먼저 제거할 정점들을 식별합니다:
 
 ![4](https://i.imgur.com/1oxbG45.png)
 
-5. Then flip some edges so that some of the vertices to be deleted have only three connections:
+5. 그런 다음 삭제할 정점들의 연결이 3개만 남도록 엣지들을 반전시킵니다:
 
 ![5](https://i.imgur.com/6KFR1yr.png)
 
-6. Collapse them:
+6. 정점들을 허뭅니다:
 
 ![6](https://i.imgur.com/HU5VLyH.png)
 
-7. Flip more edges so that the two remaining vertices to be deleted have only three connections:
+7. 남은 두 정점의 연결도 3개가 되도록 엣지를 더 반전시킵니다:
 
 ![7](https://i.imgur.com/7TsXHq7.png)
 
-8. And collapse them:
+8. 정점들을 허뭅니다:
 
 ![8](https://i.imgur.com/8VjyqOk.png)
 
-9. Now we need to regularize the mesh. First, regularize the triangulation by flipping a few edges:
+9. 이제 메시를 규칙적으로 만들어야 합니다. 먼저 엣지 반전을 몇 번 수행하여 삼각형 구조를 규칙적으로 정렬합니다:
 
 ![9](https://i.imgur.com/CdVDYUE.png)
 
-10. Then use the move tool (with a very small brush size) to move the vertices into a nice grid:
+10. 그다음 이동 도구(브러시 크기를 매우 작게 설정)를 사용하여 정점들을 예쁜 격자 모양으로 옮깁니다:
 
 ![10](https://i.imgur.com/c1yHwsM.png)
 
-11. Now, in the UV editor, the vertices with bad UV coordinates are obvious:
+11. 이제 UV 에디터에서 UV 좌표가 잘못된 정점들이 확연히 보입니다:
 
 ![11](https://i.imgur.com/25kW5e1.png)
 
-12. Just three vertices need their UV coordinates adjusted:
+12. 정점 세 개의 UV 좌표만 조정하면 됩니다:
 
 ![12](https://i.imgur.com/3yXqlVN.png)
 
-13. Resulting in a smooth texture on the outfit, at least in this spot:
+13. 결과적으로 의상의 해당 부분 텍스처가 부드러워졌습니다:
 
 ![13](https://i.imgur.com/ZOcn06M.png)
 
 ***
-### Example 5 (Advanced): Cutting out a lattice
-1. Suppose we want to cut some pieces out of a surface that already has a lattice texture in order to show a little more skin. The example I'll use is "Farm Clothes 1" from the Skyrim SE mod "Caliente's Beautiful Bodies Enhancer" version 1.5.5:
+### 예제 5 (고급): 격자무늬 컷아웃 만들기
+1. 이미 격자무늬 텍스처가 있는 표면에서 살이 조금 더 보이도록 일부 조각을 잘라내고 싶다고 가정해 봅시다. 스카이림 SE 모드 "Caliente's Beautiful Bodies Enhancer" v1.5.5의 "Farm Clothes 1"을 예로 사용하겠습니다:
 
 ![1](https://i.imgur.com/4NQiOpU.png)
 
-2. The area does not have enough vertices:
+2. 해당 영역에 정점이 충분하지 않습니다:
 
 ![2](https://i.imgur.com/a4pLZrk.png)
 
-3. We need to add enough vertices so we have one for each corner of each hole we want to cut. For now, we'll just add vertices, and worry about positioning them later. Use the split-edge tool to add the desired vertices:
+3. 잘라내려는 각 구멍의 모서리마다 하나씩 정점이 있도록 정점을 추가해야 합니다. 지금은 정점 추가에만 집중하고 위치 조정은 나중에 생각합시다. 엣지 분할 도구를 사용하여 원하는 만큼 정점을 추가합니다:
 
 ![3](https://i.imgur.com/3u0zgNA.png)
 
-4. Then flip some edges so that we have edges along the boundary of each hole we'll cut:
+4. 그런 다음 엣지를 반전시켜 잘라낼 각 구멍의 경계를 따라 엣지가 생기도록 합니다:
 
 ![4](https://i.imgur.com/gPm5ga9.png)
 
-5. The next two steps can be done in either order: adjusting the space position and UV position of each vertex. I find it easier to adjust the UV coordinates of our new vertices first. In the UV editor, before adjusting:
+5. 다음 두 단계(공간상 위치 조정과 UV 위치 조정)는 순서가 상관없습니다. 필자는 새 정점들의 UV 좌표를 먼저 조정하는 것이 더 편했습니다. 조정 전 UV 에디터의 모습입니다:
 
 ![5](https://i.imgur.com/fSZrTKo.png)
 
-6. After adjusting the UV coordinates:
+6. UV 좌표 조정 후의 모습입니다:
 
 ![6](https://i.imgur.com/YLJInFY.png)
 
-7. Then we need to adjust the space coordinates of the vertices. Before:
+7. 이제 정점들의 공간 좌표를 조정해야 합니다. 조정 전:
 
 ![7](https://i.imgur.com/Kw0VtDn.png)
 
-8. And after:
+8. 조정 후:
 
 ![8](https://i.imgur.com/dx7o95l.png)
 
-9. Next, we need to cut out our holes. One of them already has a vertex to delete. We add a vertex to the middle of each of the other three holes, by splitting two edges, flipping an edge, and collapsing a vertex for each:
+9. 다음으로 구멍을 뚫어야 합니다. 구멍 중 하나에는 이미 삭제할 정점이 있습니다. 나머지 세 구멍의 중앙에도 엣지 분할 두 번, 엣지 반전 한 번, 정점 허물기 한 번씩을 수행하여 정점을 추가합니다:
 
 ![9](https://i.imgur.com/OQVOGou.png)
 
-10. Then we can mask the four vertices, invert the mask, and delete the vertices:
+10. 이제 네 정점을 마스킹하고 마스크를 반전시킨 뒤 정점들을 삭제할 수 있습니다:
 
 ![10](https://i.imgur.com/QgBNBRp.png)
 
-Of course, more holes would need to be cut to complete the lattice.
+물론 격자무늬를 완성하려면 더 많은 구멍을 뚫어야 할 것입니다.
 
 ***
-### Example 6 (Advanced): Refining a coarse, low-polygon region
-1. Consider this region of the "Merchant" outfit from the Skyrim SE mod "Caliente's Beautiful Bodies Enhancer" version 1.5.5:
+### 예제 6 (고급): 거친 저폴리곤 영역 세분화하기
+1. 스카이림 SE 모드 "Caliente's Beautiful Bodies Enhancer" v1.5.5의 "Merchant" 의상에서 이 영역을 살펴봅시다:
 
 ![1](https://i.imgur.com/kTfTBkY.png)
 
-2. It looks okay with all of the sliders set to zero:
+2. 모든 슬라이더가 0일 때는 괜찮아 보입니다:
 
 ![2](https://i.imgur.com/uGQq2sO.png)
 
-3. But it starts to look a bit rough if we set the "AppleCheeks" and "Butt" sliders to 1:
+3. 하지만 "AppleCheeks"와 "Butt" 슬라이더를 1로 설정하면 표면이 거칠어지기 시작합니다:
 
 ![3](https://i.imgur.com/MSUta8f.png)
 
-4. The problem is that the surface doesn't have enough vertices. We can add more vertices with the split-edge tool. If we use the tool on each diagonal edge, we can double the number of vertices:
+4. 문제는 표면에 정점이 충분하지 않다는 것입니다. 엣지 분할 도구로 정점을 더 추가할 수 있습니다. 각 대각선 엣지에 도구를 사용하면 정점 개수를 두 배로 늘릴 수 있습니다:
 
 ![4](https://i.imgur.com/7zYTMqv.png)
 
-5. This may be good enough. To be certain, though, let's split all the horizontal and vertical edges, doubling the number of vertices again:
+5. 이것으로 충분할 수도 있습니다. 하지만 확실히 하기 위해 모든 수평 및 수직 엣지도 분할하여 정점 개수를 다시 두 배로 늘려보겠습니다:
 
 ![5](https://i.imgur.com/2CrLBw7.png)
 
-6. I also flipped a few edges along the top and bottom of the area in order to shorten them.
+6. 또한 해당 영역의 위아래를 따라 몇몇 엣지를 반전시켜 길이를 짧게 만들었습니다.
 
 ![6](https://i.imgur.com/TmfN7Yh.png)
 
-7. Now, the split-edge tool does an okay job of generating coordinates and slider diffs for new vertices, but it's far from perfect. Normally, after adding a bunch of vertices like this, you should check to make sure the result is smooth, both with all the sliders set to zero and with each individual slider set to 1. The split-edge tool appears to have done a reasonable job in this case, however, so we'll skip the smoothing step. The result:
+7. 엣지 분할 도구는 새 정점에 대한 좌표와 슬라이더 델타값을 적당히 생성해 주지만, 완벽하지는 않습니다. 보통 이렇게 대량으로 정점을 추가한 뒤에는 모든 슬라이더가 0일 때와 각각 1일 때 모두 결과가 부드러운지 확인해야 합니다. 하지만 이 경우에는 엣지 분할 도구가 꽤 잘 작동한 것으로 보이므로 스무딩 단계는 생략하겠습니다. 결과입니다:
 
 ![7](https://i.imgur.com/kTowCMA.png)
 
-That's much better.
+훨씬 나아졌습니다.
 ***
-### Example 7 (Advanced): Restoring a small accidentally-deleted portion of a surface
-1. Suppose we've accidentally deleted a small piece of a surface and we didn't notice right away, so it's too late to undo the change:
+### 예제 7 (고급): 실수로 삭제된 표면의 작은 부분 복구하기
+1. 표면의 작은 부분을 실수로 삭제했고 즉시 알아차리지 못해 실행 취소를 하기에는 너무 늦었다고 가정해 봅시다:
 
 ![1](https://i.imgur.com/SI0FuFP.png)
 
-2. It's messy, but we can roughly restore the missing piece. First, move all of the vertices along the edge of the missing piece to where we'd like the new boundary to be, approximately:
+2. 지저분해 보이지만 사라진 부분을 대략적으로 복구할 수 있습니다. 먼저 사라진 부분의 가장자리를 따라 있는 모든 정점들을 새로운 경계가 되었으면 하는 위치로 대략 이동시킵니다:
 
 ![2](https://i.imgur.com/3wS0xLk.png)
 
-3. This gives us more boundary vertices than we want. Flip some edges to reduce the number of connections for each unwanted vertex to three:
+3. 이렇게 하면 경계 정점이 너무 많아집니다. 불필요한 정점들의 연결이 3개가 되도록 엣지들을 반전시킵니다:
 
 ![3](https://i.imgur.com/EJWQCDK.png)
 
-4. Then collapse the two unwanted vertices:
+4. 불필요한 두 정점을 허뭅니다:
 
 ![4](https://i.imgur.com/9Tu8fwD.png)
 
-5. Now, our surface is missing three internal vertices. Use the split-edge tool to add them:
+5. 이제 표면에 내부 정점 세 개가 빠져 있습니다. 엣지 분할 도구를 사용하여 추가합니다:
 
 ![5](https://i.imgur.com/zt0iLd6.png)
 
-6. Then flip some edges to give a regular triangulation again:
+6. 다시 규칙적인 삼각형 구조가 되도록 엣지들을 반전시킵니다:
 
 ![6](https://i.imgur.com/P0jwpOr.png)
 
-7. Now, the UV coordinates are a little messed up:
+7. 이제 UV 좌표가 조금 엉망입니다:
 
 ![7](https://i.imgur.com/LXx9qiO.png)
 
-8. And need to be fixed:
+8. 이를 수정해야 합니다:
 
 ![8](https://i.imgur.com/m44ZJ9c.png)
 
-9. The surface looks okay now, but it could use some smoothing, and the slider diffs may need adjusting. But we'll skip that. The result:
+9. 표면은 이제 괜찮아 보이지만, 스무딩 작업이 좀 더 필요할 수 있고 슬라이더 델타값도 조정해야 할 수 있습니다. 하지만 여기서는 생략하겠습니다. 결과입니다:
 
 ![9](https://i.imgur.com/elMJz2W.png)
 ***
-### Example 8 (Advanced): Smoothing a surface by shortening edges with edge-flipping
-1. It's possible for a surface to be too rough even though it has plenty of vertices. One possible cause of this is long, narrow triangles. Consider this portion of "CBBE Body" from the Skyrim SE mod "Caliente's Beautiful Bodies Enhancer" version 1.5.5:
+### 예제 8 (고급): 엣지 반전으로 엣지 길이를 줄여 표면 부드럽게 만들기
+1. 정점이 충분함에도 불구하고 표면이 너무 거칠어 보일 수 있습니다. 한 가지 원인은 길고 좁은 삼각형들 때문입니다. 스카이림 SE 모드 "Caliente's Beautiful Bodies Enhancer" v1.5.5의 "CBBE Body"에서 이 영역을 살펴봅시다:
 
 ![1](https://i.imgur.com/2pnqIjf.png)
 
-2. It has some long, thin triangles, but it looks okay with all the sliders set to zero:
+2. 길고 얇은 삼각형들이 있지만 모든 슬라이더가 0일 때는 괜찮아 보입니다:
 
 ![2](https://i.imgur.com/8bnoM0I.png)
 
-3. With "AppleCheeks" set to 1, though, it starts to look a bit rough:
+3. 하지만 "AppleCheeks"를 1로 설정하면 조금 거칠어 보이기 시작합니다:
 
 ![3](https://i.imgur.com/9uInL83.png)
 
-4. We can smooth this area out significantly by just flipping some edges. The goal is for the triangle edges to be as short as possible; the longer they are, the more they can indent the curved surface.
+4. 단지 엣지 반전만으로도 이 영역을 상당히 부드럽게 만들 수 있습니다. 목표는 삼각형의 엣지 길이를 최대한 짧게 만드는 것입니다. 엣지가 길수록 곡면을 더 많이 파고들 수 있기 때문입니다.
 
-5. Before flipping:
+5. 반전 전:
 
 ![4](https://i.imgur.com/DaQ7dKX.png)
 
-6. After flipping:
+6. 반전 후:
 
 ![5](https://i.imgur.com/HMsTvIP.png)
 
-7. The resulting surface is a little bit smoother:
+7. 결과적으로 표면이 조금 더 부드러워졌습니다:
 
 ![6](https://i.imgur.com/rpz5CGg.png)

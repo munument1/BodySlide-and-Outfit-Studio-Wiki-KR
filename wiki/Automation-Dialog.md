@@ -1,479 +1,479 @@
-# Outfit Studio Automation
+# Outfit Studio 자동화 (Automation)
 
-The Automation dialog lets you define, save, and execute sequences of operations (called **steps**) on your project — either one at a time or in batch across many files or slider sets.
+자동화 대화 상자를 사용하면 프로젝트에서 수행할 일련의 작업(이를 **단계(Step)**라고 함)을 정의, 저장 및 실행할 수 있습니다. 각 작업은 한 번에 하나씩 실행하거나 여러 파일 또는 슬라이더 세트에 대해 배치(Batch) 방식으로 일괄 실행할 수 있습니다.
 
-Open it from the **File** menu in Outfit Studio (**Open Automation...**, or press **Ctrl+Shift+A**).
+Outfit Studio의 **File** 메뉴에서 열 수 있습니다 (**Open Automation...** 또는 **Ctrl+Shift+A**).
 
 ---
 
-## Running an Automation
+## 자동화 실행하기
 
-### Loading a Script
+### 스크립트 불러오기
 
-Use the dropdown at the top of the dialog to select a previously saved automation script. Scripts are stored as `.xml` files in the `Automations` folder next to Outfit Studio.
+대화 상자 상단의 드롭다운을 사용하여 이전에 저장된 자동화 스크립트를 선택합니다. 스크립트는 Outfit Studio 실행 파일 옆의 `Automations` 폴더에 `.xml` 파일로 저장됩니다.
 
-### Placeholder Variables
+### 플레이스홀더 변수 (Placeholder Variables)
 
-Expand the **Placeholder Variables** panel to define key/value pairs. Any text field in your steps can reference these using `{{KEY}}` syntax — when the automation runs, every occurrence of `{{KEY}}` is replaced with the corresponding value.
+**Placeholder Variables** 패널을 확장하여 키/값(Key/Value) 쌍을 정의할 수 있습니다. 각 단계의 텍스트 필드에서 `{{KEY}}` 구문을 사용하여 이 변수들을 참조할 수 있습니다. 자동화가 실행될 때 모든 `{{KEY}}`는 해당 값으로 대체됩니다.
 
-For example, if you define `BODY` = `CBBE`, then a step with target meshes set to `{{BODY}}Body` would resolve to `CBBEBody` at execution time.
+예를 들어, `BODY` = `CBBE`라고 정의했다면, 대상 메시가 `{{BODY}}Body`로 설정된 단계는 실행 시 `CBBEBody`로 해석됩니다.
 
-Up to 10 variables can be defined. Variables are saved with the script.
+최대 10개의 변수를 정의할 수 있으며, 변수는 스크립트와 함께 저장됩니다.
 
-### Executing
+### 실행하기
 
-- **Execute**: Runs every active (checked) step in order on the current project. If a batch mode is enabled, it repeats the steps for each batch item.
-- **Execute Selected** (right-click a step): Runs only that single step on the current project. This does not use batch mode.
+- **Execute**: 현재 프로젝트에서 활성화된(체크된) 모든 단계를 순서대로 실행합니다. 배치 모드가 활성화된 경우, 각 배치 항목에 대해 단계를 반복합니다.
+- **Execute Selected** (단계 우클릭): 현재 프로젝트에서 선택한 단일 단계만 실행합니다. 배치 모드는 사용되지 않습니다.
 
-If a step fails, you are prompted whether to continue with the remaining steps or abort.
+단계 실행이 실패하면 나머지 단계를 계속 진행할지 아니면 중단할지 묻는 메시지가 표시됩니다.
 
-### Headless Execution
+### 헤드리스 실행 (Headless Execution)
 
-Saved scripts can also be run without opening the dialog by using the command-line automation flag:
+저장된 스크립트는 명령줄 자동화 플래그를 사용하여 대화 상자를 열지 않고도 실행할 수 있습니다.
 
 ```text
 OutfitStudio --automation "Script Name" [batch inputs...]
 ```
 
-Use the saved script name without the `.xml` extension. For batch scripts, positional arguments become batch inputs:
+`.xml` 확장자를 제외한 저장된 스크립트 이름을 사용하세요. 배치 스크립트의 경우, 나열된 인자들이 배치 입력값이 됩니다.
 
-- **Folder Scan**: files or directories to process.
-- **Slider Sets**: slider set or project names to process.
+- **Folder Scan**: 처리할 파일 또는 디렉터리.
+- **Slider Sets**: 처리할 슬라이더 세트 또는 프로젝트 이름.
 
-Non-batch scripts ignore positional arguments.
+배치 모드가 아닌 스크립트는 추가 인자를 무시합니다.
 
-### Batch Operations
+### 배치 작업 (Batch Operations)
 
-Expand the **Batch Operation** panel to process multiple files or slider sets automatically. Choose a mode:
+**Batch Operation** 패널을 확장하여 여러 파일 또는 슬라이더 세트를 자동으로 처리할 수 있습니다. 모드를 선택하세요:
 
 #### None
-Steps run once on the currently loaded project.
+현재 불러온 프로젝트에서 단계를 한 번 실행합니다.
 
 #### Folder Scan
-Repeats the automation for every matching file in a folder.
+폴더 내의 일치하는 모든 파일에 대해 자동화를 반복합니다.
 
-| Setting | Description |
+| 설정 | 설명 |
 |---|---|
-| **Folder** | The folder to scan for files. |
-| **Extension** | File extension filter (e.g. `.nif`). Only files with this extension are processed. |
-| **Include subdirectories** | Also scan subfolders recursively. |
-| **File name filter** | Only process files whose name contains this text (case-insensitive substring match). |
-| **Regex** | Treat the file name filter as a regular expression instead of a substring. |
+| **Folder** | 파일을 스캔할 폴더입니다. |
+| **Extension** | 파일 확장자 필터입니다 (예: `.nif`). 이 확장자를 가진 파일만 처리됩니다. |
+| **Include subdirectories** | 하위 폴더도 재귀적으로 스캔합니다. |
+| **File name filter** | 파일 이름에 이 텍스트가 포함된 파일만 처리합니다 (대소문자 구분 없음). |
+| **Regex** | 파일 이름 필터를 단순 문자열이 아닌 정규 표현식으로 취급합니다. |
 
-For each file, the project is cleared, the file is imported, the automation steps run, and the project is cleared again. The following variables are automatically available in addition to your custom ones:
+각 파일에 대해 프로젝트가 초기화되고, 파일이 임포트되며, 자동화 단계가 실행된 후 다시 프로젝트가 초기화됩니다. 사용자 정의 변수 외에도 다음 변수들을 자동으로 사용할 수 있습니다:
 
-| Variable | Value |
+| 변수 | 값 |
 |---|---|
-| `{{BATCH_FILE}}` | Full path to the current file |
-| `{{BATCH_NAME}}` | Filename without extension |
-| `{{BATCH_FULLNAME}}` | Filename with extension |
-| `{{BATCH_DIR}}` | Directory containing the file |
+| `{{BATCH_FILE}}` | 현재 파일의 전체 경로 |
+| `{{BATCH_NAME}}` | 확장자를 제외한 파일 이름 |
+| `{{BATCH_FULLNAME}}` | 확장자를 포함한 파일 이름 |
+| `{{BATCH_DIR}}` | 파일이 포함된 디렉터리 |
 
 #### Slider Sets
-Repeats the automation for every matching installed slider set (from BodySlide projects).
+설치된 슬라이더 세트(BodySlide 프로젝트) 중 일치하는 모든 항목에 대해 자동화를 반복합니다.
 
-| Setting | Description |
+| 설정 | 설명 |
 |---|---|
-| **Slider set filter** | Only process slider sets whose name contains this text. |
-| **Regex** | Treat the filter as a regular expression. |
+| **Slider set filter** | 이름에 이 텍스트가 포함된 슬라이더 세트만 처리합니다. |
+| **Regex** | 필터를 정규 표현식으로 취급합니다. |
 
-After applying the filter, a checklist dialog appears letting you select which slider sets to process. For each selected set, the project is loaded from the slider set file, the automation steps run, and the project is cleared.
+필터를 적용한 후, 처리할 슬라이더 세트를 선택할 수 있는 체크리스트 대화 상자가 나타납니다. 선택된 각 세트에 대해 슬라이더 세트 파일로부터 프로젝트를 불러오고, 자동화 단계가 실행된 후 프로젝트가 초기화됩니다.
 
-| Variable | Value |
+| 변수 | 값 |
 |---|---|
-| `{{BATCH_FILE}}` | Path to the slider set project file |
-| `{{BATCH_NAME}}` | Display name of the slider set |
-| `{{BATCH_SET}}` | Same as `{{BATCH_NAME}}` |
-| `{{BATCH_DIR}}` | Directory containing the slider set file |
+| `{{BATCH_FILE}}` | 슬라이더 세트 프로젝트 파일 경로 |
+| `{{BATCH_NAME}}` | 슬라이더 세트의 표시 이름 |
+| `{{BATCH_SET}}` | `{{BATCH_NAME}}`과 동일 |
+| `{{BATCH_DIR}}` | 슬라이더 세트 파일이 포함된 디렉터리 |
 
 ---
 
-## Creating an Automation
+## 자동화 생성하기
 
-Type a new name into the script dropdown and click **Save** to create a new script. The dialog starts with an empty step list.
+스크립트 드롭다운에 새 이름을 입력하고 **Save**를 클릭하여 새 스크립트를 만듭니다. 처음에는 단계 목록이 비어 있습니다.
 
-### Managing Steps
+### 단계 관리하기
 
-Right-click the step list to open the context menu:
+단계 목록을 우클릭하여 컨텍스트 메뉴를 엽니다:
 
-- **Add Step**: Inserts a new step below the currently selected step. If no step is selected, adds to the end of the list.
-- **Remove Step**: Deletes the selected step.
-- **Move Up / Move Down**: Reorders the selected step. You can also press **Ctrl+Up** / **Ctrl+Down** in the step list.
-- **Execute Selected**: Runs only the selected step (without batch mode).
+- **Add Step**: 현재 선택된 단계 아래에 새 단계를 삽입합니다. 선택된 단계가 없으면 목록 끝에 추가됩니다.
+- **Remove Step**: 선택한 단계를 삭제합니다.
+- **Move Up / Move Down**: 선택한 단계의 순서를 바꿉니다. 단계 목록에서 **Ctrl+Up** / **Ctrl+Down**을 누를 수도 있습니다.
+- **Execute Selected**: 선택한 단계만 실행합니다 (배치 모드 제외).
 
-Each step has an **Active** checkbox. Inactive steps are skipped during execution.
+각 단계에는 **Active** 체크박스가 있습니다. 체크 해제된 단계는 실행 중에 건너뜁니다.
 
-### Common Step Settings
+### 공통 단계 설정
 
-Every step has these fields:
+모든 단계에는 다음 필드가 있습니다:
 
-| Field | Description |
+| 필드 | 설명 |
 |---|---|
-| **Type** | The operation to perform (see below). |
-| **Active** | Whether this step runs during execution. |
-| **Target Meshes** | Comma-separated list of shape names this step applies to. If empty, the step applies to all non-reference shapes. |
-| **Regex** | If checked, the target meshes field is treated as a regular expression matched against shape names. |
-| **Note** | A free-text note for your reference. Shown in error messages if the step fails. |
+| **Type** | 수행할 작업 유형입니다 (아래 참고). |
+| **Active** | 실행 중에 이 단계를 수행할지 여부입니다. |
+| **Target Meshes** | 이 단계가 적용될 쉐이프 이름들의 목록입니다 (쉼표로 구분). 비어 있으면 모든 비레퍼런스(Non-reference) 쉐이프에 적용됩니다. |
+| **Regex** | 체크하면 Target Meshes 필드를 쉐이프 이름과 대조할 정규 표현식으로 취급합니다. |
+| **Note** | 참고용 자유 텍스트 메모입니다. 단계 실행 실패 시 에러 메시지에 표시됩니다. |
 
-For **Set Extra Data** and **Delete Extra Data**, leaving **Target Meshes** empty targets the NIF root node instead of all non-reference shapes.
+**Set Extra Data** 및 **Delete Extra Data**의 경우, **Target Meshes**를 비워 두면 모든 비레퍼런스 쉐이프 대신 NIF 루트 노드를 대상으로 삼습니다.
 
-### Step Types
+### 단계 유형 (Step Types)
 
-The dialog currently exposes **39** step types.
+현재 대화 상자에는 **39개**의 단계 유형이 노출되어 있습니다.
 
-#### Project & Reference
+#### 프로젝트 및 레퍼런스 (Project & Reference)
 
 ##### Clear Project
-Resets the entire project to a blank state, removing all shapes, sliders, and data.
+모든 쉐이프, 슬라이더 및 데이터를 제거하고 전체 프로젝트를 빈 상태로 초기화합니다.
 
 ##### Load Reference
-Loads a reference (base) shape from a file.
+파일로부터 레퍼런스(기본) 쉐이프를 불러옵니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Source File** | Path to a `.nif` file or a slider set project file (`.osp`, `.xml`). |
-| **Slider Set** | If loading from a project file, the name of the slider set to load. Leave empty to use template matching. |
-| **Shape** | The specific shape name to use as the reference. Leave empty to use the default. |
-| **Load All** | When using template matching (no set specified), load all shapes from the template. |
-| **Merge Sliders** | Merge incoming slider data with existing sliders of the same name. |
-| **Merge Zaps** | Merge incoming zap sliders with existing ones. |
-| **Append New Sliders** | Add sliders from the reference that don't already exist in the project. |
+| **Source File** | `.nif` 파일 또는 슬라이더 세트 프로젝트 파일(`.osp`, `.xml`) 경로입니다. |
+| **Slider Set** | 프로젝트 파일에서 불러올 경우, 불러올 슬라이더 세트의 이름입니다. 템플릿 매칭을 사용하려면 비워 두세요. |
+| **Shape** | 레퍼런스로 사용할 특정 쉐이프 이름입니다. 기본값을 사용하려면 비워 두세요. |
+| **Load All** | 템플릿 매칭 사용 시 (세트 미지정), 템플릿의 모든 쉐이프를 불러옵니다. |
+| **Merge Sliders** | 불러오는 슬라이더 데이터를 같은 이름의 기존 슬라이더와 병합합니다. |
+| **Merge Zaps** | 불러오는 잽 슬라이더를 기존의 것과 병합합니다. |
+| **Append New Sliders** | 프로젝트에 존재하지 않는 레퍼런스의 슬라이더들을 추가합니다. |
 
 ##### Add Project
-Adds shapes and sliders from another slider set project file into the current project.
+다른 슬라이더 세트 프로젝트 파일의 쉐이프와 슬라이더를 현재 프로젝트에 추가합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Source File** | Path to the project file. |
-| **Slider Set** | The slider set to add. |
-| **Append New Sliders** | Add new sliders that aren't already in the project. |
+| **Source File** | 프로젝트 파일 경로입니다. |
+| **Slider Set** | 추가할 슬라이더 세트입니다. |
+| **Append New Sliders** | 프로젝트에 없는 새 슬라이더들을 추가합니다. |
 
 ##### Set Reference Shape
-Designates an existing shape in the project as the reference (base) shape, or clears the current reference when **Unset Reference** is enabled.
+프로젝트의 기존 쉐이프를 레퍼런스(기본) 쉐이프 내 지정하거나, **Unset Reference**가 활성화된 경우 현재 레퍼런스 설정을 해제합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Shape Name** | Name of the shape to set as reference. Ignored if **Unset Reference** is enabled. |
-| **Unset Reference** | Clears the current reference instead of selecting a shape. |
+| **Shape Name** | 레퍼런스로 설정할 쉐이프 이름입니다. **Unset Reference**가 활성화된 경우 무시됩니다. |
+| **Unset Reference** | 쉐이프를 선택하는 대신 현재 레퍼런스 설정을 해제합니다. |
 
 ##### Clear Reference
-Removes the current reference shape from the project, keeping all other shapes and slider data intact.
+프로젝트에서 현재 레퍼런스 쉐이프를 제거합니다. 다른 모든 쉐이프와 슬라이더 데이터는 그대로 유지됩니다.
 
-#### Shapes
+#### 쉐이프 (Shapes)
 
 ##### Delete Shape
-Deletes shapes from the project. Uses the **Target Meshes** filter to select which shapes to delete.
+프로젝트에서 쉐이프를 삭제합니다. **Target Meshes** 필터를 사용하여 삭제할 쉐이프를 선택합니다.
 
 ##### Rename Shape
-Renames a single shape.
+단일 쉐이프의 이름을 바꿉니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Old Name** | Current name of the shape. |
-| **New Name** | New name for the shape. |
+| **Old Name** | 쉐이프의 현재 이름입니다. |
+| **New Name** | 쉐이프의 새 이름입니다. |
 
 ##### Duplicate Shape
-Creates a copy of target shapes with a new name.
+대상 쉐이프를 새 이름으로 복제합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **New Name** | Name for the duplicated shape. If duplicating multiple shapes, the original name is appended to avoid conflicts. |
+| **New Name** | 복제된 쉐이프의 이름입니다. 여러 쉐이프를 복제하는 경우 충돌을 피하기 위해 원래 이름이 뒤에 붙습니다. |
 
 ##### Change Partitions
-Changes target shape triangle assignments from one body partition to another.
+대상 쉐이프의 삼각형 할당을 하나의 바디 파티션에서 다른 파티션으로 변경합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Source Partition** | Existing partition/body part to change from. |
-| **Destination Partition** | Partition/body part to change to. |
+| **Source Partition** | 변경 전 기존 파티션/바디 파트입니다. |
+| **Destination Partition** | 변경 후 대상 파티션/바디 파트입니다. |
 
-Matching triangle assignments are updated and any empty partitions are removed afterward.
+일치하는 삼각형 할당이 업데이트되며, 이후 비어 있는 파티션은 제거됩니다.
 
 ##### Fix Bad Bones
-Runs Outfit Studio's bad-bones fixer and applies the recommended corrections automatically to bones with inconsistent NIF transforms.
+Outfit Studio의 Bad-bones 수정 도구를 실행하여 NIF 트랜스폼이 일치하지 않는 본에 권장 수정 사항을 자동으로 적용합니다.
 
 ##### Fix Clipping
-Pushes target geometry or slider morphs outward to reduce clipping against the current reference shape.
+대상 지오메트리 또는 슬라이더 모프를 바깥쪽으로 밀어내어 현재 레퍼런스 쉐이프와의 클리핑을 줄입니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Mode** | **Shapes** fixes the current base geometry of target shapes. **Sliders** fixes each slider's morph data individually. |
-| **Strength** | Clipping-fix strength (0% to 100%). |
-| **Slider Names** | In **Sliders** mode, optional comma-separated list of sliders to process. Leave empty to process all non-zap/non-UV sliders. |
+| **Mode** | **Shapes**는 대상 쉐이프의 현재 기본 지오메트리를 수정합니다. **Sliders**는 각 슬라이더의 모프 데이터를 개별적으로 수정합니다. |
+| **Strength** | 클리핑 수정 강도입니다 (0% ~ 100%). |
+| **Slider Names** | **Sliders** 모드에서 처리할 슬라이더 이름 목록입니다 (쉼표로 구분). 비워 두면 모든 비잽(Non-zap)/비UV 슬라이더를 처리합니다. |
 
-Requires a reference shape.
+이 작업에는 레퍼런스 쉐이프가 필요합니다.
 
 ##### Mirror Shape
-Mirrors target shapes along one or more axes.
+대상 쉐이프를 하나 이상의 축을 따라 반전(Mirror)시킵니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Mirror X / Y / Z** | Which axes to mirror along. |
-| **Swap Bones L↔R** | Swap left/right bone names (e.g. `NPC L Hand` ↔ `NPC R Hand`). |
+| **Mirror X / Y / Z** | 반전시킬 축을 선택합니다. |
+| **Swap Bones L↔R** | 좌우 본 이름을 바꿉니다 (예: `NPC L Hand` ↔ `NPC R Hand`). |
 
 ##### Import File
-Imports a mesh file into the project as a new shape.
+메시 파일을 새 쉐이프로 프로젝트에 임포트합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **File Path** | Path to a `.nif`, `.obj`, or `.fbx` file. |
-| **From Folder** | If checked, imports all supported files from the specified folder. |
-| **Load before batch file (step #1 only)** | In **Folder Scan** batch mode, if this is the first step, imports this file before each batch file so its root node and blocks become the base. |
+| **File Path** | `.nif`, `.obj`, 또는 `.fbx` 파일 경로입니다. |
+| **From Folder** | 체크하면 지정된 폴더에서 지원되는 모든 파일을 임포트합니다. |
+| **Load before batch file (step #1 only)** | **Folder Scan** 배치 모드에서 이 단계가 첫 번째인 경우, 각 배치 파일보다 이 파일을 먼저 임포트하여 그 루트 노드와 블록들이 기반이 되도록 합니다. |
 
 ##### Set Geometry Properties
-Toggles geometry flags on target shapes.
+대상 쉐이프의 지오메트리 플래그를 전환합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Properties** | Add one or more property rows. Supported properties are `Skinned`, `Dynamic`, `Full Precision`, and `Sub Index`. |
+| **Properties** | 하나 이상의 속성 행을 추가합니다. 지원되는 속성은 `Skinned`, `Dynamic`, `Full Precision`, `Sub Index`입니다. |
 
-`Skinned` adds or removes skinning data. `Dynamic` only applies to stream 100 NIFs. `Sub Index` requires stream 130 or newer. `Full Precision` only works on editable `BSTriShape` geometry.
+`Skinned`는 스키닝 데이터를 추가하거나 제거합니다. `Dynamic`은 스트림 100 NIF에만 적용됩니다. `Sub Index`는 스트림 130 이상이 필요합니다. `Full Precision`은 편집 가능한 `BSTriShape` 지오메트리에서만 작동합니다.
 
 ##### Set Extra Data
-Sets or creates named extra data blocks on target shapes, or on the NIF root node when **Target Meshes** is empty.
+대상 쉐이프 또는 **Target Meshes**가 비어 있는 경우 NIF 루트 노드에 이름이 지정된 엑스트라 데이터(Extra data) 블록을 설정하거나 생성합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Block Type** | `NiStringExtraData`, `NiIntegerExtraData`, `NiFloatExtraData`, or `NiBooleanExtraData`. |
-| **Name** | Extra data name. |
-| **Value** | Value text. Boolean values accept `true/false`, `yes/no`, `on/off`, or `1/0`. |
+| **Block Type** | `NiStringExtraData`, `NiIntegerExtraData`, `NiFloatExtraData`, 또는 `NiBooleanExtraData` 중 하나를 선택합니다. |
+| **Name** | 엑스트라 데이터 이름입니다. |
+| **Value** | 값 텍스트입니다. 불리언(Boolean) 값은 `true/false`, `yes/no`, `on/off`, `1/0`을 허용합니다. |
 
-If a block with the same name and type already exists, its value is updated. If the name already exists with a different type, automation logs a warning and does not create a duplicate block.
+동일한 이름과 유형의 블록이 이미 존재하면 그 값이 업데이트됩니다. 이름은 같지만 유형이 다르면 경고를 로깅하고 중복 블록을 생성하지 않습니다.
 
 ##### Delete Extra Data
-Deletes named extra data blocks from target shapes, or from the NIF root node when **Target Meshes** is empty.
+대상 쉐이프 또는 **Target Meshes**가 비어 있는 경우 NIF 루트 노드에서 이름이 지정된 엑스트라 데이터 블록을 삭제합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Name** | Extra data name to remove. |
+| **Name** | 제거할 엑스트라 데이터 이름입니다. |
 
 ##### Refine Mesh
-Subdivides all shape meshes by splitting every triangle edge, increasing vertex and triangle density. Useful before conforming for better detail.
+모든 삼각형 모서리를 분할하여 모든 쉐이프 메시를 세분화함으로써 정점(Vertex)과 삼각형 밀도를 높입니다. 더 세밀한 컨폼(Conform) 작업을 위해 사전에 사용하면 유용합니다.
 
-#### Transforms
+#### 트랜스폼 (Transforms)
 
 ##### Transform Shape
-Applies movement, rotation, scaling, and/or inflation to target shapes.
+대상 쉐이프에 이동, 회전, 크기 조절 및/또는 팽창(Inflation)을 적용합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Move X / Y / Z** | Translate by these amounts. |
-| **Rotate X / Y / Z** | Rotate by these angles (degrees). |
-| **Scale X / Y / Z** | Scale factors (1.0 = no change). |
-| **Inflate X / Y / Z** | Move each vertex along its normal by this amount per axis. Useful for making shapes slightly larger/smaller while preserving form. |
+| **Move X / Y / Z** | 해당 수치만큼 이동(Translate)시킵니다. |
+| **Rotate X / Y / Z** | 해당 각도(도)만큼 회전시킵니다. |
+| **Scale X / Y / Z** | 크기 조절 비율입니다 (1.0 = 변화 없음). |
+| **Inflate X / Y / Z** | 각 정점을 법선(Normal)을 따라 축당 해당 수치만큼 이동시킵니다. 형태를 유지하면서 쉐이프를 약간 더 크게/작게 만들 때 유용합니다. |
 
 ##### Invert UVs
-Flips UV coordinates for target shapes.
+대상 쉐이프의 UV 좌표를 뒤집습니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Invert U** | Flip the U (horizontal) texture coordinate. |
-| **Invert V** | Flip the V (vertical) texture coordinate. |
+| **Invert U** | U(수평) 텍스처 좌표를 뒤집습니다. |
+| **Invert V** | V(수직) 텍스처 좌표를 뒤집습니다. |
 
 ##### Reset Transforms
-Resets all shape transforms in the project back to identity (zero translation, zero rotation, unit scale).
+프로젝트의 모든 쉐이프 트랜스폼을 정체성 상태(이동 0, 회전 0, 크기 1)로 초기화합니다.
 
 ##### Set Base Shape
-Bakes the current slider values into the base shape geometry. After this, the shape's rest position reflects the currently applied slider values, and slider values are reset.
+현재 슬라이더 값을 기본 쉐이프 지오메트리에 굽습니다(Bake). 이 작업 이후 쉐이프의 기본 위치는 현재 적용된 슬라이더 값을 반영하게 되며, 슬라이더 값은 초기화됩니다.
 
-#### Sliders
+#### 슬라이더 (Sliders)
 
 ##### Set Slider Values
-Sets slider values without baking them into geometry.
+지오메트리에 굽지 않고 슬라이더 값을 설정합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Slider Names** | Comma-separated list of slider names to set. Leave empty to set all sliders. |
-| **Value** | The value to set (0% to 100%). |
+| **Slider Names** | 설정할 슬라이더 이름 목록입니다 (쉼표로 구분). 비워 두면 모든 슬라이더를 설정합니다. |
+| **Value** | 설정할 값입니다 (0% ~ 100%). |
 
 ##### Conform Sliders
-Generates slider data for target shapes by conforming them to the reference shape's slider deformations.
+레퍼런스 쉐이프의 슬라이더 변형에 맞춰 대상 쉐이프를 정렬함으로써 슬라이더 데이터를 생성합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Proximity Radius** | Search radius for finding nearby reference vertices. |
-| **Max Results** | Maximum number of nearby vertices to consider. |
-| **Smooth Results** | Smooth the generated result deltas after conforming. |
-| **Smoothing Iterations** | Number of smoothing passes to run when **Smooth Results** is enabled. |
-| **Smoothing Strength** | Strength used for smoothing result deltas. |
-| **No Squeeze** | Prevent vertices from being pushed inward. |
-| **Solid Mode** | Treat the reference as a solid volume instead of a surface. |
-| **Axis X / Y / Z** | Which axes to conform along. |
-| **Fix Clipping** | Run clipping fix immediately after conforming each shape/slider delta. |
-| **Clipping Strength** | Strength percentage used by the conform-time clipping fix. |
-| **Slider Names** | Comma-separated list of specific sliders to conform. Leave empty for all non-zap/non-UV sliders. |
+| **Proximity Radius** | 인접한 레퍼런스 정점을 찾기 위한 검색 반경입니다. |
+| **Max Results** | 고려할 인접 정점의 최대 개수입니다. |
+| **Smooth Results** | 컨폼 후 생성된 결과 델타(Delta)를 부드럽게 만듭니다. |
+| **Smoothing Iterations** | **Smooth Results** 활성 시 실행할 스무딩 반복 횟수입니다. |
+| **Smoothing Strength** | 결과 델타 스무딩에 사용할 강도입니다. |
+| **No Squeeze** | 정점이 안쪽으로 밀려 들어가는 것을 방지합니다. |
+| **Solid Mode** | 레퍼런스를 표면이 아닌 고체 부피로 취급합니다. |
+| **Axis X / Y / Z** | 컨폼을 적용할 축을 선택합니다. |
+| **Fix Clipping** | 각 쉐이프/슬라이더 델타 컨폼 직후 클리핑 수정을 실행합니다. |
+| **Clipping Strength** | 컨폼 시 클리핑 수정에 사용할 강도 백분율입니다. |
+| **Slider Names** | 컨폼할 특정 슬라이더 이름 목록입니다. 비워 두면 모든 비잽/비UV 슬라이더를 처리합니다. |
 
 ##### Set Slider Properties
-Sets metadata and default values on existing sliders.
+기존 슬라이더에 메타데이터와 기본값을 설정합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Slider Names** | Comma-separated list of sliders to update. Leave empty to apply to all sliders. |
-| **Zap** | Mark matching sliders as zap sliders, or leave unchanged. |
-| **Hidden** | Mark matching sliders as hidden, or leave unchanged. |
-| **Default (Small) / Default (Big)** | Default values for regular sliders. Leave blank for no change. |
-| **Default Zapped** | Shown when **Zap** is set to **Yes**. Controls whether matching zap sliders are zapped by default. |
+| **Slider Names** | 업데이트할 슬라이더 목록입니다. 비워 두면 모든 슬라이더에 적용됩니다. |
+| **Zap** | 일치하는 슬라이더를 잽 슬라이더로 표시하거나 그대로 둡니다. |
+| **Hidden** | 일치하는 슬라이더를 숨김으로 표시하거나 그대로 둡니다. |
+| **Default (Small) / Default (Big)** | 일반 슬라이더의 기본값입니다. 변화를 주지 않으려면 비워 둡니다. |
+| **Default Zapped** | **Zap**이 **Yes**로 설정되었을 때 표시됩니다. 일치하는 잽 슬라이더가 기본적으로 적용(Zap)될지 여부를 제어합니다. |
 
 ##### Delete Slider
-Removes a slider from the project.
+프로젝트에서 슬라이더를 제거합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Slider Names** | Comma-separated list of slider names to delete. |
-| **Regex** | If checked, treats the name as a regular expression and deletes all matching sliders. |
+| **Slider Names** | 삭제할 슬라이더 이름 목록입니다. |
+| **Regex** | 체크하면 이름을 정규 표현식으로 취급하여 일치하는 모든 슬라이더를 삭제합니다. |
 
 ##### Import Slider Data
-Imports slider data from files.
+파일로부터 슬라이더 데이터를 임포트합니다.
 
-Supported formats for single-file mode:
-- **`.osd`** — Imports all slider diffs from the OSD file, auto-mapping to shapes by target name.
-- **`.tri`** — Imports all morphs from the TRI file, auto-mapping to shapes by name. UV morphs are preserved.
-- **`.nif`** / **`.obj`** / **`.fbx`** — Computes a slider diff by comparing the file's mesh geometry against the current shape. Requires a slider name (first entry of **Slider Names**, or the filename is used). Applied to all shapes that have a matching mesh in the file.
-- **`.bsd`** — Imports binary slider data. Requires a slider name (same as above).
+단일 파일 모드에서 지원되는 형식:
+- **`.osd`** — OSD 파일에서 모든 슬라이더 차이(Diff)를 임포트하며, 대상 이름에 따라 쉐이프에 자동으로 매핑합니다.
+- **`.tri`** — TRI 파일에서 모든 모프(Morph)를 임포트하며, 이름에 따라 쉐이프에 자동으로 매핑합니다. UV 모프는 보존됩니다.
+- **`.nif`** / **`.obj`** / **`.fbx`** — 파일의 메시 지오메트리와 현재 쉐이프를 비교하여 슬라이더 차이를 계산합니다. 슬라이더 이름이 필요합니다 (**Slider Names**의 첫 번째 항목 또는 파일 이름 사용). 파일 내에 일치하는 메시가 있는 모든 쉐이프에 적용됩니다.
+- **`.bsd`** — 바이너리 슬라이더 데이터를 임포트합니다. 슬라이더 이름이 필요합니다 (위와 동일).
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **File/Folder** | Path to a slider data file (`.osd`, `.bsd`, `.nif`, `.obj`, `.fbx`, `.tri`), or a folder containing them. |
-| **From Folder** | If checked, scans the folder for slider data files. For `.osd` and `.tri` files, all sliders/morphs are imported automatically (shape mapping is built into the file format). For `.nif`, `.obj`, `.fbx`, and `.bsd` files, filenames must follow the `ShapeName#SliderName.ext` naming pattern. |
-| **Merge Only** | Only import data for sliders that already exist (don't create new ones). |
-| **Slider Names** | Comma-separated list of specific sliders to import. For `.osd`/`.tri`, filters which sliders to import. For `.nif`/`.obj`/`.fbx`/`.bsd`, the first entry is used as the slider name. Leave empty to import all (`.osd`/`.tri`) or use the filename as slider name (others). |
+| **File/Folder** | 슬라이더 데이터 파일(`.osd`, `.bsd`, `.nif`, `.obj`, `.fbx`, `.tri`) 또는 이들이 포함된 폴더의 경로입니다. |
+| **From Folder** | 체크하면 폴더에서 슬라이더 데이터 파일을 스캔합니다. `.osd` 및 `.tri` 파일의 경우 모든 슬라이더/모프가 자동으로 임포트됩니다 (쉐이프 매핑이 파일 형식에 내장됨). `.nif`, `.obj`, `.fbx`, `.bsd` 파일의 경우 파일 이름이 `쉐이프이름#슬라이더이름.확장자` 패턴을 따라야 합니다. |
+| **Merge Only** | 이미 존재하는 슬라이더에 대한 데이터만 임포트합니다 (새 슬라이더를 생성하지 않음). |
+| **Slider Names** | 임포트할 특정 슬라이더 목록입니다. `.osd`/`.tri`의 경우 임포트할 슬라이더를 필터링합니다. `.nif`/`.obj`/`.fbx`/`.bsd`의 경우 첫 번째 항목이 슬라이더 이름으로 사용됩니다. 비워 두면 전체를 임포트하거나(`.osd`/`.tri`) 파일 이름을 슬라이더 이름으로 사용합니다(기타). |
 
-#### Bones
+#### 본 (Bones)
 
 ##### Copy Bone Weights
-Copies bone weights from the reference shape to target shapes.
+레퍼런스 쉐이프에서 대상 쉐이프로 본 웨이트를 복사합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Proximity Radius** | Search radius for finding nearby reference vertices. |
-| **Max Results** | Maximum number of nearby vertices to consider. |
-| **Bone List** | Comma-separated list of specific bones to copy. Leave empty for all bones. |
+| **Proximity Radius** | 인접한 레퍼런스 정점을 찾기 위한 검색 반경입니다. |
+| **Max Results** | 고려할 인접 정점의 최대 개수입니다. |
+| **Bone List** | 복사할 특정 본 이름 목록입니다. 비워 두면 모든 본을 복사합니다. |
 
 ##### Delete Bones
-Removes bones or bone weights.
+본 또는 본 웨이트를 제거합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Bone Names** | Comma-separated list of bone names to delete. |
-| **From Entire Project** | If checked, deletes the bone entirely. If unchecked, only removes weights from target shapes. |
+| **Bone Names** | 삭제할 본 이름 목록입니다. |
+| **From Entire Project** | 체크하면 본을 완전히 삭제합니다. 체크 해제하면 대상 쉐이프에서 웨이트만 제거합니다. |
 
 ##### Add Custom Bone
-Adds a new custom bone to the project.
+프로젝트에 새 커스텀 본을 추가합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Bone Name** | Name of the new bone. |
-| **Parent** | Name of the parent bone. |
-| **Translation X / Y / Z** | Position of the bone. |
-| **Rotation X / Y / Z** | Rotation of the bone. |
+| **Bone Name** | 새 본의 이름입니다. |
+| **Parent** | 부모 본의 이름입니다. |
+| **Translation X / Y / Z** | 본의 위치입니다. |
+| **Rotation X / Y / Z** | 본의 회전값입니다. |
 
 ##### Edit Custom Bone
-Modifies an existing custom bone's transform and parent.
+기존 커스텀 본의 트랜스폼과 부모를 수정합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Bone Name** | Name of the bone to edit (must not be a standard skeleton bone). |
-| **Parent** | New parent bone name. |
-| **Translation X / Y / Z** | New position. |
-| **Rotation X / Y / Z** | New rotation. |
+| **Bone Name** | 수정할 본 이름입니다 (표준 스켈레톤 본은 불가). |
+| **Parent** | 새 부모 본 이름입니다. |
+| **Translation X / Y / Z** | 새 위치입니다. |
+| **Rotation X / Y / Z** | 새 회전값입니다. |
 
 ##### Remove Skinning
-Removes all bone weight data from target shapes. If no target shapes are specified, removes skinning from all shapes.
+대상 쉐이프에서 모든 본 웨이트 데이터를 제거합니다. 대상 쉐이프를 지정하지 않으면 모든 쉐이프에서 스키닝을 제거합니다.
 
 ##### Apply Pose
-Applies a loaded pose to the mesh geometry, permanently deforming it.
+불러온 포즈를 메시 지오메트리에 적용하여 영구적으로 변형시킵니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Pose Name** | Name of the pose (must be loaded in Outfit Studio's pose list). |
+| **Pose Name** | 포즈 이름입니다 (Outfit Studio의 포즈 목록에 로드되어 있어야 함). |
 
-#### Shaders
+#### 셰이더 (Shaders)
 
 ##### Set Shader Properties
-Sets one or more shader values on target shapes.
+대상 쉐이프에 하나 이상의 셰이더 값을 설정합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Properties** | Add one or more property rows. Supported properties are `Shader Type`, `Specular Color`, `Specular Strength`, `Specular Power`, `Emissive Color`, `Emissive Multiple`, `Alpha`, `Env Map Scale`, `Eye Cubemap Scale`, `UV Offset`, `UV Scale`, `Lighting Effect 1`, `Lighting Effect 2`, `Skin Tint Color`, `Hair Tint Color`, and `Refraction Strength`. |
+| **Properties** | 하나 이상의 속성 행을 추가합니다. 지원되는 속성은 `Shader Type`, `Specular Color`, `Specular Strength`, `Specular Power`, `Emissive Color`, `Emissive Multiple`, `Alpha`, `Env Map Scale`, `Eye Cubemap Scale`, `UV Offset`, `UV Scale`, `Lighting Effect 1`, `Lighting Effect 2`, `Skin Tint Color`, `Hair Tint Color`, `Refraction Strength`입니다. |
 
-Properties that do not apply to the current shader or NIF version are skipped.
+현재 셰이더나 NIF 버전에 적용되지 않는 속성은 건너뜁니다.
 
 ##### Set Texture Paths
-Sets one or more texture slots on target shapes.
+대상 쉐이프에 하나 이상의 텍스처 슬롯을 설정합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Paths** | Add one or more texture rows, each with a texture slot and path. |
-| **Texture Slots** | Named slots include `Diffuse`, `Normal`, `Glow/Skin`, `Parallax`, `Environment`, `Env Mask`, and `Specular`. Raw slots `6` and `8` through `12` are also available for version-specific shaders. |
+| **Paths** | 각각 텍스처 슬롯과 경로를 가진 하나 이상의 텍스처 행을 추가합니다. |
+| **Texture Slots** | 이름이 지정된 슬롯에는 `Diffuse`, `Normal`, `Glow/Skin`, `Parallax`, `Environment`, `Env Mask`, `Specular`가 있습니다. 버전별 셰이더를 위한 원시(Raw) 슬롯 `6`과 `8`번부터 `12`번도 사용할 수 있습니다. |
 
-Only shapes with a `BSShaderTextureSet`-capable shader, and only slots valid for the current NIF version, are updated.
+`BSShaderTextureSet` 기능이 있는 셰이더를 사용하는 쉐이프만, 그리고 현재 NIF 버전에 유효한 슬롯만 업데이트됩니다.
 
-#### Saving & Exporting
+#### 저장 및 내보내기 (Saving & Exporting)
 
 ##### Save Project
-Saves the current project as a BodySlide slider set.
+현재 프로젝트를 BodySlide 슬라이더 세트로 저장합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Display Name** | Name shown in BodySlide. |
-| **Slider Set File** | Path to the `.osp` project file. |
-| **Output File** | The game output `.nif` filename. |
-| **Output Data Path** | The game data path for the output. |
-| **Shape Data Folder** | Folder for shape data files (`.osd` and base `.nif`). |
-| **Shape Data File** | The base shape data filename. |
-| **Generate Weights** | Create `_0.nif` and `_1.nif` weight variants. |
-| **Copy Reference** | Include the reference shape in the output. |
+| **Display Name** | BodySlide에 표시될 이름입니다. |
+| **Slider Set File** | `.osp` 프로젝트 파일의 경로입니다. |
+| **Output File** | 게임 출력 `.nif` 파일 이름입니다. |
+| **Output Data Path** | 출력물의 게임 데이터 경로입니다. |
+| **Shape Data Folder** | 쉐이프 데이터 파일(`.osd` 및 기본 `.nif`)을 저장할 폴더입니다. |
+| **Shape Data File** | 기본 쉐이프 데이터 파일 이름입니다. |
+| **Generate Weights** | `_0.nif` 및 `_1.nif` 웨이트 변형 파일을 생성합니다. |
+| **Copy Reference** | 출력물에 레퍼런스 쉐이프를 포함합니다. |
 
-**Batch-specific options** (only relevant in Slider Sets batch mode):
+**배치 전용 옵션** (Slider Sets 배치 모드에서만 관련됨):
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Use original project** | Instead of using manual settings, reads the save fields from the original slider set being processed. |
-| **Replace From / To** | After loading original settings, replace all occurrences of one string with another in the output fields. Useful for redirecting output paths. |
-| **Suffix** | Append a suffix to the display name, shape data folder, and slider set filename. |
-| **Copy reference from project** | Only copy the reference shape if the loaded project had one. Automatically enabled when "Use original project" is checked. |
-| **Ref shape names** | Comma-separated list of shape names. Only copy the reference if its name matches one of these. Leave empty to match any reference shape. |
+| **Use original project** | 수동 설정을 사용하는 대신, 처리 중인 원래 슬라이더 세트에서 저장 필드를 읽어옵니다. |
+| **Replace From / To** | 원래 설정을 불러온 후, 출력 필드에서 특정 문자열의 모든 발생을 다른 문자열로 바꿉니다. 출력 경로를 재지정할 때 유용합니다. |
+| **Suffix** | 표시 이름, 쉐이프 데이터 폴더, 슬라이더 세트 파일 이름 뒤에 접미사를 붙입니다. |
+| **Copy reference from project** | 불러온 프로젝트에 레퍼런스 쉐이프가 있었던 경우에만 레퍼런스 쉐이프를 복사합니다. "Use original project" 체크 시 자동으로 활성화됩니다. |
+| **Ref shape names** | 쉐이프 이름 목록입니다 (쉼표 구분). 이름이 일치하는 레퍼런스만 복사합니다. 모든 레퍼런스 쉐이프를 허용하려면 비워 둡니다. |
 
 ##### Export File
-Exports the project to a file.
+프로젝트를 파일로 내보냅니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **File Path** | Output path. Supported formats: `.nif`, `.obj`, `.fbx`, `.osd`, `.tri`. For `.osd` and `.tri`, the slider data (morphs) is exported rather than mesh geometry. In batch mode with a folder-type path, the original filename is used. |
-| **Include Reference** | Include the reference shape in the export (NIF only). |
-| **Prefix** | Prepend this text to the output filename. |
-| **Suffix** | Append this text to the output filename (before extension). |
+| **File Path** | 출력 경로입니다. 지원되는 형식: `.nif`, `.obj`, `.fbx`, `.osd`, `.tri`. `.osd` 및 `.tri`의 경우 메시 지오메트리 대신 슬라이더 데이터(모프)가 내보내집니다. 폴더 유형 경로를 사용한 배치 모드에서는 원래 파일 이름이 사용됩니다. |
+| **Include Reference** | 내보낼 때 레퍼런스 쉐이프를 포함합니다 (NIF 전용). |
+| **Prefix** | 출력 파일 이름 앞에 이 텍스트를 붙입니다. |
+| **Suffix** | 출력 파일 이름 뒤에 (확장자 앞에) 이 텍스트를 붙입니다. |
 
-**Batch-specific option:**
+**배치 전용 옵션:**
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Use original file path** | Export directly to the path of the file that was loaded by the batch, overwriting it. |
+| **Use original file path** | 배치에 의해 로드된 파일의 경로로 직접 내보내어 덮어씁니다. |
 
-#### Masks
+#### 마스크 (Masks)
 
 ##### Clear Mask
-Clears the current vertex mask on target shapes. Uses **Target Meshes** to choose which shapes to clear.
+대상 쉐이프의 현재 정점 마스크를 지웁니다. **Target Meshes**를 사용하여 지울 쉐이프를 선택합니다.
 
 ##### Load Mask
-Loads a vertex mask from a mask file and applies it to target shapes.
+마스크 파일에서 정점 마스크를 불러와 대상 쉐이프에 적용합니다.
 
-| Option | Description |
+| 옵션 | 설명 |
 |---|---|
-| **Mask File** | Path to the mask file. |
-| **Mask Name** | Name of the mask within the file. Must match the file's stored mask name. |
+| **Mask File** | 마스크 파일 경로입니다. |
+| **Mask Name** | 파일 내의 마스크 이름입니다. 파일에 저장된 마스크 이름과 일치해야 합니다. |
 
-#### Nodes
+#### 노드 (Nodes)
 
 ##### Remove Unused Nodes
-Deletes unreferenced NIF nodes from the current project.
+현재 프로젝트에서 참조되지 않는 NIF 노드들을 삭제합니다.
 
 ---
 
-## Tips
+## 팁
 
-- Use **placeholder variables** to make scripts reusable. For example, define `{{OUTPUT}}` as your output folder and reference it in export paths.
-- In batch mode, combine `{{BATCH_NAME}}` with custom variables to build dynamic paths: `{{OUTPUT}}/{{BATCH_NAME}}_modified.nif`.
-- Use the **Regex** option on target meshes to apply a step to shapes matching a pattern, e.g. `Body|Hands|Feet`.
-- Steps that fail show the step's **Note** in the error dialog — use notes to remind yourself what each step does.
-- The **Execute Selected** right-click option is useful for testing individual steps before running the full script.
+- 스크립트를 재사용 가능하게 만들려면 **플레이스홀더 변수**를 사용하세요. 예를 들어, `{{OUTPUT}}`을 출력 폴더로 정의하고 내보내기 경로에서 이를 참조할 수 있습니다.
+- 배치 모드에서 `{{BATCH_NAME}}`을 커스텀 변수와 조합하여 `{{OUTPUT}}/{{BATCH_NAME}}_modified.nif`와 같이 동적 경로를 구축할 수 있습니다.
+- 특정 패턴과 일치하는 쉐이프에 단계를 적용하려면 Target Meshes에서 **Regex** 옵션을 사용하세요 (예: `Body|Hands|Feet`).
+- 실행에 실패한 단계는 에러 대화 상자에 해당 단계의 **Note**를 표시합니다. 메모 기능을 활용해 각 단계가 무엇을 하는지 기록해 두세요.
+- 우클릭 메뉴의 **Execute Selected** 옵션은 전체 스크립트를 실행하기 전에 개별 단계를 테스트하는 데 유용합니다.

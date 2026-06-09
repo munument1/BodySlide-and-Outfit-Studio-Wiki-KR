@@ -1,58 +1,58 @@
-## ![Transform Tool](http://i.imgur.com/PiYJAb4.png) Transform Tool (F)
-The transform tool allows you to move, rotate and scale meshes in all 3 dimensions. Drag the **arrows to move, the circles to rotate and the cubes to scale** the selected shapes.
+## ![Transform Tool](http://i.imgur.com/PiYJAb4.png) 트랜스폼 도구 (F)
+트랜스폼 도구를 사용하면 메시를 3차원 모든 방향으로 이동, 회전, 크기 조절을 할 수 있습니다. **화살표를 드래그하면 이동, 원을 드래그하면 회전, 정육면체를 드래그하면 크기 조절**이 선택된 쉐이프에 적용됩니다.
 
 [![Transform Tool](http://i.imgur.com/rl3KvqBb.png)](http://i.imgur.com/rl3KvqB.png)
 
-## Move Vertex
-The move vertex tool lets you drag a single vertex directly in the viewport.
+## 정점 이동 (Move Vertex)
+정점 이동 도구를 사용하면 뷰포트에서 직접 단일 정점을 드래그하여 옮길 수 있습니다.
 
-It works with the tool options shown on the toolbar:
+이 도구는 툴바에 표시된 다음과 같은 도구 옵션들과 함께 작동합니다:
 
-* **Merge Vertex** snaps to a nearby vertex on the same mesh and fills any gap.
-* **Weld Vertex** snaps to a nearby vertex while keeping separate UV coordinates.
-* **Edge Slide** slides the selected vertex along a connected edge.
-* **Restrict To Surface**, **Restrict To Plane**, and **Restrict To Normal** limit how the dragged vertex can move.
+* **Merge Vertex (정점 병합)**: 동일한 메시의 근처 정점에 스냅(Snap)하여 틈새를 메웁니다.
+* **Weld Vertex (정점 용접)**: 별도의 UV 좌표를 유지하면서 근처 정점에 스냅합니다.
+* **Edge Slide (엣지 슬라이드)**: 선택된 정점을 연결된 엣지를 따라 미끄러지듯 이동시킵니다.
+* **Restrict To Surface**, **Restrict To Plane**, **Restrict To Normal**: 드래그하는 정점의 이동 방식을 각각 표면, 평면, 법선 방향으로 제한합니다.
 
-When using **Merge Vertex** or **Weld Vertex**, Outfit Studio warns you if the selected points are not on a mesh boundary, because boundary vertices are usually the safer targets.
+**Merge Vertex**나 **Weld Vertex**를 사용할 때, 선택한 점이 메시의 경계(Boundary)에 있지 않으면 Outfit Studio가 경고를 표시합니다. 보통 경계 정점이 더 안전한 대상이기 때문입니다.
 
-If you only need numeric single-vertex editing instead of drag editing, press **V** outside the **Colors** tab to open the Move Vertex dialog.
+드래그 방식 대신 수치를 직접 입력하여 단일 정점을 편집하고 싶다면, **Colors 탭**이 아닌 곳에서 **V** 키를 눌러 정점 이동(Move Vertex) 대화 상자를 여세요.
 
-## ![Vertex Selection](http://i.imgur.com/qiGhRPw.png) Vertex Selection (Q)
-This mode, like the mask brush, allows you to select and deselect single vertices. Drag the mouse over vertices to **unmask/select** them and hold down the CTRL key to **mask/unselect** them.
+## ![Vertex Selection](http://i.imgur.com/qiGhRPw.png) 정점 선택 (Q)
+마스크 브러시와 마찬가지로 이 모드에서는 단일 정점들을 선택하거나 선택 해제할 수 있습니다. 정점 위로 마우스를 드래그하면 **마스크 해제/선택**이 되고, CTRL 키를 누른 채 드래그하면 **마스크 처리/선택 해제**가 됩니다.
 
 [![Vertex Edit](http://i.imgur.com/JUticrPb.png)](http://i.imgur.com/JUticrP.png)
 
-## Mesh Editing
-#### ![Collapse Vertex](https://i.imgur.com/xRYZ0kG.png) Collapse Vertex
-This tool allows you to click on a mesh vertex to delete. The vertex must have no more than three connections to other vertices. If it has exactly three connections, a triangle is added connecting them, so no hole is created.
+## 메시 편집 (Mesh Editing)
+#### ![Collapse Vertex](https://i.imgur.com/xRYZ0kG.png) 정점 허물기 (Collapse Vertex)
+메시 정점을 클릭하여 삭제할 수 있게 해 주는 도구입니다. 정점은 다른 정점들과 최대 3개까지만 연결되어 있어야 합니다. 연결이 정확히 3개인 경우, 정점들을 연결하는 삼각형이 하나 추가되어 구멍이 생기지 않도록 합니다.
 
-Before  
+허물기 전  
 ![Before](https://i.imgur.com/pk6gzG4.png)  
-After  
+허물기 후  
 ![After](https://i.imgur.com/o0vfLx6.png)
 
-Before  
+허물기 전  
 ![Before](https://i.imgur.com/AGbioQx.png)  
-After  
+허물기 후  
 ![After](https://i.imgur.com/EE1Z83T.png)
 
-#### ![Flip Edge](https://i.imgur.com/mS4jfga.png) Flip Edge
-This tool allows you to click on a mesh edge to flip. The edge must not be on the boundary of the surface or on a weld. The two triangles to either side of the edge are replaced with two new triangles such that the opposite pair of vertices is connected.
+#### ![Flip Edge](https://i.imgur.com/mS4jfga.png) 엣지 반전 (Flip Edge)
+메시 엣지를 클릭하여 반전시킬 수 있게 해 주는 도구입니다. 해당 엣지가 표면의 경계선이거나 용접된 부분이면 안 됩니다. 엣지 양옆의 두 삼각형은 반대쪽 정점 쌍이 연결되도록 두 개의 새로운 삼각형으로 교체됩니다.
 
-Before  
+반전 전  
 ![Before](https://i.imgur.com/ghQwnKF.png)  
-After  
+반전 후  
 ![After](https://i.imgur.com/OiHwAIb.png)
 
-#### ![Split Edge](https://i.imgur.com/HpMM2LL.png) Split Edge
-This tool allows you to click on a mesh edge to split in two with a new vertex. Neighboring triangles are also split in two. The new vertex will be at the midpoint of the edge, adjusted for surface curvature.
+#### ![Split Edge](https://i.imgur.com/HpMM2LL.png) 엣지 분할 (Split Edge)
+메시 엣지를 클릭하여 새 정점과 함께 둘로 나눌 수 있게 해 주는 도구입니다. 인접한 삼각형들도 둘로 나뉩니다. 새로운 정점은 표면의 곡률(Curvature)에 맞춰 조정된 엣지의 중간 지점에 생성됩니다.
 
-Before  
+분할 전  
 ![Before](https://i.imgur.com/MpaoHHm.png)  
-After  
+분할 후  
 ![After](https://i.imgur.com/v14SWJn.png)
 
-Before  
+분할 전  
 ![Before](https://i.imgur.com/7KHGSKR.png)  
-After  
+분할 후  
 ![After](https://i.imgur.com/PascrIx.png)

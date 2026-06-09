@@ -1,23 +1,23 @@
-## Introduction
-Conversion references consist of one or more sliders that morph a mesh **from one shape to another**.
+## 서론
+변환 레퍼런스는 메시의 형태를 **한 모양에서 다른 모양으로** 변형(Morph)시키는 하나 이상의 슬라이더로 구성됩니다.
 
-This guide outlines how to create your own conversion reference by **making use of existing sliders**. Following this, you can recreate the shape you want to convert **from**, which can then be used to convert **both ways**.
+이 가이드는 **기존의 슬라이더를 활용하여** 직접 변환 레퍼런스를 만드는 방법을 설명합니다. 이 방법을 통해 변환 전의 형태를 재현할 수 있으며, 이를 활용해 **양방향으로의 변환**이 가능해집니다.
 
-## Step-by-step example
-1. **Load up a [[reference template|Reference Templates]]** with sliders, for example the **CBBE Body** template. This will be the target body that you want to **convert to**.
+## 단계별 예제
+1. 슬라이더가 포함된 **[[레퍼런스 템플릿|Reference-Templates]]**을 불러옵니다 (예: **CBBE Body** 템플릿). 이것이 최종적으로 **변환하고자 하는 대상(Target)** 바디가 됩니다.
 
-2. Use the sliders to create a shape that looks closest to the source body. This is the shape to **convert from**. Don't forget that you can type in negative slider values or values above 100% as well.
+2. 슬라이더를 사용하여 원본 바디와 가장 비슷해 보이는 형태를 만듭니다. 이것이 **변환 전의 형태(Source)**가 됩니다. 슬라이더 값에 음수나 100% 이상의 값을 직접 입력할 수도 있다는 점을 잊지 마세요.
 
-3. When you're done, use the **File -> Make Conversion Reference** menu item and give the slider a name, such as "Other Body -> CBBE".
+3. 형태를 다 만들었다면, **File -> Make Conversion Reference** 메뉴 항목을 실행하고 슬라이더 이름을 지정합니다 (예: "다른 바디 -> CBBE").
 
-4. **Save the project** (Other Body -> CBBE) using **[[File -> Save Project As|Saving a project]]**. For conversion references, the output paths and file names don't matter, as they're not used in BodySlide.
+4. **[[File -> Save Project As|Saving-a-project]]** 메뉴를 사용하여 **프로젝트를 저장**합니다 (다른 바디 -> CBBE). 변환 레퍼런스의 경우 출력 경로와 파일 이름은 BodySlide에서 사용되지 않으므로 크게 중요하지 않습니다.
 
-    The individual text boxes all have tool tips that appear when hovering over them with the mouse. You can simply **enter a display name** and click the **To Project** button.
+    각 텍스트 박스에는 마우스를 올리면 나타나는 툴팁이 있습니다. 간단히 **표시 이름(Display name)만 입력**하고 **To Project** 버튼을 클릭하면 됩니다.
 
-5. (Optional) If you need a **reversed conversion reference**, set the slider you made to 100% and use **File -> Make Conversion Reference** again. Name the slider the opposite way, for example "CBBE -> Target Body".
+5. (선택 사항) **역방향 변환 레퍼런스**가 필요하다면, 방금 만든 슬라이더를 100%로 설정하고 **File -> Make Conversion Reference**를 다시 실행하세요. 슬라이더 이름을 반대로 지정합니다 (예: "CBBE -> 대상 바디").
 
-6. (Optional) **Save the reversed project** (CBBE -> Other Body) using **[[File -> Save Project As|Saving a project]]**. For conversion references, the output paths and file names don't matter, as they're not used in BodySlide.
+6. (선택 사항) **역방향 프로젝트를 저장**합니다 (CBBE -> 다른 바디). 마찬가지로 **File -> Save Project As...**를 사용하여 저장하세요. 출력 경로와 파일 이름은 상관없습니다.
 
-    The individual text boxes all have tool tips that appear when hovering over them with the mouse. You can simply **enter a display name** and click the **To Project** button.
+    간단히 **표시 이름만 입력**하고 **To Project** 버튼을 클릭하면 됩니다.
 
-7. You can now use the newly created conversion reference(s) in Outfit Studio to morph outfits from body to body.
+7. 이제 새로 만든 변환 레퍼런스를 Outfit Studio에서 사용하여 의상을 다른 바디 타입으로 변환할 수 있습니다.

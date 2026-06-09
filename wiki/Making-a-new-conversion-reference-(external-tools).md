@@ -1,46 +1,46 @@
-## Introduction
-Conversion references consist of one or more sliders that morph a mesh **from one shape to another**.
+## 서론
+변환 레퍼런스는 메시의 형태를 **한 모양에서 다른 모양으로** 변형(Morph)시키는 하나 이상의 슬라이더로 구성됩니다.
 
-This guide outlines how to create your own conversion reference by **using external 3D software**. Following this, you can recreate the shape you want to convert **from**, which can then be used to convert **both ways**.
+이 가이드는 **외부 3D 소프트웨어**를 사용하여 직접 변환 레퍼런스를 만드는 방법을 설명합니다. 이 방법을 통해 변환 전의 형태를 재현할 수 있으며, 이를 활용해 **양방향으로의 변환**이 가능해집니다.
 
-Before following this guide, you should see if the normal Outfit Studio method works well enough for you: [[Making a new conversion reference]]
+이 가이드를 따라 하기 전에, Outfit Studio에서 제공하는 일반적인 방법이 충분한지 먼저 확인해 보세요: [[새 변환 레퍼런스 만들기|Making-a-new-conversion-reference]]
 
-## Step-by-step example
-To use this method, you will **need 3D software** such as Blender or 3ds Max. Unfortunately I can't explain how to use these programs here as it's out of scope, sorry. :wink:
+## 단계별 예제
+이 방법을 사용하려면 Blender나 3ds Max와 같은 **3D 소프트웨어가 필요**합니다. 아쉽게도 이 문서의 범위를 벗어나므로 해당 프로그램들의 구체적인 사용법까지는 설명할 수 없습니다. :wink:
 
-For this example, we are going to say that our base body is CBBE. That means, we are going to create a conversion reference that goes from CBBE to another body (and back, if needed).
+이 예제에서는 기본 바디를 CBBE라고 가정하겠습니다. 즉, CBBE에서 다른 바디로(필요에 따라 그 반대로도) 변환하는 레퍼런스를 만들 것입니다.
 
-1. Load the **NIF file of the other body** into Outfit Studio and export it as an OBJ file using the **Shape -> Export -> To OBJ** menu item.
+1. **상대방 바디의 NIF 파일**을 Outfit Studio로 불러온 뒤, **Shape -> Export -> To OBJ** 메뉴를 사용하여 OBJ 파일로 익스포트합니다.
 
-2. Load the **CBBE Body** [[reference template|Reference Templates]] (or similar) into Outfit Studio and export it as an OBJ file using the **Shape -> Export -> To OBJ** menu item.
+2. **CBBE Body** [[레퍼런스 템플릿|Reference-Templates]](또는 유사한 것)을 Outfit Studio로 불러온 뒤, **Shape -> Export -> To OBJ** 메뉴를 사용하여 OBJ 파일로 익스포트합니다.
 
-3. **Import both of these OBJ files** into your preferred 3D software. Bodies like CBBE can used as a bridge to convert between various body types in our references, which is why it's being used here.
+3. **이 두 OBJ 파일을 모두** 선호하는 3D 소프트웨어로 불러옵니다. CBBE와 같은 바디는 레퍼런스 내에서 다양한 바디 타입 간을 변환하는 가교(Bridge) 역할을 할 수 있으므로 여기에서 사용됩니다.
 
-4. Use **Shrinkwrap modifiers** or any similar methods of your 3D software to wrap the CBBE (base body) shape around the other body (not the other way around!).
+4. 3D 소프트웨어의 **슈링크랩(Shrinkwrap) 모디파이어**나 유사한 방법을 사용하여 CBBE(베이스 바디)의 형태가 상대방 바디를 감싸도록 만듭니다. (그 반대가 아닙니다!)
 
-    Make sure to **manually align** the body shape a bit beforehand. This will ensure better wrapping accuracy.
+    작업 전에 바디 형태를 **수동으로 어느 정도 정렬**해 두면 슈링크랩의 정확도가 높아집니다.
 
-    You want all parts of the anatomy to line up properly before applying the wrapping. You're recreating the exact shape of the other body, but using the mesh of the base body.
+    슈링크랩을 적용하기 전에 모든 해부학적 부위가 제대로 일치하는지 확인하세요. 여러분은 베이스 바디의 메시 구조를 유지하면서 상대방 바디의 정확한 형태를 재현하는 작업을 하고 있는 것입니다.
 
-    #### Blender Shrinkwrap example
+    #### Blender 슈링크랩 예시
     ![Shrinkwarp](http://i.imgur.com/HvEksIQ.png)
 
-5. Export the resulting shaped base body (the one that was wrapped around the other body) as an OBJ file.
+5. 결과물로 나온 형태의 베이스 바디(상대방 바디를 감싸도록 변형된 것)를 OBJ 파일로 익스포트합니다.
 
-    Make sure both the **vertex count and vertex order stay the same** by checking the export options of your program.
+    소프트웨어의 익스포트 옵션을 확인하여 **정점 개수(Vertex count)와 정점 순서(Vertex order)가 그대로 유지**되는지 반드시 확인하세요.
 
-6. ![New Project](http://i.imgur.com/KxNNU2K.png) Create a **new project** in Outfit Studio using the same reference you used in step 2.
+6. ![New Project](http://i.imgur.com/KxNNU2K.png) 2단계에서 사용했던 것과 동일한 레퍼런스를 사용하여 Outfit Studio에서 **새 프로젝트**를 만듭니다.
 
-7. Create a new slider using the **Slider -> New Slider** menu item.
+7. **Slider -> New Slider** 메뉴를 사용하여 새 슬라이더를 만듭니다.
 
-8. ![Edit Mode](http://i.imgur.com/qiGhRPw.png) Click the edit button of the new slider and use the **Slider -> Import Slider Data -> Import OBJ** feature with the morph you exported out of the 3D software.
+8. ![Edit Mode](http://i.imgur.com/qiGhRPw.png) 새 슬라이더의 편집 버튼을 클릭하고, **Slider -> Import Slider Data -> Import OBJ** 기능을 사용하여 3D 소프트웨어에서 익스포트했던 모프(Morph) 파일을 불러옵니다.
 
-    This creates the "CBBE -> Other Body" slider data from the difference of the two.
+    이렇게 하면 두 형태의 차이로부터 "CBBE -> 상대방 바디" 슬라이더 데이터가 생성됩니다.
 
-9. **Save the project** (CBBE -> Other Body) using **[[File -> Save Project As|Saving a project]]**. For conversion references, the output paths and file names don't matter, as they're not used in BodySlide.
+9. **[[File -> Save Project As|Saving-a-project]]** 메뉴를 사용하여 **프로젝트를 저장**합니다 (CBBE -> 상대방 바디). 변환 레퍼런스의 경우 출력 경로와 파일 이름은 BodySlide에서 사용되지 않으므로 크게 중요하지 않습니다.
 
-10. (Optional) To create the **reversed conversion reference**, set the slider you have to 100% and use **File -> Make Conversion Reference** again. Name the slider the opposite way, for example "Target Body -> CBBE".
+10. (선택 사항) **역방향 변환 레퍼런스**를 만들려면, 현재 슬라이더를 100%로 설정하고 **File -> Make Conversion Reference** 기능을 다시 사용하세요. 슬라이더 이름을 반대로 지정합니다 (예: "대상 바디 -> CBBE").
 
-11. (Optional) **Save the reversed project** (Other Body -> CBBE) using **[[File -> Save Project As|Saving a project]]**. the output paths and file names don't matter, as they're not used in BodySlide.
+11. (선택 사항) **역방향 프로젝트를 저장**합니다 (상대방 바디 -> CBBE). 출력 경로와 파일 이름은 상관없습니다.
 
-12. You can now use the newly created conversion reference(s) in Outfit Studio to morph outfits from body to body.
+12. 이제 새로 만든 변환 레퍼런스를 Outfit Studio에서 사용하여 의상을 다른 바디 타입으로 변환할 수 있습니다.

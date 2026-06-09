@@ -1,23 +1,23 @@
-## What are bone weights?
-Bone weights are used for games that have **skeletal animation** systems. They tell the engine what parts of the mesh (which vertices) have to move along with one or more specific bones and how strong they are affected by the bone's movement (the weight factor).
+## 본 웨이트(Bone weights)란 무엇인가요?
+본 웨이트는 **스켈레탈 애니메이션(Skeletal animation)** 시스템을 사용하는 게임에서 쓰입니다. 메시의 어떤 부분(어떤 정점들)이 하나 이상의 특정 본과 함께 움직여야 하는지, 그리고 본의 움직임에 얼마나 강하게 영향을 받는지(웨이트 수치)를 엔진에 알려주는 역할을 합니다.
 
-This guide explains how to copy the bone weights from a reference, such as a body mesh, to other meshes like outfits. That way, everything will animate correctly in-game and the weighting matches up with the body.
+이 가이드는 바디 메시와 같은 레퍼런스로부터 의상과 같은 다른 메시로 본 웨이트를 복사하는 방법을 설명합니다. 이렇게 하면 게임 내에서 모든 것이 올바르게 애니메이션되며, 의상의 웨이트가 바디와 일치하게 됩니다.
 
-It should work for any mesh or reference template that has the weights you need to copy inside of it. You need an otherwise 100% working outfit or mesh for this tutorial first, though!
+복사하려는 웨이트가 포함된 메시나 레퍼런스 템플릿이라면 무엇이든 이 방법을 사용할 수 있습니다. 다만, 이 튜토리얼을 진행하기 전에 다른 부분들이 100% 정상 작동하는 의상이나 메시가 준비되어 있어야 합니다!
 
-## Step-by-step example
-1. ![New Project](http://i.imgur.com/KxNNU2K.png) Create a **new project** in Outfit Studio.
+## 단계별 예제
+1. ![New Project](http://i.imgur.com/KxNNU2K.png) Outfit Studio에서 **새 프로젝트(New project)**를 만듭니다.
 
-2. Choose the NIF file or reference template that **has the weights you need** as a reference and click next.
+2. 레퍼런스로서 **필요한 웨이트를 가지고 있는** NIF 파일이나 레퍼런스 템플릿을 선택하고 Next를 클릭합니다.
 
-3. Select the **outfit or mesh** you want to copy the weights of the reference to and click finish.
+3. 레퍼런스의 웨이트를 **복사해올 대상이 될 의상이나 메시**를 선택하고 Finish를 클릭합니다.
 
-4. Multi-select all of the shapes you want to **copy the bone weights to** in the list to the right, then switch to the **bones tab** and select all bones to use with the CTRL key to multi-select. From here, use the **Shape -> Copy Selected Weights** menu item.
+4. 오른쪽 목록에서 **본 웨이트를 복사할** 모든 쉐이프를 다중 선택한 다음, **Bones 탭**으로 전환하여 사용할 모든 본을 CTRL 키를 사용해 다중 선택합니다. 그 상태에서 **Shape -> Copy Selected Weights** 메뉴 항목을 실행합니다.
 
     ![Bones](http://i.imgur.com/hLNvRxL.png)
 
-5. If you simply want to copy the weights **of all bones** and not choose them manually, use the **Shape -> Copy Bone Weights** menu item instead.
+5. 본을 수동으로 선택하지 않고 **모든 본**의 웨이트를 복사하고 싶다면, 대신 **Shape -> Copy Bone Weights** 메뉴 항목을 사용하세요.
 
-6. A weight copy settings dialog will pop up, where you can **customize the way the bone weights will be copied** from the reference to the selected shapes. Most of the time, the default settings are sufficient. Check the **[[weight copy options|Weight Copy Options]]** page for details.
+6. 웨이트 복사 설정 대화 상자가 나타납니다. 여기서 레퍼런스로부터 선택된 쉐이프로 **본 웨이트가 복사되는 방식을 사용자 정의**할 수 있습니다. 대부분의 경우 기본 설정으로 충분합니다. 자세한 내용은 **[[웨이트 복사 옵션|Weight-Copy-Options]]** 페이지를 참고하세요.
 
-7. Finally, use the **File -> Export -> To NIF** menu item to save your changes. If what you were working on was a BodySlide project, then save that instead.
+7. 마지막으로 **File -> Export -> To NIF** 메뉴 항목을 사용하여 변경 사항을 저장합니다. 작업 중이던 것이 BodySlide 프로젝트였다면 대신 해당 프로젝트를 저장하세요.
