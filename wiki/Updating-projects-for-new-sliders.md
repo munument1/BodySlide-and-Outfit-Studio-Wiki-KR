@@ -1,21 +1,23 @@
-## Introduction
-This guide will show you the steps required to update a project to a new version of the reference or body that was used, so that **new sliders will work** and become available in BodySlide.
+## 소개
 
-The reference with its sliders has to be **swapped out** for the updated one without breaking the already existing slider data for the project.
+이 가이드는 프로젝트에서 사용하던 레퍼런스 또는 바디가 새 버전으로 업데이트되었을 때, 프로젝트를 어떻게 갱신해야 **새 슬라이더가 BodySlide에서 작동하고 표시되는지** 설명합니다.
 
-## Step-by-step example
-1. ![Load Project](http://i.imgur.com/viWOwuL.png) Load the project that you want to update using **File -> Load Project**.
+프로젝트에 이미 들어 있는 슬라이더 데이터를 망가뜨리지 않으면서, 기존 레퍼런스와 슬라이더를 업데이트된 레퍼런스로 **교체**해야 합니다.
 
-2. Choose the updated reference in the **File -> Load Reference** dialog. This adds the new sliders and base mesh to the loaded project.
+## 단계별 예시
 
-3. Any zaps or extra sliders the project had before are now gone, but **you can restore them** without having to recreate them from scratch (see optional steps below).
+1. ![Load Project](http://i.imgur.com/viWOwuL.png) **File -> Load Project**를 사용해 업데이트하려는 프로젝트를 불러옵니다.
 
-4. (optional) Use the **Slider -> New Slider** menu item to create any zaps or extra sliders the outfit had by typing the EXACT same slider name into the text field! The slider is now back and working the same way as before, you just need to set it to act as a zap again.
+2. **File -> Load Reference** 대화 상자에서 업데이트된 레퍼런스를 선택합니다. 이렇게 하면 새 슬라이더와 베이스 메시가 불러온 프로젝트에 추가됩니다.
 
-5. (optional) Now, enter the edit mode and **Slider -> Properties** (TAB) of each extra slider/zap you added back to the project and **make sure they are correct** (was it a zap, was it hidden, what are the correct default values).
+3. 프로젝트에 원래 있던 Zap이나 추가 슬라이더는 이 시점에서 사라집니다. 하지만 처음부터 다시 만들 필요 없이 **복원할 수 있습니다**. 아래 선택 단계들을 참고하세요.
 
-6. Next, **uncheck all slider checkboxes** in the list to the right and then **select only those of the newly added or changed sliders**. That way, the previous slider data of the other sliders that weren't changed stays the same and you don't have to fix clipping for those again.
+4. (선택 사항) **Slider -> New Slider** 메뉴 항목을 사용해 의상에 있던 Zap이나 추가 슬라이더를 다시 만듭니다. 이때 텍스트 필드에는 이전과 **정확히 같은 슬라이더 이름**을 입력해야 합니다. 그러면 슬라이더가 다시 돌아오고 이전처럼 작동합니다. 다만 다시 Zap으로 동작하도록 설정해 주어야 합니다.
 
-7. Use the **Slider -> Conform All** menu item. This conforms the all shapes in the project to the new sliders that are currently checked.
+5. (선택 사항) 이제 편집 모드로 들어가서 프로젝트에 다시 추가한 각 추가 슬라이더/Zap의 **Slider -> Properties**(TAB)를 열고 **설정이 올바른지 확인**합니다. Zap이었는지, 숨김 처리되어 있었는지, 올바른 기본값은 무엇인지 확인하세요.
 
-8. Finally, **[save the project](Saving-a-project.md)** and it should now make use of the updated reference and include the latest sliders.
+6. 다음으로 오른쪽 목록의 **모든 슬라이더 체크박스를 해제**한 뒤, **새로 추가되었거나 변경된 슬라이더만 선택**합니다. 이렇게 하면 변경되지 않은 다른 슬라이더들의 기존 슬라이더 데이터는 그대로 유지되며, 해당 슬라이더들의 클리핑을 다시 수정할 필요가 없습니다.
+
+7. **Slider -> Conform All** 메뉴 항목을 사용합니다. 이 작업은 프로젝트의 모든 쉐이프를 현재 체크된 새 슬라이더에 맞춰 컨포밍합니다.
+
+8. 마지막으로 **[프로젝트를 저장](Saving-a-project.md)**하면, 이제 프로젝트가 업데이트된 레퍼런스를 사용하고 최신 슬라이더를 포함하게 됩니다.

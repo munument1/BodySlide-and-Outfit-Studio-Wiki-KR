@@ -1,24 +1,29 @@
-## Weight Normalization
+## 웨이트 정규화
 
-For skinned meshes in NIFs, the bone weights of every vertex must add up to a factor of 1. In addition, at most four bones may have weights on a single vertex.
+NIF의 스킨 메시에서는 각 버텍스의 본 웨이트 합이 1이 되어야 합니다. 또한 하나의 버텍스에는 최대 네 개의 본만 웨이트를 가질 수 있습니다.
 
-In order to guarantee this, when a NIF file is saved, Outfit Studio throws out all but the four strongest bone influences on each vertex and then normalizes the remaining weights so that they add up to exactly 1.
+이를 보장하기 위해 NIF 파일을 저장할 때 Outfit Studio는 각 버텍스에서 영향력이 가장 큰 네 개의 본만 남기고 나머지는 버립니다. 그런 다음 남은 웨이트의 합이 정확히 1이 되도록 정규화합니다.
 
-#### Live Normalization
-With live normalization on (see "Normalize Weights" checkbox), instead of waiting for you to save the file before normalizing, Outfit Studio normalizes as you paint with the weight paint brush.
+#### 실시간 정규화
 
-![Normalize Weights checkbox](https://i.imgur.com/snrKoJq.png)  
+실시간 정규화를 켜면("Normalize Weights" 체크박스 참고), 파일을 저장할 때까지 기다렸다가 정규화하는 대신, 웨이트 페인트 브러시로 칠하는 동안 Outfit Studio가 즉시 정규화를 수행합니다.
 
-If you increase the weight for a bone on a vertex, weight is taken away from other bones for that vertex. If you decrease the weight, it is added to other bones. Adding weight to other bones that already have some weight is preferred over adding weight to bones that have zero weight.
+![Normalize Weights checkbox](https://i.imgur.com/snrKoJq.png)
 
-#### Normalized/locked bones
-You can control which bones have weight taken away or added by toggling the "modify during normalization" flag next to the bone.  
+어떤 버텍스에서 특정 본의 웨이트를 늘리면, 그 버텍스의 다른 본에서 웨이트가 빠져나갑니다. 반대로 웨이트를 줄이면 다른 본에 웨이트가 더해집니다. 이때 웨이트가 0인 본에 새로 더하는 것보다, 이미 어느 정도 웨이트를 가진 본에 더하는 쪽이 우선됩니다.
+
+#### 정규화/잠긴 본
+
+본 옆의 "modify during normalization" 플래그를 켜거나 끄면, 정규화 중 어떤 본에서 웨이트를 빼거나 더할지 제어할 수 있습니다.
+
 ![Bone Toggles](https://i.imgur.com/8JW093S.png)
 
-There are two main modes of operation for these flags:
-* If no bones have the "modify" flag set, or the only bones with the "modify" flag set are the selected bone and the x-mirror bone, then the "modify" flags are ignored. Weight is added or removed from any other bone during normalization.
-* Otherwise, only those bones with the "modify" flag set (not including the selected bone or the x-mirror bone) will have their weights modified during normalization. All other bones are locked.
+이 플래그에는 두 가지 주요 동작 방식이 있습니다.
 
-There are two special cases worth mentioning:
-* If the weights are not already normalized (which can happen for some vertices after doing "Copy Weights"), painting with the weight brush will cause Outfit Studio to attempt to normalize weights for all vertices within the brush's radius. This can cause a sudden big change in weights.
-* If just one bone has the "modify" flag set other than the selected bone and the x-mirror bone, and that modifiable bone has zero weight for the vertices you're brushing, then the selected bone can only take weight from the x-mirror bone and vice versa. This is handy for equalizing weights on the centerline.
+* "modify" 플래그가 설정된 본이 없거나, 설정된 본이 선택한 본과 X 미러 본뿐이라면, "modify" 플래그는 무시됩니다. 정규화 중 다른 모든 본에서 웨이트가 추가되거나 제거될 수 있습니다.
+* 그 외의 경우에는 "modify" 플래그가 설정된 본들만 정규화 중 웨이트가 변경됩니다. 단, 선택한 본과 X 미러 본은 제외됩니다. 나머지 본은 모두 잠긴 상태로 취급됩니다.
+
+알아둘 만한 특수한 경우가 두 가지 있습니다.
+
+* 웨이트가 이미 정규화되어 있지 않은 경우가 있습니다. 예를 들어 "Copy Weights" 작업 후 일부 버텍스에서 이런 일이 생길 수 있습니다. 이 상태에서 웨이트 브러시로 칠하면 Outfit Studio가 브러시 반경 안의 모든 버텍스에 대해 웨이트 정규화를 시도합니다. 이로 인해 웨이트가 갑자기 크게 바뀔 수 있습니다.
+* 선택한 본과 X 미러 본을 제외하고 "modify" 플래그가 설정된 본이 하나뿐이고, 그 수정 가능한 본이 현재 브러시로 칠하는 버텍스들에 대해 웨이트가 0이라면, 선택한 본은 X 미러 본에서만 웨이트를 가져올 수 있고 그 반대도 마찬가지입니다. 이 방식은 중심선의 웨이트를 균등하게 맞출 때 유용합니다.

@@ -1,13 +1,13 @@
-When you **copy bone weights** in Outfit Studio, an options dialog pops up. It looks like the following.
+Outfit Studio에서 **본 웨이트를 복사**하면 옵션 대화 상자가 나타납니다. 대화 상자는 다음과 같이 생겼습니다.
 
 ![Weight Copy Options](http://i.imgur.com/bMV8lXi.png)
 
-As the description in the dialog mentions, every single vertex of the source will **spread its bone weights to the maximum amount of vertices** in the target that you set it to, provided they are within the search radius.
+대화 상자의 설명처럼, 소스의 각 버텍스는 설정한 검색 반경 안에 있는 대상 버텍스들 중 지정된 최대 개수만큼의 버텍스에 **자신의 본 웨이트를 퍼뜨립니다**.
 
-In this amazingly painted example, the green circle is the source vertex, the red circles are all of the target vertices and the radius is shown in blue.
+아래의 멋지게 그린 예시에서 초록색 원은 소스 버텍스, 빨간색 원들은 대상 버텍스, 파란색 원은 반경을 나타냅니다.
 
 ![Search Radius](http://i.imgur.com/q2yXsIk.png)
 
-There are **5 vertices within the search radius**, but with a maximum of 4 vertex targets, **only 4 of them will receive weights** from that one source. Of course, they can and will still receive weights from other sources.
+검색 반경 안에는 **5개의 버텍스**가 있지만, 최대 버텍스 대상 수가 4로 설정되어 있으므로 이 소스 하나로부터 **웨이트를 받는 버텍스는 4개뿐**입니다. 물론 이 버텍스들은 다른 소스에서도 웨이트를 받을 수 있고 실제로도 그렇게 됩니다.
 
-All of the weights received will be averaged out with a maximum of 4 different bones that can affect a single vertex.
+받은 모든 웨이트는 하나의 버텍스에 영향을 줄 수 있는 최대 4개의 서로 다른 본을 기준으로 평균화됩니다.
