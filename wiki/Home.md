@@ -6,7 +6,7 @@
 * [명령줄 인수](Command%E2%80%90line-arguments.md)
 * [가이드와 문서](Guides-and-Documentation.md)
 * [현지화](Localization.md)
-* [릴리스](Releases.md)
+* [릴리즈](Releases.md)
 * [변경 내역](Changelog.md)
 * [Windows에서 빌드하기 (Visual Studio 또는 CMake)](<Building-on-Windows-(Visual-Studio-or-CMake).md>)
 * [Linux에서 빌드하기](Building-on-Linux.md)

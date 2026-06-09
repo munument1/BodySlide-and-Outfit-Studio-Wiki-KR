@@ -1,106 +1,120 @@
-## Installation
-Simply download the program to your mod manager from one of its mod pages on Nexus Mods.
+## 설치
 
-Manual installation is possible, but making use of mod managers is recommended, as well as keeping the program in the default folder provided with the download for the specific game, as this will make installing addons easier.
+Nexus Mods의 모드 페이지 중 하나에서 사용하는 모드 매니저로 프로그램을 다운로드하면 됩니다.
 
-Before trying to configure the program, make sure you have set up a proper installation.
+수동 설치도 가능하지만, 모드 매니저를 사용하는 것을 권장합니다. 또한 해당 게임용 다운로드 파일에서 제공하는 기본 폴더 구조를 유지하는 것이 좋습니다. 이렇게 해야 애드온을 설치하기가 더 쉬워집니다.
 
-* When using mod managers, please follow the following instructions for installing and running BodySlide.
-* Generally, make sure to read the description of the mod page you downloaded BodySlide or a body mod from.
+프로그램 설정을 시도하기 전에 먼저 올바르게 설치되었는지 확인하세요.
 
-### Related Documentation
-* For command-line startup and automation options, see [[Command‐line arguments]].
-* For Outfit Studio automation scripts, see [[Automation Dialog]].
-* For source builds and automated test setup, see [[Running Tests]].
+* 모드 매니저를 사용할 경우, 아래 BodySlide 설치 및 실행 지침을 따라 주세요.
+* 일반적으로 BodySlide 또는 바디 모드를 다운로드한 모드 페이지의 설명을 반드시 읽어 보세요.
+
+### 관련 문서
+
+* 명령줄 실행과 자동화 옵션은 [명령줄 인수](Command%E2%80%90line-arguments.md)를 참고하세요.
+* Outfit Studio 자동화 스크립트는 [Automation Dialog](Automation-Dialog.md)를 참고하세요.
+* 소스 빌드와 자동 테스트 설정은 [테스트 실행](Running-Tests.md)을 참고하세요.
 
 ***
 
-#### Manual Installation
-1. Simply download the file and extract into your game installation's "Data" folder using 7-zip.
-2. Make sure the folder structure is correct: "_\<game folder\>/Data/CalienteTools/BodySlide"_ for Skyrim and "_\<game folder\>/Data/Tools/BodySlide"_ for FO4/others.
-3. After you're done, the executable for you to launch can be found in aforementioned folder.
+#### 수동 설치
+
+1. 파일을 다운로드한 뒤 7-Zip을 사용해 게임 설치 폴더의 "Data" 폴더 안에 압축을 풉니다.
+2. 폴더 구조가 올바른지 확인하세요. Skyrim은 "_\<game folder\>/Data/CalienteTools/BodySlide_", FO4 및 기타 게임은 "_\<game folder\>/Data/Tools/BodySlide_" 구조여야 합니다.
+3. 설치가 끝나면 위 폴더 안에서 실행 파일을 찾아 실행할 수 있습니다.
 
 #### Vortex
-1. Download and install the archive to Vortex like you would do with any other mod and enable it.
-2. Make sure your Vortex deploys correctly by clicking the "Deploy Mods" toolbar button in the "Mods" section.
-3. In the dashboard, go to "Add Tool".
-4. In the "Target" field, choose the "BodySlide x64.exe" file from your game installation's real data folder, **NOT** the Vortex mods folder: _"\<game folder\>/Data/CalienteTools/BodySlide"_ for Skyrim and _"\<game folder\>/Data/Tools/BodySlide"_ for FO4/others.
-5. Install any BodySlide addons such as body mods and outfits to Vortex as well.
 
-[GIF of the Vortex installation process](https://staticdelivery.nexusmods.com/mods/1704/images/201/201-1537370120-1864925415.gif)
+1. 다른 모드와 같은 방식으로 아카이브 파일을 Vortex에 다운로드 및 설치한 뒤 활성화합니다.
+2. "Mods" 섹션에서 "Deploy Mods" 툴바 버튼을 눌러 Vortex가 올바르게 배포했는지 확인합니다.
+3. 대시보드에서 "Add Tool"로 이동합니다.
+4. "Target" 필드에서 게임 설치 폴더의 실제 data 폴더에 있는 "BodySlide x64.exe" 파일을 선택합니다. Vortex mods 폴더가 **아닙니다**. Skyrim은 _"\<game folder\>/Data/CalienteTools/BodySlide"_, FO4 및 기타 게임은 _"\<game folder\>/Data/Tools/BodySlide"_ 경로입니다.
+5. 바디 모드와 의상 같은 BodySlide 애드온도 Vortex에 함께 설치합니다.
+
+[Vortex 설치 과정 GIF](https://staticdelivery.nexusmods.com/mods/1704/images/201/201-1537370120-1864925415.gif)
 
 #### Mod Organizer
-1. Download and install the archive to MO like you would do with any other mod and enable it.
-2. Add a shortcut to the "BodySlide x64.exe" file from the "Data" tab and set it to run from your game's real data folder, **NOT** the MO mods folder: _"\<game folder\>/Data/CalienteTools/BodySlide"_ for Skyrim and _"\<game folder\>/Data/Tools/BodySlide"_ for FO4/others.
-3. Install any BodySlide addons such as body mods and outfits to MO as well.
 
-#### Troubleshooting
-* Make sure you've installed the body mod for the matching game (download CBBE SE for Skyrim SE/AE, not CBBE LE).
-* If using mod managers such as Vortex and MO, first confirm that other mods are generally working in-game.
-* If using mod managers such as Vortex and MO, set up your BodySlide shortcut to point to the real game folder (Steam folder) instead of the Vortex/MO specific mods folders.
-* For further help with mod managers, please ask for guidance in their respective communities.
+1. 다른 모드와 같은 방식으로 아카이브 파일을 MO에 다운로드 및 설치한 뒤 활성화합니다.
+2. "Data" 탭에서 "BodySlide x64.exe" 파일의 바로가기를 추가하고, MO mods 폴더가 **아니라** 게임의 실제 data 폴더에서 실행되도록 설정합니다. Skyrim은 _"\<game folder\>/Data/CalienteTools/BodySlide"_, FO4 및 기타 게임은 _"\<game folder\>/Data/Tools/BodySlide"_ 경로입니다.
+3. 바디 모드와 의상 같은 BodySlide 애드온도 MO에 함께 설치합니다.
+
+#### 문제 해결
+
+* 사용 중인 게임에 맞는 바디 모드를 설치했는지 확인하세요. 예를 들어 Skyrim SE/AE에는 CBBE LE가 아니라 CBBE SE를 다운로드해야 합니다.
+* Vortex나 MO 같은 모드 매니저를 사용한다면, 먼저 다른 모드들이 게임 안에서 정상적으로 작동하는지 확인하세요.
+* Vortex나 MO 같은 모드 매니저를 사용한다면, BodySlide 바로가기가 Vortex/MO 전용 mods 폴더가 아니라 실제 게임 폴더, 즉 Steam 폴더를 가리키도록 설정하세요.
+* 모드 매니저와 관련해 추가 도움이 필요하다면 각 모드 매니저 커뮤니티에 문의하세요.
 
 ***
 
-## Target Game
-When running the executable for the first time, the following dialog window will show.
+## 대상 게임
+
+실행 파일을 처음 실행하면 다음 대화창이 표시됩니다.
 
 [![Target Game](https://i.imgur.com/B2bocmem.png)](https://i.imgur.com/B2bocme.png)
 
-Select the "Data" folder of the game you want to use both BodySlide and Outfit Studio for and continue.
+BodySlide와 Outfit Studio에 사용할 게임의 "Data" 폴더를 선택한 뒤 계속 진행합니다.
 
-Games that are found in the registry will automatically have their paths filled out, but you can only choose one target game at the same time. You can change this selection later on in the settings dialog.
+레지스트리에서 발견된 게임은 경로가 자동으로 채워집니다. 하지만 한 번에 선택할 수 있는 대상 게임은 하나뿐입니다. 이 선택은 나중에 설정 대화창에서 변경할 수 있습니다.
 
-## Settings
-The settings dialog of the program can be accessed from the main BodySlide window.
+## 설정
+
+프로그램의 설정 대화창은 BodySlide 메인 창에서 열 수 있습니다.
 
 [![Settings](https://i.imgur.com/AaTBoawm.png)](https://i.imgur.com/AaTBoaw.png)
 
 ### Game
+
 **Target Game**  
-The game you intend to use both BodySlide and Outfit Studio for. Changing this option will adjust the game data path and reference skeleton as well, make sure they're correct.
+BodySlide와 Outfit Studio를 사용할 대상 게임입니다. 이 옵션을 변경하면 게임 data 경로와 레퍼런스 스켈레톤도 함께 조정되므로, 두 설정이 올바른지 확인하세요.
 
 **Game Data Path**  
-This path is supposed to point to the "Data" folder of the active target game. It is used for telling the program where to load resources from and build the output files of projects to.
+현재 대상 게임의 "Data" 폴더를 가리켜야 하는 경로입니다. 프로그램이 리소스를 어디에서 불러올지, 프로젝트의 출력 파일을 어디에 생성할지 판단하는 데 사용됩니다.
 
 **Advanced: Output Path**  
-Optional override for the path to build output files to. When filled, the game data path is used to load resources from and the output path is used for building in BodySlide.
+출력 파일을 생성할 경로를 선택적으로 덮어쓰는 설정입니다. 이 항목을 입력하면 리소스는 게임 data 경로에서 불러오고, BodySlide의 빌드 결과물은 출력 경로에 생성됩니다.
 
 **Advanced: Project Path**  
-Optional override for the path to load files related to BodySlide projects from. If empty, the executable's directory will be used instead.
+BodySlide 프로젝트와 관련된 파일을 불러올 경로를 선택적으로 덮어쓰는 설정입니다. 비워 두면 실행 파일이 있는 디렉터리가 대신 사용됩니다.
 
 ### General
+
 **Override Warning**  
-Enables or disables the selection dialog that appears when multiple projects in a batch build are overriding the same output files.
+배치 빌드에서 여러 프로젝트가 같은 출력 파일을 덮어쓰려고 할 때 표시되는 선택 대화창을 켜거나 끕니다.
 
 **Left Mouse Pan**  
-Enables or disables panning with the left mouse button in Outfit Studio. Bear in mind that the left mouse button is also used for brush actions.
+Outfit Studio에서 왼쪽 마우스 버튼으로 화면을 이동하는 기능을 켜거나 끕니다. 단, 왼쪽 마우스 버튼은 브러시 작업에도 사용된다는 점을 기억하세요.
 
 **BSA Textures**  
-Enables or disables scanning BSA/BA2 archives in the data folder for resources, such as textures for the preview windows.
+미리보기 창의 텍스처 같은 리소스를 찾기 위해 data 폴더 안의 BSA/BA2 아카이브를 스캔할지 여부를 켜거나 끕니다.
 
 **Language**  
-This enables the selected language for the program, as long as the translation files for it exist and are translated.
+해당 언어의 번역 파일이 존재하고 번역되어 있다면, 선택한 언어를 프로그램에 적용합니다.
 
 ### Data Files
-A selection of all BSA/BA2 archives that are scanned for resources as needed, such as material or texture files. Try to keep these to a minimum for performance reasons. You can disable archives that contain sound files only, for example.
+
+필요에 따라 재질 또는 텍스처 파일 같은 리소스를 찾기 위해 스캔할 BSA/BA2 아카이브 목록입니다. 성능을 위해 이 목록은 가능한 한 최소한으로 유지하는 것이 좋습니다. 예를 들어 사운드 파일만 들어 있는 아카이브는 비활성화할 수 있습니다.
 
 ### Rendering
+
 **Background Color**  
-The background color for the render window of both BodySlide and Outfit Studio.
+BodySlide와 Outfit Studio 렌더 창의 배경색입니다.
 
 ### Reference Skeleton
+
 **File**  
-This is the reference skeleton file that Outfit Studio uses to create a list of bones and read bone transforms from.
+Outfit Studio가 본 목록을 만들고 본 트랜스폼을 읽어올 때 사용하는 레퍼런스 스켈레톤 파일입니다.
 
 **Root Node**  
-The root node name can differ from game to game. It needs to be correctly set up in order for Outfit Studio to know where to start reading the list of bones from.
+루트 노드 이름은 게임마다 다를 수 있습니다. Outfit Studio가 본 목록을 어디서부터 읽기 시작해야 하는지 알 수 있도록 이 항목을 올바르게 설정해야 합니다.
 
 ## Config.xml
-A few options are currently only found in the Config.xml file itself.
+
+일부 옵션은 현재 Config.xml 파일 안에서만 확인할 수 있습니다.
 
 **GroupAliases**  
-Group aliases provide a way for presets saved under older group names to still apply when a group has been renamed. You can also merge several groups into one by linking them to eachother.
+그룹 별칭은 예전 그룹 이름으로 저장된 프리셋이 그룹 이름이 변경된 뒤에도 계속 적용될 수 있게 해 줍니다. 여러 그룹을 서로 연결해 하나의 그룹으로 합칠 수도 있습니다.
 
 **SliderMinimum and SliderMaximum**  
-Sets the minimum and maximum slider values for the BodySlide UI. This allows you to experiment more easily with sliders. There might be clipping outside of the 0-100 range and it's not supported!
+BodySlide UI의 최소 및 최대 슬라이더 값을 설정합니다. 이 옵션을 사용하면 슬라이더를 더 쉽게 실험해 볼 수 있습니다. 0-100 범위를 벗어나면 클리핑이 생길 수 있으며, 지원되는 사용 방식이 아닙니다!
