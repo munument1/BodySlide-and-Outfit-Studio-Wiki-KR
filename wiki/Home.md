@@ -1,6 +1,6 @@
 # BodySlide and Outfit Studio - 한국어 위키
 
-> 비공개 한국어 번역 초안입니다. 원작자의 명시적인 허락을 받기 전에는 공개 배포하지 않습니다.
+BodySlide and Outfit Studio 위키의 한국어 번역본입니다.
 
 * [설치 및 설정](Installation-and-Settings.md)
 * [명령줄 인수](Command%E2%80%90line-arguments.md)
