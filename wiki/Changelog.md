@@ -1,3 +1,13 @@
+## 6.0.0
+### 주요 변경 사항
+- **OS (Outfit Studio):** 스타필드(Starfield) 재질 렌더링 및 메시 관련 지원을 확대했습니다.
+- **OS:** BSA/BA2 아카이브 탐색 기능을 추가했습니다.
+- **OS:** 자동화 기능에 `Export: Starfield Morphs` 단계를 추가했습니다.
+- **OS:** 마스크 복사 기능을 위한 버튼을 추가했습니다.
+- **OS:** 프로젝트 저장 관련 옵션을 확장했습니다.
+
+> 이 항목은 6.0.0의 주요 사용자 기능 변경을 정리한 요약입니다. 전체 수정 내역과 정확한 동작 조건은 [공식 6.0.0 릴리스](https://github.com/ousnius/BodySlide-and-Outfit-Studio/releases/tag/v6.0.0)를 참고하세요.
+
 ## 5.8.1
 ### 개선 사항:
 - **BS (BodySlide):** "Preview Always Detached (미리보기 항상 분리)" 설정을 추가했습니다.
