@@ -8,6 +8,13 @@
 
 이 릴리즈 페이지들은 해당 게임 커뮤니티에 맞춰 패키징된 동일한 BodySlide 및 Outfit Studio 툴셋을 배포합니다.
 
+## 최신 버전 확인
+
+- [공식 GitHub 6.0.0 릴리스 노트](https://github.com/ousnius/BodySlide-and-Outfit-Studio/releases/tag/v6.0.0)
+- [공식 GitHub 전체 릴리스 목록](https://github.com/ousnius/BodySlide-and-Outfit-Studio/releases)
+
+게임별 Nexus Mods 배포 파일의 버전은 게시 시점에 따라 다를 수 있으므로, 다운로드 페이지에서 제공 버전을 확인하세요.
+
 ## 릴리즈 노트
 
 버전별 변경 사항, 업그레이드 참고 사항 및 최근 추가된 기능에 대해서는 [변경 내역](Changelog.md)을 참고하세요.
