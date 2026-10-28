@@ -1,0 +1,29 @@
+name: One-time branch cleanup (BodySlide-and-Outfit-Studio-Wiki-KR)
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cleanup-completed-branches-once.yml'
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    if: github.repository == 'munument1/BodySlide-and-Outfit-Studio-Wiki-KR'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const targets=[{"name":"docs/bodyslide-6-0-0-20261014","sha":"57273515d17e32ac0307797aa4d1fcab2f0db184","pr":1}];
+            if(context.repo.owner!=='munument1'||context.repo.repo!=="BodySlide-and-Outfit-Studio-Wiki-KR"||context.ref!=='refs/heads/main')throw Error('Wrong repository/ref');
+            const owner=context.repo.owner,repo=context.repo.repo;
+            const open=await github.paginate(github.rest.pulls.list,{owner,repo,state:'open',per_page:100});
+            const blocked=new Set(open.flatMap(p=>[p.head.ref,p.base.ref]));
+            let deleted=0;for(const c of targets){
+             if(blocked.has(c.name)||c.name==='main')throw Error('New active PR blocks branch deletion: '+c.name);
+             const b=(await github.rest.repos.getBranch({owner,repo,branch:c.name})).data;
+             const p=(await github.rest.pulls.get({owner,repo,pull_number:c.pr})).data;
+             if(b.protected||b.commit.sha!==c.sha||!p.merged_at||p.head.sha!==c.sha||p.head.ref!==c.name||p.base.ref!=='main')throw Error('Stale or changed branch: '+c.name);
+             await github.rest.git.deleteRef({owner,repo,ref:'heads/'+c.name});core.info('DELETED '+c.name);deleted++;
+            }
+            core.info('Deleted '+deleted+' of '+targets.length+' merged branches');
